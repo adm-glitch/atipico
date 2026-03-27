@@ -385,6 +385,14 @@ header {
     &.show-drawer-right #back-to-top {
         right: calc(#{$drawer-right-width} + 5rem);
     }
+
+    // Override Boost's white background on .main-inner
+    .main-inner {
+        background-color: transparent;
+        border: none;
+        box-shadow: none;
+        outline: none;
+    }
 }
 
 .hasstickyfooter #back-to-top {
