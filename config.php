@@ -24,7 +24,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$THEME->name = 'stream';
+$THEME->name = 'atipico';
 
 $THEME->doctype = 'html5';
 
