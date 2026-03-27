@@ -25,7 +25,7 @@
 // Fallback stack prioritises legibility at all weights on dark backgrounds
 // -----------------------------------------------------------------------------
 * {
-    font-family: $sitefont, 'IBM Plex Sans', 'Nunito', 'Inter', system-ui,
+    font-family: $sitefont, 'Plus Jakarta Sans', 'Nunito', 'Inter', system-ui,
                  -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
@@ -38,7 +38,15 @@
 
 // -----------------------------------------------------------------------------
 // Heading typography
+// Display headings (h1–h2): Playfair Display — matches event-site-danka.replit.app
+// Sub-headings (h3–h6): inherit body font (Plus Jakarta Sans via $sitefont)
 // -----------------------------------------------------------------------------
+
+h1, .h1,
+h2, .h2 {
+    font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+}
+
 h1, .h1 {
     font-size: clamp(1.75rem, 4vw, 2.5rem);
     font-weight: 800;

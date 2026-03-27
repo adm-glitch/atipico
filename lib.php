@@ -317,3 +317,20 @@ function theme_atipico_show_featured_courses() {
 
     return $templatecontext;
 }
+
+/**
+ * Inject heading font (Playfair Display) via Bunny CDN for every page.
+ * The body font (Plus Jakarta Sans) is loaded separately through the
+ * theme's 'bunnyfonts' setting which injects $sitefont at SCSS compile time.
+ *
+ * @param moodle_page $page
+ */
+function theme_atipico_page_init(moodle_page $page) {
+    $page->requires->css(new moodle_url(
+        'https://fonts.bunny.net/css',
+        [
+            'family'  => 'playfair-display:ital,wght@0,400;0,700;0,900;1,400',
+            'display' => 'swap',
+        ]
+    ));
+}

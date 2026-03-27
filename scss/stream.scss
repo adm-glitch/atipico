@@ -25,10 +25,10 @@ $at-dark-150: #6B7380 !default;   // Bootstrap gray-400 equivalent
 $at-dark-100: #9BA3B2 !default;   // secondary text, labels
 $at-dark-050: #ECEEF2 !default;   // primary text (near-white)
 
-// Brand palette
-$at-gold:        #DAAA00 !default;   // DanKa primary gold
-$at-gold-bright: #F0C000 !default;   // hover / active state
-$at-gold-dim:    #B88C00 !default;   // subdued / pressed state
+// Brand palette — aligned with event-site-danka.replit.app
+$at-gold:        #DCA31E !default;   // DanKa primary gold
+$at-gold-bright: #EAC050 !default;   // hover / active state (+12% lightness)
+$at-gold-dim:    #B0831A !default;   // subdued / pressed state (-12% lightness)
 $at-teal:        #298976 !default;   // DanKa secondary teal
 $at-teal-bright: #32A48F !default;   // teal hover state
 
