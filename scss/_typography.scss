@@ -1,9 +1,15 @@
-// Fonts Import.
+// =============================================================================
+// STREAM THEME — TYPOGRAPHY
+// Font loading and hierarchy rules
+// =============================================================================
+
+// Local font fallback — Nunito (kept for when external fonts are disabled)
 @font-face {
     font-family: 'Nunito';
     src: url([[font:theme|Nunito-VariableFont_wght.ttf]]) format('truetype');
-    font-weight: bold;
+    font-weight: 100 900;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -11,15 +17,103 @@
     src: url([[font:theme|Nunito-Regular.ttf]]) format('truetype');
     font-weight: normal;
     font-style: normal;
+    font-display: swap;
 }
-// Typography.
-// Sets the global font from the theme setting.
+
+// -----------------------------------------------------------------------------
+// Global font family — uses $sitefont injected by Moodle from theme settings
+// Fallback stack prioritises legibility at all weights on dark backgrounds
+// -----------------------------------------------------------------------------
 * {
-    font-family: $sitefont, 'Nunito', Verdana, sans-serif;
+    font-family: $sitefont, 'IBM Plex Sans', 'Nunito', 'Inter', system-ui,
+                 -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
-// Fixes dropdown font while using Firefox. https://bugzilla.mozilla.org/show_bug.cgi?id=1536148
+
+// Firefox fix for select dropdowns (bug: bugzilla.mozilla.org/1536148)
 @-moz-document url-prefix() {
     form select option {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
+}
+
+// -----------------------------------------------------------------------------
+// Heading typography
+// -----------------------------------------------------------------------------
+h1, .h1 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+    color: var(--st-text-primary);
+}
+
+h2, .h2 {
+    font-size: clamp(1.35rem, 3vw, 1.875rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    color: var(--st-text-primary);
+}
+
+h3, .h3 {
+    font-size: clamp(1.1rem, 2.5vw, 1.375rem);
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    line-height: 1.3;
+    color: var(--st-text-primary);
+}
+
+h4, .h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--st-text-primary);
+}
+
+h5, .h5 {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--st-text-secondary);
+}
+
+h6, .h6 {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--st-text-muted);
+}
+
+// Paragraph and body text
+p {
+    color: var(--st-text-secondary);
+    line-height: 1.625;
+    margin-bottom: 1rem;
+}
+
+// Small / caption text
+small, .small {
+    color: var(--st-text-muted);
+    font-size: var(--st-text-xs);
+    letter-spacing: 0.01em;
+}
+
+// Lead text
+.lead {
+    color: var(--st-text-secondary);
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.7;
+}
+
+// Code / mono
+code, kbd, pre, samp {
+    font-family: 'IBM Plex Mono', 'JetBrains Mono', 'Fira Code', monospace;
+    font-size: 0.875rem;
+    background-color: var(--st-bg-subtle);
+    color: var(--st-accent);
+    border-radius: var(--st-radius-xs);
+    padding: 0.1em 0.4em;
 }

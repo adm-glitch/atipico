@@ -1,103 +1,188 @@
-// Bootstrap variables
+// =============================================================================
+// STREAM THEME — MAIN SCSS ENTRY POINT
+// Dark-first design system build order matters: variables → Bootstrap → overrides
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// Bootstrap Variable Overrides — Dark-First
+// These must come BEFORE the Bootstrap import so utilities are generated correctly
+// -----------------------------------------------------------------------------
+
+// Grayscale ramp (used throughout Bootstrap internals)
 $white:    #fff !default;
-$gray-100: #f8f9fa !default;
-$gray-200: #e9ecef !default;
-$gray-300: #dee2e6 !default;
-$gray-400: #ced4da !default;
-$gray-500: #8f959e !default;
-$gray-600: #6a737b !default;
-$gray-700: #495057 !default;
-$gray-800: #343a40 !default;
-$gray-900: #1d2125 !default;
+$gray-100: #ECEEF2 !default;
+$gray-200: #C8CDD6 !default;
+$gray-300: #9BA3B2 !default;
+$gray-400: #6B7380 !default;
+$gray-500: #5A6173 !default;
+$gray-600: #3D4452 !default;
+$gray-700: #2A2F3D !default;
+$gray-800: #1A1E27 !default;
+$gray-900: #0D0F14 !default;
 $black:    #000 !default;
 
-$blue:    #0f6cbf !default;
-$indigo:  #6610f2 !default;
-$purple:  #613d7c !default;
-$pink:    #e83e8c !default;
-$red:     #ca3120 !default;
-$orange:  #f0ad4e !default;
-$yellow:  #ff7518 !default;
-$green:   #357a32 !default;
-$teal:    #20c997 !default;
-$cyan:    #008196 !default;
+// Semantic palette
+$blue:    #3B82F6 !default;
+$indigo:  #6366F1 !default;
+$purple:  #8B5CF6 !default;
+$pink:    #EC4899 !default;
+$red:     #EF4444 !default;
+$orange:  #F59E0B !default;
+$yellow:  #DAAA00 !default;
+$green:   #22C55E !default;
+$teal:    #298976 !default;
+$cyan:    #06B6D4 !default;
 
-$primary:       #daaa00 !default;
-$success:       $green !default;
-$info:          $cyan !default;
-$warning:       $orange !default;
-$danger:        $red !default;
-$secondary:     #298976 !default; //$gray-400 !default;
+// Brand colors
+$primary:   #DAAA00 !default;   // Gold accent
+$secondary: #298976 !default;   // Teal accent
+$success:   $green !default;
+$info:      $cyan !default;
+$warning:   $orange !default;
+$danger:    $red !default;
 
-$info-outline:    #1f7e9a;
-$warning-outline: #a6670e;
+$info-outline:    #06B6D4;
+$warning-outline: #D97706;
+
+// Body — dark-first
+$body-bg:    #0D0F14 !default;
+$body-color: #ECEEF2 !default;
+
+// Cards
+$card-bg:              #13161D !default;
+$card-border-color:    rgba(255, 255, 255, 0.07) !default;
+$card-border-radius:   10px !default;
+$card-cap-bg:          #21252E !default;
+$card-cap-color:       #ECEEF2 !default;
+$card-color:           #ECEEF2 !default;
+
+// Inputs
+$input-bg:             #191C24 !default;
+$input-border-color:   rgba(255, 255, 255, 0.13) !default;
+$input-color:          #ECEEF2 !default;
+$input-placeholder-color: #5A6173 !default;
+$input-focus-border-color: #DAAA00 !default;
+$input-focus-box-shadow: 0 0 0 3px rgba(218, 170, 0, 0.10) !default;
+$input-disabled-bg:    #1A1E27 !default;
+
+// Dropdowns
+$dropdown-bg:              #1A1E27 !default;
+$dropdown-border-color:    rgba(255, 255, 255, 0.13) !default;
+$dropdown-link-color:      #9BA3B2 !default;
+$dropdown-link-hover-color: #ECEEF2 !default;
+$dropdown-link-hover-bg:   #21252E !default;
+$dropdown-link-active-bg:  #DAAA00 !default;
+$dropdown-link-active-color: #0D0F14 !default;
+$dropdown-header-color:    #5A6173 !default;
+$dropdown-divider-bg:      rgba(255, 255, 255, 0.07) !default;
+
+// Modals
+$modal-content-bg:         #1A1E27 !default;
+$modal-content-border-color: rgba(255, 255, 255, 0.13) !default;
+$modal-backdrop-opacity:   0.75 !default;
+$modal-header-border-color: rgba(255, 255, 255, 0.07) !default;
+$modal-footer-border-color: rgba(255, 255, 255, 0.07) !default;
+
+// List groups
+$list-group-bg:              #13161D !default;
+$list-group-border-color:    rgba(255, 255, 255, 0.07) !default;
+$list-group-item-bg-scale:   0% !default;
+$list-group-hover-bg:        #21252E !default;
+$list-group-action-color:    #9BA3B2 !default;
+$list-group-action-hover-color: #ECEEF2 !default;
+$list-group-active-bg:       #DAAA00 !default;
+$list-group-active-color:    #0D0F14 !default;
+$list-group-active-border-color: #DAAA00 !default;
+
+// Navbar
+$navbar-dark-hover-color:       rgba($white, 1) !default;
+$navbar-light-color:            rgba($white, 0.7) !default;
+$navbar-light-hover-color:      rgba($white, 1) !default;
 
 // Tables
-$table-accent-bg:             rgba($black, .03) !default;
+$table-color:         #ECEEF2 !default;
+$table-bg:            transparent !default;
+$table-striped-bg:    rgba(255, 255, 255, 0.02) !default;
+$table-hover-bg:      rgba(255, 255, 255, 0.04) !default;
+$table-border-color:  rgba(255, 255, 255, 0.07) !default;
+$table-accent-bg:     rgba(255, 255, 255, 0.02) !default;
+
+// Popover
+$popover-bg:              #1A1E27 !default;
+$popover-border-color:    rgba(255, 255, 255, 0.13) !default;
+$popover-body-color:      #9BA3B2 !default;
+$popover-header-bg:       #21252E !default;
+$popover-header-color:    #ECEEF2 !default;
+$popover-max-width:       300px !default;
+
+// Tooltips
+$tooltip-bg:           #1A1E27 !default;
+$tooltip-color:        #ECEEF2 !default;
+$tooltip-opacity:      1 !default;
+
+// Pagination
+$pagination-bg:                #13161D !default;
+$pagination-border-color:      rgba(255, 255, 255, 0.07) !default;
+$pagination-color:             #9BA3B2 !default;
+$pagination-hover-bg:          #21252E !default;
+$pagination-hover-border-color: rgba(255, 255, 255, 0.13) !default;
+$pagination-hover-color:       #ECEEF2 !default;
+$pagination-active-bg:         #DAAA00 !default;
+$pagination-active-border-color: #DAAA00 !default;
+$pagination-active-color:      #0D0F14 !default;
+$pagination-disabled-bg:       #13161D !default;
+$pagination-disabled-border-color: rgba(255, 255, 255, 0.07) !default;
+
+// Toast
+$toast-color:                #ECEEF2 !default;
+$toast-background-color:     rgba(26, 30, 39, 0.97) !default;
+$toast-header-color:         #9BA3B2 !default;
+$toast-header-background-color: rgba(255, 255, 255, 0.05) !default;
+
+// Breadcrumb
+$breadcrumb-padding-y:    .5rem !default;
+$breadcrumb-padding-x:    .75rem !default;
+$breadcrumb-item-padding: .5rem !default;
+$breadcrumb-margin-bottom: 0 !default;
+$breadcrumb-bg:           rgba(255, 255, 255, 0.04) !default;
+$breadcrumb-divider:      "/" !default;
+$breadcrumb-divider-rtl:  "/" !default;
+
+// Alerts
+$alert-border-width: 0 !default;
+
+// Border Radius
+$border-radius:    .5rem !default;
+$border-radius-lg: .625rem !default;
+$border-radius-sm: .25rem !default;
+
+// Buttons
+$btn-focus-box-shadow:   0 0 0 3px rgba(218, 170, 0, 0.20) !default;
+
+// Links
+$link-color:            #DAAA00 !default;
+$link-hover-color:      #F0C000 !default;
+$link-decoration:       none !default;
+$link-hover-decoration: none !default;
+
+// Typography
+$font-size-base:         0.9375rem !default;
+$rfs-base-font-size:     0.9rem !default;
+$headings-font-weight:   700 !default;
+$headings-color:         #ECEEF2 !default;
+$text-muted:             #5A6173 !default;
+
+// Custom control
+$custom-control-indicator-size: 1.25rem;
+$input-btn-focus-color: rgba($primary, .25) !default;
+
+// Footer
+$footercolor: #0A0C10 !default;
 
 // Options
 $enable-responsive-font-sizes: true !default;
 
-// Body
-$body-color:    $gray-900 !default;
-
-// Fonts
-$font-size-base: 0.9375rem !default;
-$rfs-base-font-size: 0.9rem !default;
-$headings-font-weight:   700 !default;
-
-// Navbar
-$navbar-dark-hover-color:           rgba($white, 1) !default;
-$navbar-light-color:                rgba($black, 0.6) !default;
-$navbar-light-hover-color:          rgba($black, .9) !default;
-
-// Breadcrumbs
-$breadcrumb-padding-y:              .5rem !default;
-$breadcrumb-padding-x:              0 !default;
-$breadcrumb-item-padding:           .5rem !default;
-$breadcrumb-margin-bottom:          0 !default;
-$breadcrumb-bg:                     $gray-700 !default;
-$breadcrumb-divider: "/" !default;
-$breadcrumb-divider-rtl: "/" !default;
-
-// Alerts
-$alert-border-width:                0 !default;
-
-$card-group-margin: .25rem;
-
-// Toasts
-$toast-color:                       $white !default;
-$toast-background-color:            rgba($gray-900, .95) !default;
-$toast-header-color:                $gray-100 !default;
-$toast-header-background-color:     rgba($white, .1) !default;
-
-// Custom control size
-$custom-control-indicator-size: 1.25rem;
-
-$input-btn-focus-color: rgba($primary, .75) !default;
-
-$input-border-color: $gray-500 !default;
-
-$dropdown-link-hover-color: $white;
-$dropdown-link-hover-bg: $primary;
-
-$popover-max-width: 300px !default;
-
-$border-radius: .5rem !default;
-$border-radius-lg: .6rem !default;
-
-// stylelint-disable
-$theme-colors: () !default;
-$theme-colors: map-merge((
-    primary: $primary,
-    secondary: $secondary,
-    success: $success,
-    info: $info,
-    warning: $warning,
-    danger: $danger,
-), $theme-colors);
-// stylelint-enable
-
+// Spacers
 $spacer: 1rem !default;
 $spacers: (
     0: 0,
@@ -109,73 +194,80 @@ $spacers: (
     6: ($spacer * 3)
 ) !default;
 
-// Settings overrides.
-// Full width from the settings.
+// Cards group margin
+$card-group-margin: .25rem;
+
+// Settings overrides — full width pages
 $fullwidthpage: 0 !default;
 
 @if $fullwidthpage == 1 {
     $course-content-maxwidth: 100%;
     $medium-content-maxwidth: $course-content-maxwidth;
 }
-// Deal with opacity zero slider.
+
+// Slider opacity overrides from settings
 $slideropacity0: 0 !default;
 $slideropacity1: 0 !default;
 $slideropacity2: 0 !default;
 $slideropacity3: 0 !default;
 $slideropacity4: 0 !default;
-// Footer
-$footercolor: $gray-700 !default;
 
-// Moodle v5.0 compatibility.
-// Links
-$link-decoration: none !default;
-$link-hover-decoration: underline !default;
+// Sticky secondary nav
+$isticky: 0 !default;
 
-// Import FontAwesome.
+// -----------------------------------------------------------------------------
+// Theme map — merge custom colors into Bootstrap's map
+// -----------------------------------------------------------------------------
+// stylelint-disable
+$theme-colors: () !default;
+$theme-colors: map-merge((
+    primary:   $primary,
+    secondary: $secondary,
+    success:   $success,
+    info:      $info,
+    warning:   $warning,
+    danger:    $danger,
+), $theme-colors);
+// stylelint-enable
+
+// -----------------------------------------------------------------------------
+// Bootstrap & Moodle Core imports
+// Order is critical — variables must be set before these
+// -----------------------------------------------------------------------------
 @import "../../boost/scss/fontawesome.scss";
-
-// Import All of Bootstrap
 @import "../../boost/scss/bootstrap.scss";
-
-// Import Core moodle CSS
 @import "../../boost/scss/moodle.scss";
 
-// Import local fonts.
-@import "_typography.scss";
+// -----------------------------------------------------------------------------
+// Theme-specific imports
+// -----------------------------------------------------------------------------
+@import "_tokens.scss";          // CSS custom properties design token system
+@import "_typography.scss";      // Font loading and family rules
+@import "_dark.scss";            // Dark mode global overrides
+@import "_interface.scss";       // Page-specific UI (frontpage, login, course)
+@import "_courseCompletionProgress.scss";  // Circular progress ring
+@import "_incourse.scss";        // Course index and activity icons
 
-// Main file.
-@import "_interface.scss";
-
-// course completion meter.
-@import "_courseCompletionProgress.scss";
-
-// Incourse styles.
-@import "_incourse.scss";
-
-// Preset CSS
-
+// -----------------------------------------------------------------------------
+// Global base styles
+// -----------------------------------------------------------------------------
 body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
 .navbar {
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .08);
+    box-shadow: 0 1px 0 var(--st-border);
 }
 
-// Rounded user pictures
 .userpicture {
     border-radius: 50%;
 }
 
-
-
-// Reset the default styling back to the bootstrap defaults for
-// the secondary outline button because gray-200 is much too light
-// for an outline button.
+// Button outline adjustments for dark backgrounds
 .btn-outline-secondary {
-    @include button-outline-variant($gray-600);
-    border-color: $gray-600;
+    @include button-outline-variant($gray-400);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .btn-outline-info {

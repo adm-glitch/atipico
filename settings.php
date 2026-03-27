@@ -62,17 +62,23 @@ if ($ADMIN->fulltree) {
     $title = get_string('bunnyfonts', 'theme_stream');
     $description = get_string('bunnyfonts_desc', 'theme_stream');
     $choices = [
-        'Abel' => 'Abel',
+        'IBM Plex Sans' => 'IBM Plex Sans ★',
+        'Inter' => 'Inter',
+        'Plus Jakarta Sans' => 'Plus Jakarta Sans',
+        'DM Sans' => 'DM Sans',
+        'Space Grotesk' => 'Space Grotesk',
+        'Geist' => 'Geist',
+        'Nunito' => 'Nunito',
+        'Poppins' => 'Poppins',
+        'Montserrat' => 'Montserrat',
         'Roboto' => 'Roboto',
         'roboto-condensed' => 'Roboto Condensed',
-        'Nunito' => 'Nunito',
-        'Montserrat' => 'Montserrat',
         'Lato' => 'Lato',
-        'Poppins' => 'Poppins',
         'Oswald' => 'Oswald',
+        'Abel' => 'Abel',
         'Mukta' => 'Mukta',
     ];
-    $setting = new admin_setting_configselect($name, $title, $description, 'Nunito', $choices);
+    $setting = new admin_setting_configselect($name, $title, $description, 'IBM Plex Sans', $choices);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 

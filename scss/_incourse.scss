@@ -3,7 +3,10 @@
     .drawerheader {
         .courseindexheading {
             margin: 0 auto;
-            font-weight: bold;
+            font-weight: var(--st-weight-bold);
+            color: var(--st-text-primary);
+            font-size: var(--st-text-sm);
+            letter-spacing: var(--st-tracking-wide);
         }
         .drawertoggle {
             margin-right: 0;
@@ -11,12 +14,51 @@
     }
     .drawercontent {
         .courseindex-section {
-            margin-bottom: 5px;
-            background-color: $gray-100;
+            margin-bottom: 4px;
+            background-color: var(--st-bg-subtle);
+            border-radius: var(--st-radius-sm);
+            border: none;
+
+            .courseindex-section-title {
+                color: var(--st-text-muted);
+                font-size: var(--st-text-xs);
+                font-weight: var(--st-weight-semibold);
+                letter-spacing: var(--st-tracking-wider);
+                text-transform: uppercase;
+
+                a {
+                    color: var(--st-text-secondary);
+                    &:hover { color: var(--st-accent); }
+                }
+            }
         }
         .courseindex {
-            background-color: $white;
+            background-color: var(--st-bg-surface);
             padding-right: 0;
+        }
+
+        // Activity items in the course index
+        .courseindex-item {
+            border-radius: var(--st-radius-xs);
+            transition: background-color var(--st-duration-fast) var(--st-ease);
+
+            &:hover {
+                background-color: var(--st-bg-subtle);
+            }
+
+            &.active,
+            &.pageitem {
+                background-color: var(--st-accent-subtle);
+                border-left: 2px solid var(--st-accent);
+
+                a { color: var(--st-accent); }
+            }
+
+            a {
+                color: var(--st-text-secondary);
+                font-size: var(--st-text-sm);
+                &:hover { color: var(--st-text-primary); }
+            }
         }
     }
 }

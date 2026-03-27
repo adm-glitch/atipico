@@ -197,20 +197,35 @@ class core_renderer extends \theme_boost\output\core_renderer {
     }
     /**
      * Reads external_fonts to use print them in head.mustache
-     * hribeiro 2023
+     * Loads selected font from Bunny Fonts with multiple weights for richer typography.
+     * hribeiro 2023 — updated for multi-weight + display=swap
      * @return string
      */
     public function external_fonts() {
-        // Loads theme settings.
         $theme = \theme_config::load('stream');
-        if ($theme->settings->externalfonts) {
-            $sitefont = $theme->settings->bunnyfonts;
-            $loadbunnyfont =
-            '<link rel="preconnect" href="https://fonts.bunny.net">
-            <link href="https://fonts.bunny.net/css?family='. $sitefont .':400" rel="stylesheet" />';
-
-            return $loadbunnyfont;
+        if (!$theme->settings->externalfonts) {
+            return '';
         }
 
+        $sitefont = $theme->settings->bunnyfonts;
+
+        // URL-encode font name (spaces → +) for Bunny Fonts API compatibility.
+        $fonturlname = str_replace(' ', '+', $sitefont);
+
+        // Build weight string: variable fonts get a range, others get discrete values.
+        // IBM Plex Sans supports 100–700 as discrete values via Bunny Fonts.
+        $variablefonts = ['IBM Plex Sans', 'Inter', 'Geist', 'DM Sans', 'Plus Jakarta Sans', 'Space Grotesk'];
+        if (in_array($sitefont, $variablefonts)) {
+            $weights = '300,400,500,600,700';
+        } else {
+            $weights = '400,700';
+        }
+
+        $familyparam = $fonturlname . ':wght@' . $weights;
+
+        return
+            '<link rel="preconnect" href="https://fonts.bunny.net">' . "\n" .
+            '<link href="https://fonts.bunny.net/css?family=' . $familyparam .
+            '&display=swap" rel="stylesheet" />';
     }
 }

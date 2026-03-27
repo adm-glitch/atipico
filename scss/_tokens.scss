@@ -1,0 +1,163 @@
+// =============================================================================
+// STREAM THEME — DESIGN TOKEN SYSTEM
+// CSS Custom Properties for runtime flexibility + dark-first design
+// =============================================================================
+
+:root {
+    // -------------------------------------------------------------------------
+    // Background Hierarchy (dark-first)
+    // -------------------------------------------------------------------------
+    --st-bg-base:        #0D0F14;   // Page body — deepest layer
+    --st-bg-surface:     #13161D;   // Cards, panels, containers
+    --st-bg-elevated:    #1A1E27;   // Modals, dropdowns, overlays
+    --st-bg-subtle:      #21252E;   // Hover states, zebra rows
+    --st-bg-input:       #191C24;   // Form inputs
+    --st-bg-nav:         #0A0C10;   // Top navbar — darkest of all
+
+    // -------------------------------------------------------------------------
+    // Text Hierarchy
+    // -------------------------------------------------------------------------
+    --st-text-primary:   #ECEEF2;   // Main content text
+    --st-text-secondary: #9BA3B2;   // Meta, descriptions, labels
+    --st-text-muted:     #5A6173;   // Placeholders, captions, timestamps
+    --st-text-inverse:   #0D0F14;   // Text on accent backgrounds
+
+    // -------------------------------------------------------------------------
+    // Borders
+    // -------------------------------------------------------------------------
+    --st-border:         rgba(255, 255, 255, 0.07);   // Default subtle border
+    --st-border-strong:  rgba(255, 255, 255, 0.13);   // Dividers, focused
+    --st-border-accent:  rgba(218, 170, 0, 0.35);     // Accent-colored border
+
+    // -------------------------------------------------------------------------
+    // Accent Color System (Gold — #DAAA00)
+    // -------------------------------------------------------------------------
+    --st-accent:         #DAAA00;
+    --st-accent-hover:   #F0C000;
+    --st-accent-dim:     #B88C00;
+    --st-accent-subtle:  rgba(218, 170, 0, 0.10);
+    --st-accent-glow:    rgba(218, 170, 0, 0.22);
+
+    // -------------------------------------------------------------------------
+    // Secondary Accent (Teal — #298976)
+    // -------------------------------------------------------------------------
+    --st-teal:           #298976;
+    --st-teal-hover:     #32A48F;
+    --st-teal-subtle:    rgba(41, 137, 118, 0.12);
+
+    // -------------------------------------------------------------------------
+    // Semantic Colors
+    // -------------------------------------------------------------------------
+    --st-success:        #22C55E;
+    --st-success-subtle: rgba(34, 197, 94, 0.12);
+    --st-danger:         #EF4444;
+    --st-danger-subtle:  rgba(239, 68, 68, 0.12);
+    --st-info:           #3B82F6;
+    --st-info-subtle:    rgba(59, 130, 246, 0.12);
+    --st-warning:        #F59E0B;
+    --st-warning-subtle: rgba(245, 158, 11, 0.12);
+
+    // -------------------------------------------------------------------------
+    // Border Radius System
+    // -------------------------------------------------------------------------
+    --st-radius-xs:  3px;
+    --st-radius-sm:  6px;
+    --st-radius-md:  10px;
+    --st-radius-lg:  14px;
+    --st-radius-xl:  20px;
+    --st-radius-2xl: 28px;
+    --st-radius-full: 9999px;
+
+    // -------------------------------------------------------------------------
+    // Shadow System
+    // -------------------------------------------------------------------------
+    --st-shadow-sm:     0 1px 4px rgba(0, 0, 0, 0.35);
+    --st-shadow-md:     0 4px 16px rgba(0, 0, 0, 0.45);
+    --st-shadow-lg:     0 8px 32px rgba(0, 0, 0, 0.55);
+    --st-shadow-xl:     0 16px 48px rgba(0, 0, 0, 0.65);
+    --st-shadow-accent: 0 4px 24px rgba(218, 170, 0, 0.20);
+    --st-shadow-inner:  inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+    // -------------------------------------------------------------------------
+    // Spacing Scale (extends Bootstrap spacers)
+    // -------------------------------------------------------------------------
+    --st-space-1:  0.25rem;   // 4px
+    --st-space-2:  0.5rem;    // 8px
+    --st-space-3:  0.75rem;   // 12px
+    --st-space-4:  1rem;      // 16px
+    --st-space-5:  1.25rem;   // 20px
+    --st-space-6:  1.5rem;    // 24px
+    --st-space-8:  2rem;      // 32px
+    --st-space-10: 2.5rem;    // 40px
+    --st-space-12: 3rem;      // 48px
+    --st-space-16: 4rem;      // 64px
+    --st-space-20: 5rem;      // 80px
+    --st-space-24: 6rem;      // 96px
+
+    // -------------------------------------------------------------------------
+    // Typography Scale
+    // -------------------------------------------------------------------------
+    --st-text-xs:   0.75rem;    // 12px
+    --st-text-sm:   0.875rem;   // 14px
+    --st-text-base: 0.9375rem;  // 15px
+    --st-text-lg:   1.125rem;   // 18px
+    --st-text-xl:   1.25rem;    // 20px
+    --st-text-2xl:  1.5rem;     // 24px
+    --st-text-3xl:  1.875rem;   // 30px
+    --st-text-4xl:  2.25rem;    // 36px
+    --st-text-5xl:  3rem;       // 48px
+
+    --st-weight-normal:    400;
+    --st-weight-medium:    500;
+    --st-weight-semibold:  600;
+    --st-weight-bold:      700;
+    --st-weight-extrabold: 800;
+
+    --st-leading-tight:  1.25;
+    --st-leading-snug:   1.375;
+    --st-leading-normal: 1.5;
+    --st-leading-relaxed:1.625;
+
+    --st-tracking-tight:  -0.025em;
+    --st-tracking-normal: 0;
+    --st-tracking-wide:   0.05em;
+    --st-tracking-wider:  0.1em;
+
+    // -------------------------------------------------------------------------
+    // Motion / Transitions
+    // -------------------------------------------------------------------------
+    --st-duration-fast:   120ms;
+    --st-duration-base:   200ms;
+    --st-duration-slow:   350ms;
+    --st-ease:            cubic-bezier(0.4, 0, 0.2, 1);
+    --st-ease-out:        cubic-bezier(0, 0, 0.2, 1);
+    --st-ease-in:         cubic-bezier(0.4, 0, 1, 1);
+
+    // -------------------------------------------------------------------------
+    // Course Card Design Language
+    // -------------------------------------------------------------------------
+    --st-card-bg:          var(--st-bg-surface);
+    --st-card-border:      var(--st-border);
+    --st-card-radius:      var(--st-radius-lg);
+    --st-card-shadow:      var(--st-shadow-md);
+    --st-card-hover-lift:  -6px;
+    --st-card-img-height:  180px;
+
+    // -------------------------------------------------------------------------
+    // Button Style Language
+    // -------------------------------------------------------------------------
+    --st-btn-radius:       var(--st-radius-sm);
+    --st-btn-padding-y:    0.55rem;
+    --st-btn-padding-x:    1.25rem;
+    --st-btn-font-weight:  var(--st-weight-semibold);
+    --st-btn-transition:   all var(--st-duration-base) var(--st-ease);
+
+    // -------------------------------------------------------------------------
+    // Input Style Language
+    // -------------------------------------------------------------------------
+    --st-input-bg:         var(--st-bg-input);
+    --st-input-border:     var(--st-border-strong);
+    --st-input-radius:     var(--st-radius-sm);
+    --st-input-color:      var(--st-text-primary);
+    --st-input-focus-ring: 0 0 0 3px var(--st-accent-subtle);
+}

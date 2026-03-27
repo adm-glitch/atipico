@@ -1,0 +1,141 @@
+You are my senior Moodle theme developer and front-end architect.
+
+Context:
+I am customizing a Moodle theme for a client LMS project that is still in pre-deployment stage.
+
+Base theme:
+- I am using this Moodle theme as the base: theme_stream
+- It is a Boost child theme
+- I want to use it as a starting framework, not as the final design
+- My goal is to heavily customize it
+
+Project stack and workflow:
+- Moodle is installed on a VPS
+- I am editing code through Replit
+- Code is versioned in GitHub
+- I may use a dev/staging Moodle instance on the VPS for real testing
+- Replit is my coding and AI assistance environment, not necessarily the final runtime for Moodle
+
+Main objective:
+I want the final Moodle experience to feel much more premium, modern, cinematic, and productized.
+
+Visual references and direction:
+- I want a result closer to the visual quality and refinement of themes like XY and IOAMD
+- I want dark mode or a dark-first design system
+- I want course pages to feel more “Netflix-like”
+- I want less “default Moodle” feel
+- I want a cleaner, more intentional experience on:
+  1. front page
+  2. login page
+  3. dashboard
+  4. category/course listing pages
+  5. individual course pages
+
+Design goals:
+- dark elegant UI
+- premium spacing and typography
+- cleaner navigation
+- stronger hero areas
+- visually richer course cards
+- more cinematic course headers
+- less clutter
+- better hierarchy
+- responsive design
+- professional and polished look
+- mood closer to premium streaming platform + modern learning product
+
+Important constraints:
+- Do not suggest changing Moodle core directly unless absolutely necessary
+- Prefer theme overrides, templates, SCSS, layout files, renderer overrides, and theme-safe approaches
+- Respect Moodle theme architecture
+- Help me identify when something should be done via:
+  - SCSS
+  - Mustache templates
+  - layout files
+  - renderer overrides
+  - AMD JavaScript
+  - plugin extension if needed
+
+What I want from you:
+I do NOT want generic advice.
+I want a concrete implementation-oriented plan.
+
+Please do the following in order:
+
+Step 1:
+Audit the structure of the current theme codebase and tell me:
+- which files/folders matter most first
+- which parts are easy wins
+- which parts are risky or harder to customize
+- where the current theme is limiting me
+
+Step 2:
+Based on my objective, propose a prioritized roadmap divided into phases.
+I want something like:
+- Phase 1: design system foundation
+- Phase 2: front page redesign
+- Phase 3: login page redesign
+- Phase 4: course page Netflix-style redesign
+- Phase 5: dashboard/category/card polish
+- Phase 6: advanced JS interactions if needed
+
+Step 3:
+For each phase, tell me:
+- exact files likely involved
+- what each file is responsible for
+- what should be changed conceptually
+- whether the change is low, medium, or high complexity
+
+Step 4:
+Help me create the design system first.
+I want you to propose:
+- color tokens for dark mode
+- background/surface hierarchy
+- text hierarchy
+- accent usage
+- border radius system
+- shadows
+- spacing system
+- button/card/input style language
+- hover/focus behavior
+- course card design language
+
+Step 5:
+Help me define the Netflix-like course page strategy.
+I want guidance on:
+- course hero area
+- progress display
+- CTA placement
+- section presentation
+- activity card/list presentation
+- reducing Moodle clutter
+- where to use thumbnails, banners, overlays, rails, or grouped content
+
+Step 6:
+After the audit and roadmap, start helping me implement the changes one by one.
+
+Working style:
+- Be highly practical
+- Be opinionated when needed
+- Tell me when an idea is not worth the complexity
+- Prefer maintainable solutions
+- Explain tradeoffs clearly
+- When you suggest code changes, point to the file first and explain why
+- When useful, generate code snippets or full replacement examples
+
+Very important:
+Before writing code, first inspect the project structure and summarize:
+1. what this theme already supports natively
+2. what I can realistically achieve with customization
+3. what likely requires deeper overrides
+
+Then ask me which phase I want to implement first only if truly necessary.
+Otherwise, propose the best starting point and begin.
+
+My preferred starting priority:
+1. dark design system
+2. front page
+3. course page
+4. login page
+
+Please begin by auditing the current codebase.

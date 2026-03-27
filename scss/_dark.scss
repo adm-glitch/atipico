@@ -1,0 +1,714 @@
+// =============================================================================
+// STREAM THEME — DARK MODE COMPONENT OVERRIDES
+// Applied globally (dark-first design)
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// Body & Page Canvas
+// -----------------------------------------------------------------------------
+body {
+    background-color: var(--st-bg-base) !important;
+    color: var(--st-text-primary);
+}
+
+#page,
+#page-wrapper {
+    background-color: var(--st-bg-base);
+}
+
+// -----------------------------------------------------------------------------
+// Top Navbar
+// -----------------------------------------------------------------------------
+.navbar {
+    background-color: var(--st-bg-nav) !important;
+    border-bottom: 1px solid var(--st-border);
+    box-shadow: 0 1px 0 var(--st-border);
+
+    .nav-link,
+    .navbar-brand {
+        color: var(--st-text-primary) !important;
+    }
+
+    .nav-link:hover,
+    .nav-link:focus {
+        color: var(--st-accent) !important;
+    }
+
+    .dropdown-menu {
+        background-color: var(--st-bg-elevated);
+        border: 1px solid var(--st-border-strong);
+        box-shadow: var(--st-shadow-lg);
+
+        .dropdown-item {
+            color: var(--st-text-secondary);
+            &:hover, &:focus {
+                background-color: var(--st-bg-subtle);
+                color: var(--st-text-primary);
+            }
+        }
+        .dropdown-divider {
+            border-color: var(--st-border);
+        }
+        .dropdown-header {
+            color: var(--st-text-muted);
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// Primary Navigation (top bar inner)
+// -----------------------------------------------------------------------------
+#usernavigation {
+    .usermenu .btn,
+    .aabtn {
+        color: var(--st-text-secondary) !important;
+        background: transparent !important;
+        border: none !important;
+
+        &:hover {
+            color: var(--st-text-primary) !important;
+            background-color: var(--st-bg-subtle) !important;
+        }
+    }
+}
+
+.primary-navigation {
+    .nav-link {
+        color: var(--st-text-secondary) !important;
+        font-weight: var(--st-weight-medium);
+        letter-spacing: var(--st-tracking-wide);
+        font-size: var(--st-text-sm);
+
+        &:hover, &.active {
+            color: var(--st-accent) !important;
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// Secondary Navigation (course tabs bar)
+// -----------------------------------------------------------------------------
+.secondary-navigation {
+    background-color: var(--st-bg-surface) !important;
+    border-bottom: 1px solid var(--st-border) !important;
+
+    .navigation,
+    .moremenu .nav-tabs {
+        background-color: var(--st-bg-surface) !important;
+    }
+
+    .nav-link {
+        color: var(--st-text-secondary) !important;
+        font-weight: var(--st-weight-medium);
+
+        &:hover {
+            color: var(--st-text-primary) !important;
+        }
+
+        &.active {
+            color: var(--st-accent) !important;
+            border-bottom-color: var(--st-accent) !important;
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// Drawers (sidebar navigation)
+// -----------------------------------------------------------------------------
+#nav-drawer,
+.drawer {
+    background-color: var(--st-bg-surface) !important;
+    border-right: 1px solid var(--st-border) !important;
+    color: var(--st-text-primary);
+
+    .drawerheader {
+        background-color: var(--st-bg-surface);
+        border-bottom: 1px solid var(--st-border);
+    }
+
+    .list-group-item {
+        background-color: transparent;
+        border: none;
+        color: var(--st-text-secondary);
+
+        &:hover {
+            background-color: var(--st-bg-subtle);
+            color: var(--st-text-primary);
+        }
+
+        &.active {
+            background-color: var(--st-accent-subtle);
+            color: var(--st-accent);
+            border-left: 3px solid var(--st-accent);
+        }
+    }
+
+    .courseindex-section-title {
+        color: var(--st-text-muted);
+        font-size: var(--st-text-xs);
+        font-weight: var(--st-weight-semibold);
+        letter-spacing: var(--st-tracking-wider);
+        text-transform: uppercase;
+    }
+
+    a {
+        color: var(--st-text-secondary);
+        &:hover {
+            color: var(--st-text-primary);
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// Cards
+// -----------------------------------------------------------------------------
+.card {
+    background-color: var(--st-card-bg) !important;
+    border: 1px solid var(--st-card-border) !important;
+    border-radius: var(--st-card-radius) !important;
+    box-shadow: var(--st-card-shadow);
+    color: var(--st-text-primary);
+    transition: transform var(--st-duration-base) var(--st-ease),
+                box-shadow var(--st-duration-base) var(--st-ease);
+
+    &:hover {
+        box-shadow: var(--st-shadow-lg);
+    }
+
+    .card-header {
+        background-color: var(--st-bg-subtle);
+        border-bottom: 1px solid var(--st-border);
+        color: var(--st-text-primary);
+        font-weight: var(--st-weight-semibold);
+    }
+
+    .card-footer {
+        background-color: var(--st-bg-subtle);
+        border-top: 1px solid var(--st-border);
+        color: var(--st-text-secondary);
+    }
+
+    .card-body {
+        color: var(--st-text-primary);
+    }
+
+    .card-text,
+    p {
+        color: var(--st-text-secondary);
+    }
+
+    .card-title {
+        color: var(--st-text-primary);
+        font-weight: var(--st-weight-bold);
+    }
+}
+
+// -----------------------------------------------------------------------------
+// Forms & Inputs
+// -----------------------------------------------------------------------------
+.form-control,
+.custom-select,
+select {
+    background-color: var(--st-input-bg) !important;
+    border: 1px solid var(--st-input-border) !important;
+    color: var(--st-input-color) !important;
+    border-radius: var(--st-input-radius) !important;
+    transition: border-color var(--st-duration-fast) var(--st-ease),
+                box-shadow var(--st-duration-fast) var(--st-ease);
+
+    &:focus {
+        background-color: var(--st-input-bg) !important;
+        border-color: var(--st-accent) !important;
+        box-shadow: var(--st-input-focus-ring) !important;
+        color: var(--st-input-color) !important;
+    }
+
+    &::placeholder {
+        color: var(--st-text-muted);
+    }
+}
+
+// Form labels
+.form-label,
+label {
+    color: var(--st-text-secondary);
+    font-size: var(--st-text-sm);
+    font-weight: var(--st-weight-medium);
+    margin-bottom: var(--st-space-2);
+}
+
+// Form groups
+.form-group {
+    margin-bottom: var(--st-space-6);
+}
+
+// Checkboxes and radios
+.custom-control-label::before {
+    background-color: var(--st-input-bg);
+    border-color: var(--st-border-strong);
+}
+
+// -----------------------------------------------------------------------------
+// Buttons
+// -----------------------------------------------------------------------------
+.btn {
+    border-radius: var(--st-btn-radius) !important;
+    font-weight: var(--st-btn-font-weight) !important;
+    letter-spacing: var(--st-tracking-wide);
+    transition: var(--st-btn-transition) !important;
+    padding: var(--st-btn-padding-y) var(--st-btn-padding-x);
+}
+
+.btn-primary {
+    background-color: var(--st-accent) !important;
+    border-color: var(--st-accent) !important;
+    color: var(--st-text-inverse) !important;
+    box-shadow: var(--st-shadow-accent);
+
+    &:hover, &:focus {
+        background-color: var(--st-accent-hover) !important;
+        border-color: var(--st-accent-hover) !important;
+        box-shadow: 0 6px 24px var(--st-accent-glow) !important;
+        transform: translateY(-1px);
+    }
+}
+
+.btn-secondary {
+    background-color: var(--st-bg-subtle) !important;
+    border-color: var(--st-border-strong) !important;
+    color: var(--st-text-primary) !important;
+
+    &:hover {
+        background-color: var(--st-bg-elevated) !important;
+        border-color: var(--st-border-strong) !important;
+    }
+}
+
+.btn-outline-primary {
+    border-color: var(--st-accent) !important;
+    color: var(--st-accent) !important;
+
+    &:hover {
+        background-color: var(--st-accent) !important;
+        color: var(--st-text-inverse) !important;
+    }
+}
+
+.btn-outline-secondary {
+    border-color: var(--st-border-strong) !important;
+    color: var(--st-text-secondary) !important;
+
+    &:hover {
+        background-color: var(--st-bg-subtle) !important;
+        color: var(--st-text-primary) !important;
+        border-color: var(--st-border-strong) !important;
+    }
+}
+
+// -----------------------------------------------------------------------------
+// Tables
+// -----------------------------------------------------------------------------
+.table {
+    color: var(--st-text-primary);
+    border-color: var(--st-border);
+
+    thead th {
+        background-color: var(--st-bg-subtle);
+        color: var(--st-text-muted);
+        border-color: var(--st-border);
+        font-size: var(--st-text-xs);
+        font-weight: var(--st-weight-semibold);
+        letter-spacing: var(--st-tracking-wider);
+        text-transform: uppercase;
+    }
+
+    td, th {
+        border-color: var(--st-border);
+        color: var(--st-text-primary);
+    }
+
+    tbody tr:hover {
+        background-color: var(--st-bg-subtle);
+    }
+
+    &.table-striped tbody tr:nth-of-type(odd) {
+        background-color: rgba(255, 255, 255, 0.02);
+    }
+}
+
+// -----------------------------------------------------------------------------
+// List Groups
+// -----------------------------------------------------------------------------
+.list-group-item {
+    background-color: var(--st-bg-surface);
+    border-color: var(--st-border);
+    color: var(--st-text-primary);
+
+    &:hover {
+        background-color: var(--st-bg-subtle);
+    }
+
+    &.active {
+        background-color: var(--st-accent-subtle);
+        border-color: var(--st-accent);
+        color: var(--st-accent);
+    }
+}
+
+// -----------------------------------------------------------------------------
+// Modals
+// -----------------------------------------------------------------------------
+.modal-content {
+    background-color: var(--st-bg-elevated) !important;
+    border: 1px solid var(--st-border-strong) !important;
+    border-radius: var(--st-radius-lg) !important;
+    box-shadow: var(--st-shadow-xl) !important;
+    color: var(--st-text-primary);
+}
+
+.modal-header {
+    border-bottom: 1px solid var(--st-border) !important;
+    background-color: var(--st-bg-subtle);
+
+    .modal-title {
+        color: var(--st-text-primary);
+        font-weight: var(--st-weight-bold);
+    }
+
+    .btn-close {
+        filter: invert(1) opacity(0.6);
+        &:hover { filter: invert(1) opacity(1); }
+    }
+}
+
+.modal-footer {
+    border-top: 1px solid var(--st-border) !important;
+    background-color: var(--st-bg-subtle);
+}
+
+// -----------------------------------------------------------------------------
+// Alerts
+// -----------------------------------------------------------------------------
+.alert {
+    border-radius: var(--st-radius-md) !important;
+    border: none !important;
+
+    &.alert-success    { background-color: var(--st-success-subtle); color: var(--st-success); }
+    &.alert-danger     { background-color: var(--st-danger-subtle);  color: var(--st-danger);  }
+    &.alert-warning    { background-color: var(--st-warning-subtle); color: var(--st-warning); }
+    &.alert-info       { background-color: var(--st-info-subtle);    color: var(--st-info);    }
+}
+
+// -----------------------------------------------------------------------------
+// Breadcrumb
+// -----------------------------------------------------------------------------
+.breadcrumb {
+    background-color: var(--st-bg-subtle) !important;
+    border-radius: var(--st-radius-sm) !important;
+
+    .breadcrumb-item {
+        color: var(--st-text-muted);
+        font-size: var(--st-text-sm);
+
+        a {
+            color: var(--st-text-secondary);
+            &:hover { color: var(--st-accent); }
+        }
+
+        &.active { color: var(--st-text-secondary); }
+
+        + .breadcrumb-item::before { color: var(--st-text-muted); }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// Pagination
+// -----------------------------------------------------------------------------
+.page-item {
+    .page-link {
+        background-color: var(--st-bg-surface);
+        border-color: var(--st-border);
+        color: var(--st-text-secondary);
+
+        &:hover {
+            background-color: var(--st-bg-subtle);
+            border-color: var(--st-border-strong);
+            color: var(--st-text-primary);
+        }
+    }
+
+    &.active .page-link {
+        background-color: var(--st-accent) !important;
+        border-color: var(--st-accent) !important;
+        color: var(--st-text-inverse) !important;
+    }
+}
+
+// -----------------------------------------------------------------------------
+// Badges
+// -----------------------------------------------------------------------------
+.badge {
+    font-weight: var(--st-weight-semibold);
+    letter-spacing: var(--st-tracking-wide);
+    border-radius: var(--st-radius-full) !important;
+}
+
+// -----------------------------------------------------------------------------
+// Tooltips & Popovers
+// -----------------------------------------------------------------------------
+.tooltip-inner {
+    background-color: var(--st-bg-elevated);
+    color: var(--st-text-primary);
+    border: 1px solid var(--st-border-strong);
+    border-radius: var(--st-radius-sm);
+    box-shadow: var(--st-shadow-md);
+    font-size: var(--st-text-sm);
+}
+
+.popover {
+    background-color: var(--st-bg-elevated);
+    border: 1px solid var(--st-border-strong);
+    border-radius: var(--st-radius-md);
+    box-shadow: var(--st-shadow-lg);
+
+    .popover-header {
+        background-color: var(--st-bg-subtle);
+        border-bottom: 1px solid var(--st-border);
+        color: var(--st-text-primary);
+    }
+    .popover-body {
+        color: var(--st-text-secondary);
+    }
+}
+
+// -----------------------------------------------------------------------------
+// Progress Bars
+// -----------------------------------------------------------------------------
+.progress {
+    background-color: var(--st-bg-subtle);
+    border-radius: var(--st-radius-full);
+    height: 6px;
+    overflow: hidden;
+
+    .progress-bar {
+        background-color: var(--st-accent);
+        border-radius: var(--st-radius-full);
+    }
+}
+
+// -----------------------------------------------------------------------------
+// Headings
+// -----------------------------------------------------------------------------
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+    color: var(--st-text-primary);
+    letter-spacing: var(--st-tracking-tight);
+}
+
+// -----------------------------------------------------------------------------
+// Links
+// -----------------------------------------------------------------------------
+a {
+    color: var(--st-accent);
+    text-decoration: none;
+    transition: color var(--st-duration-fast) var(--st-ease);
+
+    &:hover {
+        color: var(--st-accent-hover);
+        text-decoration: none;
+    }
+}
+
+// -----------------------------------------------------------------------------
+// Blocks (Moodle sidebar blocks)
+// -----------------------------------------------------------------------------
+.block {
+    background-color: var(--st-bg-surface) !important;
+    border: 1px solid var(--st-border) !important;
+    border-radius: var(--st-radius-md) !important;
+    box-shadow: none;
+
+    .card-header,
+    .block-header {
+        background-color: var(--st-bg-subtle) !important;
+        border-bottom: 1px solid var(--st-border) !important;
+        color: var(--st-text-primary) !important;
+        font-size: var(--st-text-sm);
+        font-weight: var(--st-weight-semibold);
+        letter-spacing: var(--st-tracking-wide);
+        text-transform: uppercase;
+    }
+
+    .card-body,
+    .block-content {
+        color: var(--st-text-secondary);
+    }
+}
+
+// -----------------------------------------------------------------------------
+// Moodle Activity List Items
+// -----------------------------------------------------------------------------
+.activity {
+    background-color: var(--st-bg-surface);
+    border: 1px solid var(--st-border);
+    border-radius: var(--st-radius-md);
+    margin-bottom: var(--st-space-2);
+    transition: border-color var(--st-duration-fast) var(--st-ease),
+                background-color var(--st-duration-fast) var(--st-ease);
+
+    &:hover {
+        border-color: var(--st-border-strong);
+        background-color: var(--st-bg-subtle);
+    }
+
+    .instancename,
+    .activity-name {
+        color: var(--st-text-primary);
+        font-weight: var(--st-weight-medium);
+    }
+
+    .activity-description {
+        color: var(--st-text-secondary);
+        font-size: var(--st-text-sm);
+    }
+}
+
+// Section headers
+.section-summary,
+.section-heading,
+h3.sectionname {
+    color: var(--st-text-primary) !important;
+    border-bottom: 1px solid var(--st-border);
+    padding-bottom: var(--st-space-3);
+    margin-bottom: var(--st-space-4);
+}
+
+// -----------------------------------------------------------------------------
+// Footer
+// -----------------------------------------------------------------------------
+footer {
+    background-color: var(--st-bg-nav) !important;
+    border-top: 1px solid var(--st-border);
+
+    .stream-footer {
+        background-color: var(--st-bg-nav) !important;
+        color: var(--st-text-secondary) !important;
+
+        h5 {
+            color: var(--st-text-primary) !important;
+            letter-spacing: var(--st-tracking-wider);
+        }
+
+        a {
+            color: var(--st-text-secondary);
+            &:hover { color: var(--st-accent); }
+        }
+
+        .socialmedia {
+            border-top-color: var(--st-border) !important;
+
+            .fa-brands {
+                color: var(--st-text-muted);
+                transition: color var(--st-duration-base) var(--st-ease),
+                            transform var(--st-duration-base) var(--st-ease);
+
+                &:hover {
+                    color: var(--st-accent) !important;
+                    transform: translateY(-3px);
+                }
+            }
+        }
+    }
+
+    .footer-credits {
+        background-color: rgba(0, 0, 0, 0.4) !important;
+        border-top: 1px solid var(--st-border);
+        color: var(--st-text-muted) !important;
+        font-size: var(--st-text-xs);
+
+        a { color: var(--st-text-muted); }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// Notification popover
+// -----------------------------------------------------------------------------
+.popover-region-notifications {
+    .notification-area {
+        background-color: var(--st-bg-elevated);
+        color: var(--st-text-primary);
+    }
+}
+
+// -----------------------------------------------------------------------------
+// Back to top button
+// -----------------------------------------------------------------------------
+#back-to-top .btn {
+    background-color: var(--st-bg-elevated) !important;
+    border: 1px solid var(--st-border-strong) !important;
+    color: var(--st-text-secondary) !important;
+    border-radius: var(--st-radius-full) !important;
+    box-shadow: var(--st-shadow-md);
+
+    &:hover {
+        background-color: var(--st-accent) !important;
+        border-color: var(--st-accent) !important;
+        color: var(--st-text-inverse) !important;
+    }
+}
+
+// -----------------------------------------------------------------------------
+// Page header context
+// -----------------------------------------------------------------------------
+.page-context-header {
+    background: linear-gradient(135deg, var(--st-bg-elevated), var(--st-bg-subtle)) !important;
+    border: 1px solid var(--st-border) !important;
+    border-radius: var(--st-radius-md) !important;
+    color: var(--st-text-primary) !important;
+    box-shadow: var(--st-shadow-sm);
+
+    a { color: var(--st-text-primary) !important; }
+}
+
+// -----------------------------------------------------------------------------
+// Misc Moodle UI
+// -----------------------------------------------------------------------------
+.page-header-headings h1 {
+    color: var(--st-text-primary);
+    font-weight: var(--st-weight-extrabold);
+    letter-spacing: var(--st-tracking-tight);
+}
+
+.action-menu-trigger a {
+    color: var(--st-text-secondary);
+    &:hover { color: var(--st-text-primary); }
+}
+
+.completioncheckbox label {
+    color: var(--st-text-secondary);
+}
+
+.dimmed, .dimmed_text,
+a.dimmed, a.dimmed:link, a.dimmed:visited {
+    color: var(--st-text-muted) !important;
+    opacity: 0.6;
+}
+
+hr {
+    border-color: var(--st-border);
+    opacity: 1;
+}
+
+// Scrollbar theming for supported browsers
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+::-webkit-scrollbar-track {
+    background: var(--st-bg-base);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--st-bg-subtle);
+    border-radius: var(--st-radius-full);
+    &:hover { background: var(--st-border-strong); }
+}
