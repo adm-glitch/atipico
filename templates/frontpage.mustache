@@ -97,6 +97,13 @@
                         </section>
                         {{/featuredcourseswidget}}
 
+                        {{!
+                            Moodle requires output.main_content to be called on every layout.
+                            Rendered but hidden — the course list is suppressed visually.
+                        }}
+                        <div class="d-none" aria-hidden="true">
+                            {{{ output.main_content }}}
+                        </div>
                         <div class="container">
                             {{{ output.activity_navigation }}}
                             {{{ output.course_content_footer }}}
