@@ -34,46 +34,56 @@
 }}
 <header id="page-header" class="header-maxwidth d-print-none">
     <div class="w-100">
-        <div class="course-head mb-2" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.60) 100%), url('{{{image}}}');">
-            <div class="d-flex flex-wrap course-head-action">
-                <div id="course-header">
+        <div class="course-head mb-2" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.08) 0%, rgba(0,0,0,0.72) 65%, rgba(0,0,0,0.90) 100%), url('{{{image}}}');">
+
+            {{! Top strip: admin controls (left flex) + completion ring (right) }}
+            <div class="course-head__top">
+                <div id="course-header" class="me-auto">
                     {{{courseheader}}}
                 </div>
-            </div>
-            <div class="d-flex align-items-center">
-                {{^welcomemessage}}
-                    {{#contextheader}}
-                        <div class="me-auto">
-                            {{{contextheader}}}
-                        </div>
-                    {{/contextheader}}
-                {{/welcomemessage}}
-                <div class="welcome ms-2 mt-2">
-                    {{> core/welcome }}
-                </div>
-                <div class="header-actions-container ms-auto" data-region="header-actions-container">
+                <div class="header-actions-container" data-region="header-actions-container">
                     {{#headeractions}}
                         <div class="header-action ms-2">{{{.}}}</div>
                     {{/headeractions}}
                 </div>
-                {{! Course completion progress }}
+                {{{pageheadingbutton}}}
+                {{! Course completion progress ring }}
                 {{#hascompletion}}
-                <div class="wrap-circles completion-meter" role="meter" aria-label="{{#str}}coursecompletion, completion{{/str}}"
-                aria-valuenow="{{completionrate}}" aria-valuemin="0" aria-valuemax="100">
-                    <div class="mt-1 circle per-{{completionrate}}" data-toggle="tooltip" title="Course Completion" data-placement="left">
-                      <div class="inner">{{completionrate}}%</div>
+                <div class="wrap-circles completion-meter"
+                     role="meter"
+                     aria-label="{{#str}}coursecompletion, completion{{/str}}"
+                     aria-valuenow="{{completionrate}}"
+                     aria-valuemin="0"
+                     aria-valuemax="100">
+                    <div class="circle per-{{completionrate}}"
+                         data-toggle="tooltip"
+                         title="Course Completion"
+                         data-placement="bottom">
+                        <div class="inner">{{completionrate}}%</div>
                     </div>
                 </div>
                 {{/hascompletion}}
-                {{{pageheadingbutton}}}
             </div>
-            {{#hasnavbar}}
-            <div class="d-flex flex-wrap">
-                <div id="page-navbar">
+
+            {{! Bottom band: welcome + course title + breadcrumb }}
+            <div class="course-head__bottom">
+                <div class="welcome mb-1">
+                    {{> core/welcome }}
+                </div>
+                {{^welcomemessage}}
+                    {{#contextheader}}
+                        <div class="course-head__title">
+                            {{{contextheader}}}
+                        </div>
+                    {{/contextheader}}
+                {{/welcomemessage}}
+                {{#hasnavbar}}
+                <div id="page-navbar" class="course-head__nav">
                     {{{navbar}}}
                 </div>
+                {{/hasnavbar}}
             </div>
-            {{/hasnavbar}}
+
         </div>
     </div>
 </header>

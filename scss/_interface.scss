@@ -160,56 +160,10 @@ footer {
 }
 
 // -----------------------------------------------------------------------------
-// Course Header
+// Course Header — cinematic overlay layout
 // -----------------------------------------------------------------------------
 header {
-    .page-header-headings > h1 {
-        margin-bottom: 0;
-        font-weight: var(--at-weight-extrabold);
-        letter-spacing: var(--at-tracking-tight);
-    }
-
-    .course-head {
-        // Increase from 10rem to feel more cinematic
-        height: 14rem;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        border-radius: var(--at-radius-lg);
-        // Replace washed-out white gradient with a dark cinematic gradient
-        background-image: linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0.15) 0%,
-            rgba(0, 0, 0, 0.55) 100%
-        ) !important;
-        position: relative;
-        overflow: hidden;
-
-        @include media-breakpoint-up(md) {
-            height: 18rem;
-        }
-
-        &::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                135deg,
-                rgba(218, 170, 0, 0.06) 0%,
-                transparent 60%
-            );
-            pointer-events: none;
-        }
-
-        .singlebutton {
-            margin-right: $spacer;
-        }
-
-        .header-actions-container {
-            margin-right: 1rem;
-        }
-    }
-
+    // Standalone page-context-header (outside course hero)
     .page-context-header {
         margin-left: $spacer;
         margin-top: $spacer;
@@ -239,6 +193,7 @@ header {
         margin-left: $spacer;
     }
 
+    // Standalone breadcrumb (outside course hero)
     .breadcrumb {
         margin-top: 0.6rem;
         padding: 8px 14px;
@@ -259,6 +214,149 @@ header {
             .dimmed_text, .dimmed_text a {
                 color: var(--at-text-muted) !important;
             }
+        }
+    }
+
+    // -------------------------------------------------------------------------
+    // .course-head — full-viewport cinematic hero
+    // -------------------------------------------------------------------------
+    .course-head {
+        min-height: 40vh;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: var(--at-radius-lg);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        @include media-breakpoint-up(md) {
+            min-height: 55vh;
+        }
+
+        // Cinematic gold shimmer — layered above the image, below content
+        &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba($at-gold, 0.05) 0%,
+                transparent 55%
+            );
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        // Top strip: admin controls (left) + completion ring (right)
+        .course-head__top {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-end;
+            gap: var(--at-space-2);
+            padding: var(--at-space-4) var(--at-space-5);
+
+            #course-header {
+                flex: 1;
+            }
+
+            .wrap-circles {
+                padding-right: 0;
+            }
+        }
+
+        // Bottom band: title + breadcrumb
+        .course-head__bottom {
+            position: relative;
+            z-index: 1;
+            padding: var(--at-space-4) var(--at-space-6) var(--at-space-6);
+
+            .welcome {
+                color: rgba(255, 255, 255, 0.65);
+                font-size: var(--at-fs-sm);
+                margin-bottom: var(--at-space-2);
+            }
+
+            // Strip card-box appearance from page-context-header when inside hero
+            .page-context-header {
+                background: none !important;
+                border: none !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+
+                a {
+                    color: #fff;
+                    &:hover { color: rgba(255, 255, 255, 0.8); }
+                }
+            }
+
+            // Course title h1 — large, white, with shadow for readability
+            .page-header-headings > h1,
+            .page-header-headings h1 {
+                color: #fff;
+                font-size: clamp(1.4rem, 3.5vw, 2.5rem);
+                font-weight: var(--at-weight-extrabold);
+                letter-spacing: var(--at-tracking-tight);
+                text-shadow: 0 2px 16px rgba(0, 0, 0, 0.6);
+                margin-bottom: var(--at-space-2);
+                line-height: 1.15;
+            }
+
+            // Avatar when shown inside the hero context header
+            .userinitials.size-100,
+            .userpicture {
+                width: 48px;
+                height: 48px;
+                border: 2px solid rgba(255, 255, 255, 0.25);
+                border-radius: 50%;
+            }
+        }
+
+        // In-hero breadcrumb — frosted glass treatment
+        .course-head__nav {
+            margin-top: var(--at-space-3);
+
+            #page-navbar {
+                margin-left: 0;
+            }
+
+            .breadcrumb {
+                background-color: rgba(0, 0, 0, 0.28);
+                backdrop-filter: blur(6px);
+                -webkit-backdrop-filter: blur(6px);
+                border: 1px solid rgba(255, 255, 255, 0.10);
+                border-radius: var(--at-radius-sm);
+                padding: 5px 12px;
+                margin: 0;
+                display: inline-flex;
+
+                .breadcrumb-item {
+                    color: rgba(255, 255, 255, 0.65);
+                    font-size: var(--at-fs-xs);
+
+                    a {
+                        color: rgba(255, 255, 255, 0.82);
+                        &:hover { color: #fff; }
+                    }
+
+                    &.active { color: rgba(255, 255, 255, 0.55); }
+                    + .breadcrumb-item::before { color: rgba(255, 255, 255, 0.35); }
+                }
+            }
+        }
+
+        .singlebutton {
+            margin-right: $spacer;
+        }
+
+        .header-actions-container {
+            margin-right: 0;
         }
     }
 }

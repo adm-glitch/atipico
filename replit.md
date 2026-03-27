@@ -117,10 +117,29 @@ scss/
 |---|---|---|
 | **1** | ✅ Complete | Dark design system + typography + 109-token system |
 | **2** | ✅ Complete | Front page — cinematic hero (BS5), premium dark widgets |
-| **3** | Planned | Login page — full dark split-screen |
-| **4** | Planned | Course page — Netflix-style header + layout |
+| **3** | ✅ Complete | Course page — cinematic hero, card grid, editorial sections |
+| **4** | Planned | Login page — full dark split-screen |
 | **5** | Planned | Dashboard, cards, category pages |
 | **6** | Planned | JS interactions (parallax, hover rails) |
+
+---
+
+## Phase 3 Changes (Course Page)
+
+| File | Change |
+|---|---|
+| `templates/core/full_header.mustache` | Full rewrite: overlay layout with `.course-head__top` (admin controls + completion ring) and `.course-head__bottom` (title + frosted-glass breadcrumb) |
+| `templates/core_course/activity_navigation.mustache` | Rewrite: `.at-activity-nav` flex layout replacing `core/columns-1to1to1` — gold hover accent |
+| `scss/_interface.scss` | Replaced fixed-height course-head with `min-height: 40/55vh` viewport-relative hero; cinematic flex layout; in-hero frosted-glass breadcrumb; `rgba($at-gold, 0.05)` shimmer via `::after`; `.page-context-header` stripped of card-box when inside hero |
+| `scss/_dark.scss` | `.course-content .activity-list` CSS Grid (2-col on lg+); `.activity` left-accent-bar hover; section headers redesigned as gold-bordered editorial chapter markers; `.at-activity-nav` styled prev/next buttons |
+| `scss/_courseCompletionProgress.scss` | All 101 `#298976` hardcoded hex replaced with `$at-teal`; ring resized from 42×32 to 60×46 px; `circle.per-50` typo fixed (was missing leading dot) |
+
+### Course Page Architecture Notes
+
+- **Hero**: `templates/core/full_header.mustache` renders `.course-head` with the course image as background via inline style. The CSS hero uses `display: flex; flex-direction: column; justify-content: space-between` to push controls to top and title/breadcrumb to bottom.
+- **Activity grid**: `.course-content .activity-list { display: grid }` — applies to Moodle 4.x Topics format. Falls back gracefully to list view if selector doesn't match.
+- **Section markers**: `.sectionname` gets gold left-border (`border-left: 3px solid var(--at-accent)`) replacing the default grey bottom border.
+- **Token rule**: all `rgba()` in brand colors use `rgba($at-gold/teal, x)` form — never raw hex.
 
 ---
 
