@@ -3,10 +3,10 @@
     .drawerheader {
         .courseindexheading {
             margin: 0 auto;
-            font-weight: var(--st-weight-bold);
-            color: var(--st-text-primary);
-            font-size: var(--st-text-sm);
-            letter-spacing: var(--st-tracking-wide);
+            font-weight: var(--at-weight-bold);
+            color: var(--at-text-primary);
+            font-size: var(--at-fs-sm);
+            letter-spacing: var(--at-tracking-wide);
         }
         .drawertoggle {
             margin-right: 0;
@@ -15,49 +15,49 @@
     .drawercontent {
         .courseindex-section {
             margin-bottom: 4px;
-            background-color: var(--st-bg-subtle);
-            border-radius: var(--st-radius-sm);
+            background-color: var(--at-bg-subtle);
+            border-radius: var(--at-radius-sm);
             border: none;
 
             .courseindex-section-title {
-                color: var(--st-text-muted);
-                font-size: var(--st-text-xs);
-                font-weight: var(--st-weight-semibold);
-                letter-spacing: var(--st-tracking-wider);
+                color: var(--at-text-muted);
+                font-size: var(--at-fs-xs);
+                font-weight: var(--at-weight-semibold);
+                letter-spacing: var(--at-tracking-wider);
                 text-transform: uppercase;
 
                 a {
-                    color: var(--st-text-secondary);
-                    &:hover { color: var(--st-accent); }
+                    color: var(--at-text-secondary);
+                    &:hover { color: var(--at-accent); }
                 }
             }
         }
         .courseindex {
-            background-color: var(--st-bg-surface);
+            background-color: var(--at-bg-surface);
             padding-right: 0;
         }
 
         // Activity items in the course index
         .courseindex-item {
-            border-radius: var(--st-radius-xs);
-            transition: background-color var(--st-duration-fast) var(--st-ease);
+            border-radius: var(--at-radius-xs);
+            transition: background-color var(--at-duration-fast) var(--at-ease);
 
             &:hover {
-                background-color: var(--st-bg-subtle);
+                background-color: var(--at-bg-subtle);
             }
 
             &.active,
             &.pageitem {
-                background-color: var(--st-accent-subtle);
-                border-left: 2px solid var(--st-accent);
+                background-color: var(--at-accent-subtle);
+                border-left: 2px solid var(--at-accent);
 
-                a { color: var(--st-accent); }
+                a { color: var(--at-accent); }
             }
 
             a {
-                color: var(--st-text-secondary);
-                font-size: var(--st-text-sm);
-                &:hover { color: var(--st-text-primary); }
+                color: var(--at-text-secondary);
+                font-size: var(--at-fs-sm);
+                &:hover { color: var(--at-text-primary); }
             }
         }
     }

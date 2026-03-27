@@ -1,163 +1,192 @@
 // =============================================================================
-// STREAM THEME — DESIGN TOKEN SYSTEM
-// CSS Custom Properties for runtime flexibility + dark-first design
+// ATIPICO THEME — DESIGN TOKEN SYSTEM (Layer 2)
+// CSS Custom Properties for runtime flexibility and dark-first design.
+// All values use SCSS interpolation (#{$at-*}) — no hex literals written twice.
+// Source of truth is the $at-* primitives defined in stream.scss Layer 0.
 // =============================================================================
 
 :root {
     // -------------------------------------------------------------------------
-    // Background Hierarchy (dark-first)
+    // Background Hierarchy (dark-first — 6 depth levels)
     // -------------------------------------------------------------------------
-    --st-bg-base:        #0D0F14;   // Page body — deepest layer
-    --st-bg-surface:     #13161D;   // Cards, panels, containers
-    --st-bg-elevated:    #1A1E27;   // Modals, dropdowns, overlays
-    --st-bg-subtle:      #21252E;   // Hover states, zebra rows
-    --st-bg-input:       #191C24;   // Form inputs
-    --st-bg-nav:         #0A0C10;   // Top navbar — darkest of all
+    --at-bg-nav:         #{$at-dark-950};   // Top navbar — absolute darkest
+    --at-bg-base:        #{$at-dark-900};   // Page canvas / body
+    --at-bg-surface:     #{$at-dark-800};   // Cards, panels, containers
+    --at-bg-input:       #{$at-dark-700};   // Form inputs
+    --at-bg-elevated:    #{$at-dark-600};   // Modals, dropdowns, overlays
+    --at-bg-subtle:      #{$at-dark-500};   // Hover states, zebra rows, cap bg
+    --at-bg-hover:       #{$at-dark-500};   // Interaction: hover state
+    --at-bg-active:      #{$at-dark-400};   // Interaction: active/pressed state
 
     // -------------------------------------------------------------------------
-    // Text Hierarchy
+    // Text / Foreground Hierarchy
     // -------------------------------------------------------------------------
-    --st-text-primary:   #ECEEF2;   // Main content text
-    --st-text-secondary: #9BA3B2;   // Meta, descriptions, labels
-    --st-text-muted:     #5A6173;   // Placeholders, captions, timestamps
-    --st-text-inverse:   #0D0F14;   // Text on accent backgrounds
+    --at-text-primary:   #{$at-dark-050};   // Main content text
+    --at-text-secondary: #{$at-dark-100};   // Meta, descriptions, labels
+    --at-text-muted:     #{$at-dark-200};   // Placeholders, captions, timestamps
+    --at-text-inverse:   #{$at-dark-900};   // Text on accent-colored backgrounds
 
     // -------------------------------------------------------------------------
-    // Borders
+    // Border System
     // -------------------------------------------------------------------------
-    --st-border:         rgba(255, 255, 255, 0.07);   // Default subtle border
-    --st-border-strong:  rgba(255, 255, 255, 0.13);   // Dividers, focused
-    --st-border-accent:  rgba(218, 170, 0, 0.35);     // Accent-colored border
+    --at-border:         rgba(255, 255, 255, 0.07);   // Subtle — default
+    --at-border-strong:  rgba(255, 255, 255, 0.13);   // Prominent — dividers, focus
+    --at-border-accent:  rgba(218, 170, 0, 0.35);     // Gold accent border
 
     // -------------------------------------------------------------------------
-    // Accent Color System (Gold — #DAAA00)
+    // Accent Color System — Gold (#DAAA00)
     // -------------------------------------------------------------------------
-    --st-accent:         #DAAA00;
-    --st-accent-hover:   #F0C000;
-    --st-accent-dim:     #B88C00;
-    --st-accent-subtle:  rgba(218, 170, 0, 0.10);
-    --st-accent-glow:    rgba(218, 170, 0, 0.22);
+    --at-accent:         #{$at-gold};
+    --at-accent-hover:   #{$at-gold-bright};
+    --at-accent-dim:     #{$at-gold-dim};
+    --at-accent-subtle:  rgba(218, 170, 0, 0.10);   // Low-opacity fill / badge bg
+    --at-accent-glow:    rgba(218, 170, 0, 0.22);   // Glow / shadow tint
 
     // -------------------------------------------------------------------------
-    // Secondary Accent (Teal — #298976)
+    // Secondary Accent — Teal (#298976)
     // -------------------------------------------------------------------------
-    --st-teal:           #298976;
-    --st-teal-hover:     #32A48F;
-    --st-teal-subtle:    rgba(41, 137, 118, 0.12);
+    --at-teal:           #{$at-teal};
+    --at-teal-hover:     #{$at-teal-bright};
+    --at-teal-subtle:    rgba(41, 137, 118, 0.12);
 
     // -------------------------------------------------------------------------
-    // Semantic Colors
+    // Semantic Feedback Colors
     // -------------------------------------------------------------------------
-    --st-success:        #22C55E;
-    --st-success-subtle: rgba(34, 197, 94, 0.12);
-    --st-danger:         #EF4444;
-    --st-danger-subtle:  rgba(239, 68, 68, 0.12);
-    --st-info:           #3B82F6;
-    --st-info-subtle:    rgba(59, 130, 246, 0.12);
-    --st-warning:        #F59E0B;
-    --st-warning-subtle: rgba(245, 158, 11, 0.12);
+    --at-success:        #{$at-success};
+    --at-success-subtle: rgba(34, 197, 94, 0.12);
+    --at-danger:         #{$at-danger};
+    --at-danger-subtle:  rgba(239, 68, 68, 0.12);
+    --at-info:           #{$at-info};
+    --at-info-subtle:    rgba(59, 130, 246, 0.12);
+    --at-warning:        #{$at-warning};
+    --at-warning-subtle: rgba(245, 158, 11, 0.12);
 
     // -------------------------------------------------------------------------
-    // Border Radius System
+    // Border Radius Scale
     // -------------------------------------------------------------------------
-    --st-radius-xs:  3px;
-    --st-radius-sm:  6px;
-    --st-radius-md:  10px;
-    --st-radius-lg:  14px;
-    --st-radius-xl:  20px;
-    --st-radius-2xl: 28px;
-    --st-radius-full: 9999px;
+    --at-radius-xs:   3px;
+    --at-radius-sm:   6px;
+    --at-radius-md:   10px;
+    --at-radius-lg:   14px;
+    --at-radius-xl:   20px;
+    --at-radius-2xl:  28px;
+    --at-radius-full: 9999px;
 
     // -------------------------------------------------------------------------
     // Shadow System
     // -------------------------------------------------------------------------
-    --st-shadow-sm:     0 1px 4px rgba(0, 0, 0, 0.35);
-    --st-shadow-md:     0 4px 16px rgba(0, 0, 0, 0.45);
-    --st-shadow-lg:     0 8px 32px rgba(0, 0, 0, 0.55);
-    --st-shadow-xl:     0 16px 48px rgba(0, 0, 0, 0.65);
-    --st-shadow-accent: 0 4px 24px rgba(218, 170, 0, 0.20);
-    --st-shadow-inner:  inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    --at-shadow-sm:     0 1px 4px  rgba(0, 0, 0, 0.35);
+    --at-shadow-md:     0 4px 16px rgba(0, 0, 0, 0.45);
+    --at-shadow-lg:     0 8px 32px rgba(0, 0, 0, 0.55);
+    --at-shadow-xl:     0 16px 48px rgba(0, 0, 0, 0.65);
+    --at-shadow-accent: 0 4px 24px rgba(218, 170, 0, 0.20);
+    --at-shadow-inner:  inset 0 1px 0 rgba(255, 255, 255, 0.05);
 
     // -------------------------------------------------------------------------
-    // Spacing Scale (extends Bootstrap spacers)
+    // Spacing Scale (extends Bootstrap spacers — use for margin/padding/gap)
     // -------------------------------------------------------------------------
-    --st-space-1:  0.25rem;   // 4px
-    --st-space-2:  0.5rem;    // 8px
-    --st-space-3:  0.75rem;   // 12px
-    --st-space-4:  1rem;      // 16px
-    --st-space-5:  1.25rem;   // 20px
-    --st-space-6:  1.5rem;    // 24px
-    --st-space-8:  2rem;      // 32px
-    --st-space-10: 2.5rem;    // 40px
-    --st-space-12: 3rem;      // 48px
-    --st-space-16: 4rem;      // 64px
-    --st-space-20: 5rem;      // 80px
-    --st-space-24: 6rem;      // 96px
+    --at-space-1:  0.25rem;    // 4px
+    --at-space-2:  0.5rem;     // 8px
+    --at-space-3:  0.75rem;    // 12px
+    --at-space-4:  1rem;       // 16px
+    --at-space-5:  1.25rem;    // 20px
+    --at-space-6:  1.5rem;     // 24px
+    --at-space-8:  2rem;       // 32px
+    --at-space-10: 2.5rem;     // 40px
+    --at-space-12: 3rem;       // 48px
+    --at-space-16: 4rem;       // 64px
+    --at-space-20: 5rem;       // 80px
+    --at-space-24: 6rem;       // 96px
 
     // -------------------------------------------------------------------------
-    // Typography Scale
+    // Font Size Scale (prefix: --at-fs-* to avoid collision with text colors)
     // -------------------------------------------------------------------------
-    --st-text-xs:   0.75rem;    // 12px
-    --st-text-sm:   0.875rem;   // 14px
-    --st-text-base: 0.9375rem;  // 15px
-    --st-text-lg:   1.125rem;   // 18px
-    --st-text-xl:   1.25rem;    // 20px
-    --st-text-2xl:  1.5rem;     // 24px
-    --st-text-3xl:  1.875rem;   // 30px
-    --st-text-4xl:  2.25rem;    // 36px
-    --st-text-5xl:  3rem;       // 48px
-
-    --st-weight-normal:    400;
-    --st-weight-medium:    500;
-    --st-weight-semibold:  600;
-    --st-weight-bold:      700;
-    --st-weight-extrabold: 800;
-
-    --st-leading-tight:  1.25;
-    --st-leading-snug:   1.375;
-    --st-leading-normal: 1.5;
-    --st-leading-relaxed:1.625;
-
-    --st-tracking-tight:  -0.025em;
-    --st-tracking-normal: 0;
-    --st-tracking-wide:   0.05em;
-    --st-tracking-wider:  0.1em;
+    --at-fs-xs:   0.75rem;      // 12px
+    --at-fs-sm:   0.875rem;     // 14px
+    --at-fs-base: 0.9375rem;    // 15px
+    --at-fs-lg:   1.125rem;     // 18px
+    --at-fs-xl:   1.25rem;      // 20px
+    --at-fs-2xl:  1.5rem;       // 24px
+    --at-fs-3xl:  1.875rem;     // 30px
+    --at-fs-4xl:  2.25rem;      // 36px
+    --at-fs-5xl:  3rem;         // 48px
 
     // -------------------------------------------------------------------------
-    // Motion / Transitions
+    // Font Weight Scale
     // -------------------------------------------------------------------------
-    --st-duration-fast:   120ms;
-    --st-duration-base:   200ms;
-    --st-duration-slow:   350ms;
-    --st-ease:            cubic-bezier(0.4, 0, 0.2, 1);
-    --st-ease-out:        cubic-bezier(0, 0, 0.2, 1);
-    --st-ease-in:         cubic-bezier(0.4, 0, 1, 1);
+    --at-weight-normal:    400;
+    --at-weight-medium:    500;
+    --at-weight-semibold:  600;
+    --at-weight-bold:      700;
+    --at-weight-extrabold: 800;
 
     // -------------------------------------------------------------------------
-    // Course Card Design Language
+    // Line Height Scale
     // -------------------------------------------------------------------------
-    --st-card-bg:          var(--st-bg-surface);
-    --st-card-border:      var(--st-border);
-    --st-card-radius:      var(--st-radius-lg);
-    --st-card-shadow:      var(--st-shadow-md);
-    --st-card-hover-lift:  -6px;
-    --st-card-img-height:  180px;
+    --at-leading-tight:   1.25;
+    --at-leading-snug:    1.375;
+    --at-leading-normal:  1.5;
+    --at-leading-relaxed: 1.625;
 
     // -------------------------------------------------------------------------
-    // Button Style Language
+    // Letter Spacing Scale
     // -------------------------------------------------------------------------
-    --st-btn-radius:       var(--st-radius-sm);
-    --st-btn-padding-y:    0.55rem;
-    --st-btn-padding-x:    1.25rem;
-    --st-btn-font-weight:  var(--st-weight-semibold);
-    --st-btn-transition:   all var(--st-duration-base) var(--st-ease);
+    --at-tracking-tight:  -0.025em;
+    --at-tracking-normal: 0;
+    --at-tracking-wide:   0.05em;
+    --at-tracking-wider:  0.10em;
 
     // -------------------------------------------------------------------------
-    // Input Style Language
+    // Motion / Transition System
     // -------------------------------------------------------------------------
-    --st-input-bg:         var(--st-bg-input);
-    --st-input-border:     var(--st-border-strong);
-    --st-input-radius:     var(--st-radius-sm);
-    --st-input-color:      var(--st-text-primary);
-    --st-input-focus-ring: 0 0 0 3px var(--st-accent-subtle);
+    --at-duration-fast: 120ms;
+    --at-duration-base: 200ms;
+    --at-duration-slow: 350ms;
+    --at-ease:          cubic-bezier(0.4, 0, 0.2, 1);   // standard
+    --at-ease-out:      cubic-bezier(0, 0, 0.2, 1);      // decelerate
+    --at-ease-in:       cubic-bezier(0.4, 0, 1, 1);      // accelerate
+
+    // -------------------------------------------------------------------------
+    // Z-Index Scale (Moodle has many layered surfaces)
+    // -------------------------------------------------------------------------
+    --at-z-base:    1;
+    --at-z-raised:  10;
+    --at-z-drawer:  100;
+    --at-z-sticky:  200;
+    --at-z-overlay: 400;
+    --at-z-modal:   500;
+    --at-z-toast:   600;
+
+    // -------------------------------------------------------------------------
+    // Global Focus Ring (used across buttons, inputs, links)
+    // -------------------------------------------------------------------------
+    --at-focus-ring: 0 0 0 3px rgba(218, 170, 0, 0.25);
+
+    // -------------------------------------------------------------------------
+    // Component Tokens — Cards
+    // -------------------------------------------------------------------------
+    --at-card-bg:         var(--at-bg-surface);
+    --at-card-border:     var(--at-border);
+    --at-card-radius:     var(--at-radius-lg);
+    --at-card-shadow:     var(--at-shadow-md);
+    --at-card-hover-lift: -6px;
+    --at-card-img-height: 180px;
+
+    // -------------------------------------------------------------------------
+    // Component Tokens — Buttons
+    // -------------------------------------------------------------------------
+    --at-btn-radius:     var(--at-radius-sm);
+    --at-btn-padding-y:  0.55rem;
+    --at-btn-padding-x:  1.25rem;
+    --at-btn-font-weight: var(--at-weight-semibold);
+    --at-btn-transition: all var(--at-duration-base) var(--at-ease);
+
+    // -------------------------------------------------------------------------
+    // Component Tokens — Inputs
+    // -------------------------------------------------------------------------
+    --at-input-bg:         var(--at-bg-input);
+    --at-input-border:     var(--at-border-strong);
+    --at-input-radius:     var(--at-radius-sm);
+    --at-input-color:      var(--at-text-primary);
+    --at-input-focus-ring: 0 0 0 3px var(--at-accent-subtle);
 }

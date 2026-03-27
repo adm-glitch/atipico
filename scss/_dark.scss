@@ -1,5 +1,5 @@
 // =============================================================================
-// STREAM THEME — DARK MODE COMPONENT OVERRIDES
+// ATIPICO THEME — DARK MODE COMPONENT OVERRIDES
 // Applied globally (dark-first design)
 // =============================================================================
 
@@ -7,50 +7,50 @@
 // Body & Page Canvas
 // -----------------------------------------------------------------------------
 body {
-    background-color: var(--st-bg-base) !important;
-    color: var(--st-text-primary);
+    background-color: var(--at-bg-base) !important;
+    color: var(--at-text-primary);
 }
 
 #page,
 #page-wrapper {
-    background-color: var(--st-bg-base);
+    background-color: var(--at-bg-base);
 }
 
 // -----------------------------------------------------------------------------
 // Top Navbar
 // -----------------------------------------------------------------------------
 .navbar {
-    background-color: var(--st-bg-nav) !important;
-    border-bottom: 1px solid var(--st-border);
-    box-shadow: 0 1px 0 var(--st-border);
+    background-color: var(--at-bg-nav) !important;
+    border-bottom: 1px solid var(--at-border);
+    box-shadow: 0 1px 0 var(--at-border);
 
     .nav-link,
     .navbar-brand {
-        color: var(--st-text-primary) !important;
+        color: var(--at-text-primary) !important;
     }
 
     .nav-link:hover,
     .nav-link:focus {
-        color: var(--st-accent) !important;
+        color: var(--at-accent) !important;
     }
 
     .dropdown-menu {
-        background-color: var(--st-bg-elevated);
-        border: 1px solid var(--st-border-strong);
-        box-shadow: var(--st-shadow-lg);
+        background-color: var(--at-bg-elevated);
+        border: 1px solid var(--at-border-strong);
+        box-shadow: var(--at-shadow-lg);
 
         .dropdown-item {
-            color: var(--st-text-secondary);
+            color: var(--at-text-secondary);
             &:hover, &:focus {
-                background-color: var(--st-bg-subtle);
-                color: var(--st-text-primary);
+                background-color: var(--at-bg-subtle);
+                color: var(--at-text-primary);
             }
         }
         .dropdown-divider {
-            border-color: var(--st-border);
+            border-color: var(--at-border);
         }
         .dropdown-header {
-            color: var(--st-text-muted);
+            color: var(--at-text-muted);
         }
     }
 }
@@ -61,26 +61,26 @@ body {
 #usernavigation {
     .usermenu .btn,
     .aabtn {
-        color: var(--st-text-secondary) !important;
+        color: var(--at-text-secondary) !important;
         background: transparent !important;
         border: none !important;
 
         &:hover {
-            color: var(--st-text-primary) !important;
-            background-color: var(--st-bg-subtle) !important;
+            color: var(--at-text-primary) !important;
+            background-color: var(--at-bg-subtle) !important;
         }
     }
 }
 
 .primary-navigation {
     .nav-link {
-        color: var(--st-text-secondary) !important;
-        font-weight: var(--st-weight-medium);
-        letter-spacing: var(--st-tracking-wide);
-        font-size: var(--st-text-sm);
+        color: var(--at-text-secondary) !important;
+        font-weight: var(--at-weight-medium);
+        letter-spacing: var(--at-tracking-wide);
+        font-size: var(--at-fs-sm);
 
         &:hover, &.active {
-            color: var(--st-accent) !important;
+            color: var(--at-accent) !important;
         }
     }
 }
@@ -89,25 +89,25 @@ body {
 // Secondary Navigation (course tabs bar)
 // -----------------------------------------------------------------------------
 .secondary-navigation {
-    background-color: var(--st-bg-surface) !important;
-    border-bottom: 1px solid var(--st-border) !important;
+    background-color: var(--at-bg-surface) !important;
+    border-bottom: 1px solid var(--at-border) !important;
 
     .navigation,
     .moremenu .nav-tabs {
-        background-color: var(--st-bg-surface) !important;
+        background-color: var(--at-bg-surface) !important;
     }
 
     .nav-link {
-        color: var(--st-text-secondary) !important;
-        font-weight: var(--st-weight-medium);
+        color: var(--at-text-secondary) !important;
+        font-weight: var(--at-weight-medium);
 
         &:hover {
-            color: var(--st-text-primary) !important;
+            color: var(--at-text-primary) !important;
         }
 
         &.active {
-            color: var(--st-accent) !important;
-            border-bottom-color: var(--st-accent) !important;
+            color: var(--at-accent) !important;
+            border-bottom-color: var(--at-accent) !important;
         }
     }
 }
@@ -117,44 +117,44 @@ body {
 // -----------------------------------------------------------------------------
 #nav-drawer,
 .drawer {
-    background-color: var(--st-bg-surface) !important;
-    border-right: 1px solid var(--st-border) !important;
-    color: var(--st-text-primary);
+    background-color: var(--at-bg-surface) !important;
+    border-right: 1px solid var(--at-border) !important;
+    color: var(--at-text-primary);
 
     .drawerheader {
-        background-color: var(--st-bg-surface);
-        border-bottom: 1px solid var(--st-border);
+        background-color: var(--at-bg-surface);
+        border-bottom: 1px solid var(--at-border);
     }
 
     .list-group-item {
         background-color: transparent;
         border: none;
-        color: var(--st-text-secondary);
+        color: var(--at-text-secondary);
 
         &:hover {
-            background-color: var(--st-bg-subtle);
-            color: var(--st-text-primary);
+            background-color: var(--at-bg-subtle);
+            color: var(--at-text-primary);
         }
 
         &.active {
-            background-color: var(--st-accent-subtle);
-            color: var(--st-accent);
-            border-left: 3px solid var(--st-accent);
+            background-color: var(--at-accent-subtle);
+            color: var(--at-accent);
+            border-left: 3px solid var(--at-accent);
         }
     }
 
     .courseindex-section-title {
-        color: var(--st-text-muted);
-        font-size: var(--st-text-xs);
-        font-weight: var(--st-weight-semibold);
-        letter-spacing: var(--st-tracking-wider);
+        color: var(--at-text-muted);
+        font-size: var(--at-fs-xs);
+        font-weight: var(--at-weight-semibold);
+        letter-spacing: var(--at-tracking-wider);
         text-transform: uppercase;
     }
 
     a {
-        color: var(--st-text-secondary);
+        color: var(--at-text-secondary);
         &:hover {
-            color: var(--st-text-primary);
+            color: var(--at-text-primary);
         }
     }
 }
@@ -163,43 +163,43 @@ body {
 // Cards
 // -----------------------------------------------------------------------------
 .card {
-    background-color: var(--st-card-bg) !important;
-    border: 1px solid var(--st-card-border) !important;
-    border-radius: var(--st-card-radius) !important;
-    box-shadow: var(--st-card-shadow);
-    color: var(--st-text-primary);
-    transition: transform var(--st-duration-base) var(--st-ease),
-                box-shadow var(--st-duration-base) var(--st-ease);
+    background-color: var(--at-card-bg) !important;
+    border: 1px solid var(--at-card-border) !important;
+    border-radius: var(--at-card-radius) !important;
+    box-shadow: var(--at-card-shadow);
+    color: var(--at-text-primary);
+    transition: transform var(--at-duration-base) var(--at-ease),
+                box-shadow var(--at-duration-base) var(--at-ease);
 
     &:hover {
-        box-shadow: var(--st-shadow-lg);
+        box-shadow: var(--at-shadow-lg);
     }
 
     .card-header {
-        background-color: var(--st-bg-subtle);
-        border-bottom: 1px solid var(--st-border);
-        color: var(--st-text-primary);
-        font-weight: var(--st-weight-semibold);
+        background-color: var(--at-bg-subtle);
+        border-bottom: 1px solid var(--at-border);
+        color: var(--at-text-primary);
+        font-weight: var(--at-weight-semibold);
     }
 
     .card-footer {
-        background-color: var(--st-bg-subtle);
-        border-top: 1px solid var(--st-border);
-        color: var(--st-text-secondary);
+        background-color: var(--at-bg-subtle);
+        border-top: 1px solid var(--at-border);
+        color: var(--at-text-secondary);
     }
 
     .card-body {
-        color: var(--st-text-primary);
+        color: var(--at-text-primary);
     }
 
     .card-text,
     p {
-        color: var(--st-text-secondary);
+        color: var(--at-text-secondary);
     }
 
     .card-title {
-        color: var(--st-text-primary);
-        font-weight: var(--st-weight-bold);
+        color: var(--at-text-primary);
+        font-weight: var(--at-weight-bold);
     }
 }
 
@@ -209,99 +209,99 @@ body {
 .form-control,
 .custom-select,
 select {
-    background-color: var(--st-input-bg) !important;
-    border: 1px solid var(--st-input-border) !important;
-    color: var(--st-input-color) !important;
-    border-radius: var(--st-input-radius) !important;
-    transition: border-color var(--st-duration-fast) var(--st-ease),
-                box-shadow var(--st-duration-fast) var(--st-ease);
+    background-color: var(--at-input-bg) !important;
+    border: 1px solid var(--at-input-border) !important;
+    color: var(--at-input-color) !important;
+    border-radius: var(--at-input-radius) !important;
+    transition: border-color var(--at-duration-fast) var(--at-ease),
+                box-shadow var(--at-duration-fast) var(--at-ease);
 
     &:focus {
-        background-color: var(--st-input-bg) !important;
-        border-color: var(--st-accent) !important;
-        box-shadow: var(--st-input-focus-ring) !important;
-        color: var(--st-input-color) !important;
+        background-color: var(--at-input-bg) !important;
+        border-color: var(--at-accent) !important;
+        box-shadow: var(--at-input-focus-ring) !important;
+        color: var(--at-input-color) !important;
     }
 
     &::placeholder {
-        color: var(--st-text-muted);
+        color: var(--at-text-muted);
     }
 }
 
 // Form labels
 .form-label,
 label {
-    color: var(--st-text-secondary);
-    font-size: var(--st-text-sm);
-    font-weight: var(--st-weight-medium);
-    margin-bottom: var(--st-space-2);
+    color: var(--at-text-secondary);
+    font-size: var(--at-fs-sm);
+    font-weight: var(--at-weight-medium);
+    margin-bottom: var(--at-space-2);
 }
 
 // Form groups
 .form-group {
-    margin-bottom: var(--st-space-6);
+    margin-bottom: var(--at-space-6);
 }
 
 // Checkboxes and radios
 .custom-control-label::before {
-    background-color: var(--st-input-bg);
-    border-color: var(--st-border-strong);
+    background-color: var(--at-input-bg);
+    border-color: var(--at-border-strong);
 }
 
 // -----------------------------------------------------------------------------
 // Buttons
 // -----------------------------------------------------------------------------
 .btn {
-    border-radius: var(--st-btn-radius) !important;
-    font-weight: var(--st-btn-font-weight) !important;
-    letter-spacing: var(--st-tracking-wide);
-    transition: var(--st-btn-transition) !important;
-    padding: var(--st-btn-padding-y) var(--st-btn-padding-x);
+    border-radius: var(--at-btn-radius) !important;
+    font-weight: var(--at-btn-font-weight) !important;
+    letter-spacing: var(--at-tracking-wide);
+    transition: var(--at-btn-transition) !important;
+    padding: var(--at-btn-padding-y) var(--at-btn-padding-x);
 }
 
 .btn-primary {
-    background-color: var(--st-accent) !important;
-    border-color: var(--st-accent) !important;
-    color: var(--st-text-inverse) !important;
-    box-shadow: var(--st-shadow-accent);
+    background-color: var(--at-accent) !important;
+    border-color: var(--at-accent) !important;
+    color: var(--at-text-inverse) !important;
+    box-shadow: var(--at-shadow-accent);
 
     &:hover, &:focus {
-        background-color: var(--st-accent-hover) !important;
-        border-color: var(--st-accent-hover) !important;
-        box-shadow: 0 6px 24px var(--st-accent-glow) !important;
+        background-color: var(--at-accent-hover) !important;
+        border-color: var(--at-accent-hover) !important;
+        box-shadow: 0 6px 24px var(--at-accent-glow) !important;
         transform: translateY(-1px);
     }
 }
 
 .btn-secondary {
-    background-color: var(--st-bg-subtle) !important;
-    border-color: var(--st-border-strong) !important;
-    color: var(--st-text-primary) !important;
+    background-color: var(--at-bg-subtle) !important;
+    border-color: var(--at-border-strong) !important;
+    color: var(--at-text-primary) !important;
 
     &:hover {
-        background-color: var(--st-bg-elevated) !important;
-        border-color: var(--st-border-strong) !important;
+        background-color: var(--at-bg-elevated) !important;
+        border-color: var(--at-border-strong) !important;
     }
 }
 
 .btn-outline-primary {
-    border-color: var(--st-accent) !important;
-    color: var(--st-accent) !important;
+    border-color: var(--at-accent) !important;
+    color: var(--at-accent) !important;
 
     &:hover {
-        background-color: var(--st-accent) !important;
-        color: var(--st-text-inverse) !important;
+        background-color: var(--at-accent) !important;
+        color: var(--at-text-inverse) !important;
     }
 }
 
 .btn-outline-secondary {
-    border-color: var(--st-border-strong) !important;
-    color: var(--st-text-secondary) !important;
+    border-color: var(--at-border-strong) !important;
+    color: var(--at-text-secondary) !important;
 
     &:hover {
-        background-color: var(--st-bg-subtle) !important;
-        color: var(--st-text-primary) !important;
-        border-color: var(--st-border-strong) !important;
+        background-color: var(--at-bg-subtle) !important;
+        color: var(--at-text-primary) !important;
+        border-color: var(--at-border-strong) !important;
     }
 }
 
@@ -309,26 +309,26 @@ label {
 // Tables
 // -----------------------------------------------------------------------------
 .table {
-    color: var(--st-text-primary);
-    border-color: var(--st-border);
+    color: var(--at-text-primary);
+    border-color: var(--at-border);
 
     thead th {
-        background-color: var(--st-bg-subtle);
-        color: var(--st-text-muted);
-        border-color: var(--st-border);
-        font-size: var(--st-text-xs);
-        font-weight: var(--st-weight-semibold);
-        letter-spacing: var(--st-tracking-wider);
+        background-color: var(--at-bg-subtle);
+        color: var(--at-text-muted);
+        border-color: var(--at-border);
+        font-size: var(--at-fs-xs);
+        font-weight: var(--at-weight-semibold);
+        letter-spacing: var(--at-tracking-wider);
         text-transform: uppercase;
     }
 
     td, th {
-        border-color: var(--st-border);
-        color: var(--st-text-primary);
+        border-color: var(--at-border);
+        color: var(--at-text-primary);
     }
 
     tbody tr:hover {
-        background-color: var(--st-bg-subtle);
+        background-color: var(--at-bg-subtle);
     }
 
     &.table-striped tbody tr:nth-of-type(odd) {
@@ -340,18 +340,18 @@ label {
 // List Groups
 // -----------------------------------------------------------------------------
 .list-group-item {
-    background-color: var(--st-bg-surface);
-    border-color: var(--st-border);
-    color: var(--st-text-primary);
+    background-color: var(--at-bg-surface);
+    border-color: var(--at-border);
+    color: var(--at-text-primary);
 
     &:hover {
-        background-color: var(--st-bg-subtle);
+        background-color: var(--at-bg-subtle);
     }
 
     &.active {
-        background-color: var(--st-accent-subtle);
-        border-color: var(--st-accent);
-        color: var(--st-accent);
+        background-color: var(--at-accent-subtle);
+        border-color: var(--at-accent);
+        color: var(--at-accent);
     }
 }
 
@@ -359,20 +359,20 @@ label {
 // Modals
 // -----------------------------------------------------------------------------
 .modal-content {
-    background-color: var(--st-bg-elevated) !important;
-    border: 1px solid var(--st-border-strong) !important;
-    border-radius: var(--st-radius-lg) !important;
-    box-shadow: var(--st-shadow-xl) !important;
-    color: var(--st-text-primary);
+    background-color: var(--at-bg-elevated) !important;
+    border: 1px solid var(--at-border-strong) !important;
+    border-radius: var(--at-radius-lg) !important;
+    box-shadow: var(--at-shadow-xl) !important;
+    color: var(--at-text-primary);
 }
 
 .modal-header {
-    border-bottom: 1px solid var(--st-border) !important;
-    background-color: var(--st-bg-subtle);
+    border-bottom: 1px solid var(--at-border) !important;
+    background-color: var(--at-bg-subtle);
 
     .modal-title {
-        color: var(--st-text-primary);
-        font-weight: var(--st-weight-bold);
+        color: var(--at-text-primary);
+        font-weight: var(--at-weight-bold);
     }
 
     .btn-close {
@@ -382,42 +382,42 @@ label {
 }
 
 .modal-footer {
-    border-top: 1px solid var(--st-border) !important;
-    background-color: var(--st-bg-subtle);
+    border-top: 1px solid var(--at-border) !important;
+    background-color: var(--at-bg-subtle);
 }
 
 // -----------------------------------------------------------------------------
 // Alerts
 // -----------------------------------------------------------------------------
 .alert {
-    border-radius: var(--st-radius-md) !important;
+    border-radius: var(--at-radius-md) !important;
     border: none !important;
 
-    &.alert-success    { background-color: var(--st-success-subtle); color: var(--st-success); }
-    &.alert-danger     { background-color: var(--st-danger-subtle);  color: var(--st-danger);  }
-    &.alert-warning    { background-color: var(--st-warning-subtle); color: var(--st-warning); }
-    &.alert-info       { background-color: var(--st-info-subtle);    color: var(--st-info);    }
+    &.alert-success    { background-color: var(--at-success-subtle); color: var(--at-success); }
+    &.alert-danger     { background-color: var(--at-danger-subtle);  color: var(--at-danger);  }
+    &.alert-warning    { background-color: var(--at-warning-subtle); color: var(--at-warning); }
+    &.alert-info       { background-color: var(--at-info-subtle);    color: var(--at-info);    }
 }
 
 // -----------------------------------------------------------------------------
 // Breadcrumb
 // -----------------------------------------------------------------------------
 .breadcrumb {
-    background-color: var(--st-bg-subtle) !important;
-    border-radius: var(--st-radius-sm) !important;
+    background-color: var(--at-bg-subtle) !important;
+    border-radius: var(--at-radius-sm) !important;
 
     .breadcrumb-item {
-        color: var(--st-text-muted);
-        font-size: var(--st-text-sm);
+        color: var(--at-text-muted);
+        font-size: var(--at-fs-sm);
 
         a {
-            color: var(--st-text-secondary);
-            &:hover { color: var(--st-accent); }
+            color: var(--at-text-secondary);
+            &:hover { color: var(--at-accent); }
         }
 
-        &.active { color: var(--st-text-secondary); }
+        &.active { color: var(--at-text-secondary); }
 
-        + .breadcrumb-item::before { color: var(--st-text-muted); }
+        + .breadcrumb-item::before { color: var(--at-text-muted); }
     }
 }
 
@@ -426,21 +426,21 @@ label {
 // -----------------------------------------------------------------------------
 .page-item {
     .page-link {
-        background-color: var(--st-bg-surface);
-        border-color: var(--st-border);
-        color: var(--st-text-secondary);
+        background-color: var(--at-bg-surface);
+        border-color: var(--at-border);
+        color: var(--at-text-secondary);
 
         &:hover {
-            background-color: var(--st-bg-subtle);
-            border-color: var(--st-border-strong);
-            color: var(--st-text-primary);
+            background-color: var(--at-bg-subtle);
+            border-color: var(--at-border-strong);
+            color: var(--at-text-primary);
         }
     }
 
     &.active .page-link {
-        background-color: var(--st-accent) !important;
-        border-color: var(--st-accent) !important;
-        color: var(--st-text-inverse) !important;
+        background-color: var(--at-accent) !important;
+        border-color: var(--at-accent) !important;
+        color: var(--at-text-inverse) !important;
     }
 }
 
@@ -448,36 +448,36 @@ label {
 // Badges
 // -----------------------------------------------------------------------------
 .badge {
-    font-weight: var(--st-weight-semibold);
-    letter-spacing: var(--st-tracking-wide);
-    border-radius: var(--st-radius-full) !important;
+    font-weight: var(--at-weight-semibold);
+    letter-spacing: var(--at-tracking-wide);
+    border-radius: var(--at-radius-full) !important;
 }
 
 // -----------------------------------------------------------------------------
 // Tooltips & Popovers
 // -----------------------------------------------------------------------------
 .tooltip-inner {
-    background-color: var(--st-bg-elevated);
-    color: var(--st-text-primary);
-    border: 1px solid var(--st-border-strong);
-    border-radius: var(--st-radius-sm);
-    box-shadow: var(--st-shadow-md);
-    font-size: var(--st-text-sm);
+    background-color: var(--at-bg-elevated);
+    color: var(--at-text-primary);
+    border: 1px solid var(--at-border-strong);
+    border-radius: var(--at-radius-sm);
+    box-shadow: var(--at-shadow-md);
+    font-size: var(--at-fs-sm);
 }
 
 .popover {
-    background-color: var(--st-bg-elevated);
-    border: 1px solid var(--st-border-strong);
-    border-radius: var(--st-radius-md);
-    box-shadow: var(--st-shadow-lg);
+    background-color: var(--at-bg-elevated);
+    border: 1px solid var(--at-border-strong);
+    border-radius: var(--at-radius-md);
+    box-shadow: var(--at-shadow-lg);
 
     .popover-header {
-        background-color: var(--st-bg-subtle);
-        border-bottom: 1px solid var(--st-border);
-        color: var(--st-text-primary);
+        background-color: var(--at-bg-subtle);
+        border-bottom: 1px solid var(--at-border);
+        color: var(--at-text-primary);
     }
     .popover-body {
-        color: var(--st-text-secondary);
+        color: var(--at-text-secondary);
     }
 }
 
@@ -485,14 +485,14 @@ label {
 // Progress Bars
 // -----------------------------------------------------------------------------
 .progress {
-    background-color: var(--st-bg-subtle);
-    border-radius: var(--st-radius-full);
+    background-color: var(--at-bg-subtle);
+    border-radius: var(--at-radius-full);
     height: 6px;
     overflow: hidden;
 
     .progress-bar {
-        background-color: var(--st-accent);
-        border-radius: var(--st-radius-full);
+        background-color: var(--at-accent);
+        border-radius: var(--at-radius-full);
     }
 }
 
@@ -501,20 +501,20 @@ label {
 // -----------------------------------------------------------------------------
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-    color: var(--st-text-primary);
-    letter-spacing: var(--st-tracking-tight);
+    color: var(--at-text-primary);
+    letter-spacing: var(--at-tracking-tight);
 }
 
 // -----------------------------------------------------------------------------
 // Links
 // -----------------------------------------------------------------------------
 a {
-    color: var(--st-accent);
+    color: var(--at-accent);
     text-decoration: none;
-    transition: color var(--st-duration-fast) var(--st-ease);
+    transition: color var(--at-duration-fast) var(--at-ease);
 
     &:hover {
-        color: var(--st-accent-hover);
+        color: var(--at-accent-hover);
         text-decoration: none;
     }
 }
@@ -523,25 +523,25 @@ a {
 // Blocks (Moodle sidebar blocks)
 // -----------------------------------------------------------------------------
 .block {
-    background-color: var(--st-bg-surface) !important;
-    border: 1px solid var(--st-border) !important;
-    border-radius: var(--st-radius-md) !important;
+    background-color: var(--at-bg-surface) !important;
+    border: 1px solid var(--at-border) !important;
+    border-radius: var(--at-radius-md) !important;
     box-shadow: none;
 
     .card-header,
     .block-header {
-        background-color: var(--st-bg-subtle) !important;
-        border-bottom: 1px solid var(--st-border) !important;
-        color: var(--st-text-primary) !important;
-        font-size: var(--st-text-sm);
-        font-weight: var(--st-weight-semibold);
-        letter-spacing: var(--st-tracking-wide);
+        background-color: var(--at-bg-subtle) !important;
+        border-bottom: 1px solid var(--at-border) !important;
+        color: var(--at-text-primary) !important;
+        font-size: var(--at-fs-sm);
+        font-weight: var(--at-weight-semibold);
+        letter-spacing: var(--at-tracking-wide);
         text-transform: uppercase;
     }
 
     .card-body,
     .block-content {
-        color: var(--st-text-secondary);
+        color: var(--at-text-secondary);
     }
 }
 
@@ -549,27 +549,27 @@ a {
 // Moodle Activity List Items
 // -----------------------------------------------------------------------------
 .activity {
-    background-color: var(--st-bg-surface);
-    border: 1px solid var(--st-border);
-    border-radius: var(--st-radius-md);
-    margin-bottom: var(--st-space-2);
-    transition: border-color var(--st-duration-fast) var(--st-ease),
-                background-color var(--st-duration-fast) var(--st-ease);
+    background-color: var(--at-bg-surface);
+    border: 1px solid var(--at-border);
+    border-radius: var(--at-radius-md);
+    margin-bottom: var(--at-space-2);
+    transition: border-color var(--at-duration-fast) var(--at-ease),
+                background-color var(--at-duration-fast) var(--at-ease);
 
     &:hover {
-        border-color: var(--st-border-strong);
-        background-color: var(--st-bg-subtle);
+        border-color: var(--at-border-strong);
+        background-color: var(--at-bg-subtle);
     }
 
     .instancename,
     .activity-name {
-        color: var(--st-text-primary);
-        font-weight: var(--st-weight-medium);
+        color: var(--at-text-primary);
+        font-weight: var(--at-weight-medium);
     }
 
     .activity-description {
-        color: var(--st-text-secondary);
-        font-size: var(--st-text-sm);
+        color: var(--at-text-secondary);
+        font-size: var(--at-fs-sm);
     }
 }
 
@@ -577,43 +577,43 @@ a {
 .section-summary,
 .section-heading,
 h3.sectionname {
-    color: var(--st-text-primary) !important;
-    border-bottom: 1px solid var(--st-border);
-    padding-bottom: var(--st-space-3);
-    margin-bottom: var(--st-space-4);
+    color: var(--at-text-primary) !important;
+    border-bottom: 1px solid var(--at-border);
+    padding-bottom: var(--at-space-3);
+    margin-bottom: var(--at-space-4);
 }
 
 // -----------------------------------------------------------------------------
 // Footer
 // -----------------------------------------------------------------------------
 footer {
-    background-color: var(--st-bg-nav) !important;
-    border-top: 1px solid var(--st-border);
+    background-color: var(--at-bg-nav) !important;
+    border-top: 1px solid var(--at-border);
 
     .stream-footer {
-        background-color: var(--st-bg-nav) !important;
-        color: var(--st-text-secondary) !important;
+        background-color: var(--at-bg-nav) !important;
+        color: var(--at-text-secondary) !important;
 
         h5 {
-            color: var(--st-text-primary) !important;
-            letter-spacing: var(--st-tracking-wider);
+            color: var(--at-text-primary) !important;
+            letter-spacing: var(--at-tracking-wider);
         }
 
         a {
-            color: var(--st-text-secondary);
-            &:hover { color: var(--st-accent); }
+            color: var(--at-text-secondary);
+            &:hover { color: var(--at-accent); }
         }
 
         .socialmedia {
-            border-top-color: var(--st-border) !important;
+            border-top-color: var(--at-border) !important;
 
             .fa-brands {
-                color: var(--st-text-muted);
-                transition: color var(--st-duration-base) var(--st-ease),
-                            transform var(--st-duration-base) var(--st-ease);
+                color: var(--at-text-muted);
+                transition: color var(--at-duration-base) var(--at-ease),
+                            transform var(--at-duration-base) var(--at-ease);
 
                 &:hover {
-                    color: var(--st-accent) !important;
+                    color: var(--at-accent) !important;
                     transform: translateY(-3px);
                 }
             }
@@ -622,11 +622,11 @@ footer {
 
     .footer-credits {
         background-color: rgba(0, 0, 0, 0.4) !important;
-        border-top: 1px solid var(--st-border);
-        color: var(--st-text-muted) !important;
-        font-size: var(--st-text-xs);
+        border-top: 1px solid var(--at-border);
+        color: var(--at-text-muted) !important;
+        font-size: var(--at-fs-xs);
 
-        a { color: var(--st-text-muted); }
+        a { color: var(--at-text-muted); }
     }
 }
 
@@ -635,8 +635,8 @@ footer {
 // -----------------------------------------------------------------------------
 .popover-region-notifications {
     .notification-area {
-        background-color: var(--st-bg-elevated);
-        color: var(--st-text-primary);
+        background-color: var(--at-bg-elevated);
+        color: var(--at-text-primary);
     }
 }
 
@@ -644,16 +644,16 @@ footer {
 // Back to top button
 // -----------------------------------------------------------------------------
 #back-to-top .btn {
-    background-color: var(--st-bg-elevated) !important;
-    border: 1px solid var(--st-border-strong) !important;
-    color: var(--st-text-secondary) !important;
-    border-radius: var(--st-radius-full) !important;
-    box-shadow: var(--st-shadow-md);
+    background-color: var(--at-bg-elevated) !important;
+    border: 1px solid var(--at-border-strong) !important;
+    color: var(--at-text-secondary) !important;
+    border-radius: var(--at-radius-full) !important;
+    box-shadow: var(--at-shadow-md);
 
     &:hover {
-        background-color: var(--st-accent) !important;
-        border-color: var(--st-accent) !important;
-        color: var(--st-text-inverse) !important;
+        background-color: var(--at-accent) !important;
+        border-color: var(--at-accent) !important;
+        color: var(--at-text-inverse) !important;
     }
 }
 
@@ -661,41 +661,41 @@ footer {
 // Page header context
 // -----------------------------------------------------------------------------
 .page-context-header {
-    background: linear-gradient(135deg, var(--st-bg-elevated), var(--st-bg-subtle)) !important;
-    border: 1px solid var(--st-border) !important;
-    border-radius: var(--st-radius-md) !important;
-    color: var(--st-text-primary) !important;
-    box-shadow: var(--st-shadow-sm);
+    background: linear-gradient(135deg, var(--at-bg-elevated), var(--at-bg-subtle)) !important;
+    border: 1px solid var(--at-border) !important;
+    border-radius: var(--at-radius-md) !important;
+    color: var(--at-text-primary) !important;
+    box-shadow: var(--at-shadow-sm);
 
-    a { color: var(--st-text-primary) !important; }
+    a { color: var(--at-text-primary) !important; }
 }
 
 // -----------------------------------------------------------------------------
 // Misc Moodle UI
 // -----------------------------------------------------------------------------
 .page-header-headings h1 {
-    color: var(--st-text-primary);
-    font-weight: var(--st-weight-extrabold);
-    letter-spacing: var(--st-tracking-tight);
+    color: var(--at-text-primary);
+    font-weight: var(--at-weight-extrabold);
+    letter-spacing: var(--at-tracking-tight);
 }
 
 .action-menu-trigger a {
-    color: var(--st-text-secondary);
-    &:hover { color: var(--st-text-primary); }
+    color: var(--at-text-secondary);
+    &:hover { color: var(--at-text-primary); }
 }
 
 .completioncheckbox label {
-    color: var(--st-text-secondary);
+    color: var(--at-text-secondary);
 }
 
 .dimmed, .dimmed_text,
 a.dimmed, a.dimmed:link, a.dimmed:visited {
-    color: var(--st-text-muted) !important;
+    color: var(--at-text-muted) !important;
     opacity: 0.6;
 }
 
 hr {
-    border-color: var(--st-border);
+    border-color: var(--at-border);
     opacity: 1;
 }
 
@@ -705,10 +705,10 @@ hr {
     height: 6px;
 }
 ::-webkit-scrollbar-track {
-    background: var(--st-bg-base);
+    background: var(--at-bg-base);
 }
 ::-webkit-scrollbar-thumb {
-    background: var(--st-bg-subtle);
-    border-radius: var(--st-radius-full);
-    &:hover { background: var(--st-border-strong); }
+    background: var(--at-bg-subtle);
+    border-radius: var(--at-radius-full);
+    &:hover { background: var(--at-border-strong); }
 }

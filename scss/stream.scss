@@ -1,142 +1,179 @@
 // =============================================================================
-// STREAM THEME — MAIN SCSS ENTRY POINT
-// Dark-first design system build order matters: variables → Bootstrap → overrides
+// ATIPICO THEME — MAIN SCSS ENTRY POINT
+// Three-layer dark-first design system — build order is critical:
+//   Layer 0: $at-* SCSS primitives     (single source of truth, defined here)
+//   Layer 1: Bootstrap variable overrides (reference $at-* primitives)
+//   Layer 2: CSS custom properties      (in _tokens.scss, via #{} interpolation)
 // =============================================================================
 
-// -----------------------------------------------------------------------------
-// Bootstrap Variable Overrides — Dark-First
-// These must come BEFORE the Bootstrap import so utilities are generated correctly
-// -----------------------------------------------------------------------------
+// =============================================================================
+// LAYER 0 — SCSS Primitives ($at-*)
+// Raw named values. Never use directly in component CSS — always via CSS vars.
+// =============================================================================
 
-// Grayscale ramp (used throughout Bootstrap internals)
+// Dark surface scale: 950 = darkest (nav), 050 = lightest (text)
+$at-dark-950: #0A0C10 !default;   // nav, footer — absolute base
+$at-dark-900: #0D0F14 !default;   // page canvas / body
+$at-dark-800: #13161D !default;   // cards, panels, surface
+$at-dark-700: #191C24 !default;   // form inputs
+$at-dark-600: #1A1E27 !default;   // elevated: modals, dropdowns
+$at-dark-500: #21252E !default;   // subtle: hover, zebra, cap bg
+$at-dark-400: #2A2F3D !default;   // strong dividers
+$at-dark-300: #3D4452 !default;   // medium gray
+$at-dark-200: #5A6173 !default;   // muted text, placeholder
+$at-dark-150: #6B7380 !default;   // Bootstrap gray-400 equivalent
+$at-dark-100: #9BA3B2 !default;   // secondary text, labels
+$at-dark-050: #ECEEF2 !default;   // primary text (near-white)
+
+// Brand palette
+$at-gold:        #DAAA00 !default;   // DanKa primary gold
+$at-gold-bright: #F0C000 !default;   // hover / active state
+$at-gold-dim:    #B88C00 !default;   // subdued / pressed state
+$at-teal:        #298976 !default;   // DanKa secondary teal
+$at-teal-bright: #32A48F !default;   // teal hover state
+
+// Semantic feedback
+$at-success: #22C55E !default;
+$at-danger:  #EF4444 !default;
+$at-warning: #F59E0B !default;
+$at-info:    #3B82F6 !default;
+$at-cyan:    #06B6D4 !default;
+
+// =============================================================================
+// LAYER 1 — Bootstrap Variable Overrides
+// Must be defined BEFORE the Bootstrap @import below.
+// All values reference $at-* primitives — no raw hex values below this line.
+// =============================================================================
+
+// Grayscale ramp (Bootstrap internals rely on this)
 $white:    #fff !default;
-$gray-100: #ECEEF2 !default;
-$gray-200: #C8CDD6 !default;
-$gray-300: #9BA3B2 !default;
-$gray-400: #6B7380 !default;
-$gray-500: #5A6173 !default;
-$gray-600: #3D4452 !default;
-$gray-700: #2A2F3D !default;
-$gray-800: #1A1E27 !default;
-$gray-900: #0D0F14 !default;
+$gray-100: $at-dark-050 !default;
+$gray-200: #C8CDD6 !default;       // no primitive equivalent — intentional gap
+$gray-300: $at-dark-100 !default;
+$gray-400: $at-dark-150 !default;
+$gray-500: $at-dark-200 !default;
+$gray-600: $at-dark-300 !default;
+$gray-700: $at-dark-400 !default;
+$gray-800: $at-dark-600 !default;
+$gray-900: $at-dark-900 !default;
 $black:    #000 !default;
 
-// Semantic palette
-$blue:    #3B82F6 !default;
+// Semantic color assignments
+$blue:    $at-info !default;
 $indigo:  #6366F1 !default;
 $purple:  #8B5CF6 !default;
 $pink:    #EC4899 !default;
-$red:     #EF4444 !default;
-$orange:  #F59E0B !default;
-$yellow:  #DAAA00 !default;
-$green:   #22C55E !default;
-$teal:    #298976 !default;
-$cyan:    #06B6D4 !default;
+$red:     $at-danger !default;
+$orange:  $at-warning !default;
+$yellow:  $at-gold !default;
+$green:   $at-success !default;
+$teal:    $at-teal !default;
+$cyan:    $at-cyan !default;
 
-// Brand colors
-$primary:   #DAAA00 !default;   // Gold accent
-$secondary: #298976 !default;   // Teal accent
-$success:   $green !default;
-$info:      $cyan !default;
-$warning:   $orange !default;
-$danger:    $red !default;
+// Brand — overridable from Moodle admin settings (via lib.php pre-SCSS)
+$primary:   $at-gold !default;
+$secondary: $at-teal !default;
+$success:   $at-success !default;
+$info:      $at-cyan !default;
+$warning:   $at-warning !default;
+$danger:    $at-danger !default;
 
-$info-outline:    #06B6D4;
-$warning-outline: #D97706;
+$info-outline:    $at-cyan !default;
+$warning-outline: #D97706 !default;
 
 // Body — dark-first
-$body-bg:    #0D0F14 !default;
-$body-color: #ECEEF2 !default;
+$body-bg:    $at-dark-900 !default;
+$body-color: $at-dark-050 !default;
 
 // Cards
-$card-bg:              #13161D !default;
+$card-bg:              $at-dark-800 !default;
 $card-border-color:    rgba(255, 255, 255, 0.07) !default;
 $card-border-radius:   10px !default;
-$card-cap-bg:          #21252E !default;
-$card-cap-color:       #ECEEF2 !default;
-$card-color:           #ECEEF2 !default;
+$card-cap-bg:          $at-dark-500 !default;
+$card-cap-color:       $at-dark-050 !default;
+$card-color:           $at-dark-050 !default;
 
 // Inputs
-$input-bg:             #191C24 !default;
-$input-border-color:   rgba(255, 255, 255, 0.13) !default;
-$input-color:          #ECEEF2 !default;
-$input-placeholder-color: #5A6173 !default;
-$input-focus-border-color: #DAAA00 !default;
-$input-focus-box-shadow: 0 0 0 3px rgba(218, 170, 0, 0.10) !default;
-$input-disabled-bg:    #1A1E27 !default;
+$input-bg:                $at-dark-700 !default;
+$input-border-color:      rgba(255, 255, 255, 0.13) !default;
+$input-color:             $at-dark-050 !default;
+$input-placeholder-color: $at-dark-200 !default;
+$input-focus-border-color: $at-gold !default;
+$input-focus-box-shadow:  0 0 0 3px rgba(218, 170, 0, 0.10) !default;
+$input-disabled-bg:       $at-dark-600 !default;
 
 // Dropdowns
-$dropdown-bg:              #1A1E27 !default;
-$dropdown-border-color:    rgba(255, 255, 255, 0.13) !default;
-$dropdown-link-color:      #9BA3B2 !default;
-$dropdown-link-hover-color: #ECEEF2 !default;
-$dropdown-link-hover-bg:   #21252E !default;
-$dropdown-link-active-bg:  #DAAA00 !default;
-$dropdown-link-active-color: #0D0F14 !default;
-$dropdown-header-color:    #5A6173 !default;
-$dropdown-divider-bg:      rgba(255, 255, 255, 0.07) !default;
+$dropdown-bg:               $at-dark-600 !default;
+$dropdown-border-color:     rgba(255, 255, 255, 0.13) !default;
+$dropdown-link-color:       $at-dark-100 !default;
+$dropdown-link-hover-color: $at-dark-050 !default;
+$dropdown-link-hover-bg:    $at-dark-500 !default;
+$dropdown-link-active-bg:   $at-gold !default;
+$dropdown-link-active-color: $at-dark-900 !default;
+$dropdown-header-color:     $at-dark-200 !default;
+$dropdown-divider-bg:       rgba(255, 255, 255, 0.07) !default;
 
 // Modals
-$modal-content-bg:         #1A1E27 !default;
+$modal-content-bg:           $at-dark-600 !default;
 $modal-content-border-color: rgba(255, 255, 255, 0.13) !default;
-$modal-backdrop-opacity:   0.75 !default;
-$modal-header-border-color: rgba(255, 255, 255, 0.07) !default;
-$modal-footer-border-color: rgba(255, 255, 255, 0.07) !default;
+$modal-backdrop-opacity:     0.75 !default;
+$modal-header-border-color:  rgba(255, 255, 255, 0.07) !default;
+$modal-footer-border-color:  rgba(255, 255, 255, 0.07) !default;
 
 // List groups
-$list-group-bg:              #13161D !default;
-$list-group-border-color:    rgba(255, 255, 255, 0.07) !default;
-$list-group-item-bg-scale:   0% !default;
-$list-group-hover-bg:        #21252E !default;
-$list-group-action-color:    #9BA3B2 !default;
-$list-group-action-hover-color: #ECEEF2 !default;
-$list-group-active-bg:       #DAAA00 !default;
-$list-group-active-color:    #0D0F14 !default;
-$list-group-active-border-color: #DAAA00 !default;
+$list-group-bg:                 $at-dark-800 !default;
+$list-group-border-color:       rgba(255, 255, 255, 0.07) !default;
+$list-group-item-bg-scale:      0% !default;
+$list-group-hover-bg:           $at-dark-500 !default;
+$list-group-action-color:       $at-dark-100 !default;
+$list-group-action-hover-color: $at-dark-050 !default;
+$list-group-active-bg:          $at-gold !default;
+$list-group-active-color:       $at-dark-900 !default;
+$list-group-active-border-color: $at-gold !default;
 
 // Navbar
-$navbar-dark-hover-color:       rgba($white, 1) !default;
-$navbar-light-color:            rgba($white, 0.7) !default;
-$navbar-light-hover-color:      rgba($white, 1) !default;
+$navbar-dark-hover-color:   rgba($white, 1) !default;
+$navbar-light-color:        rgba($white, 0.7) !default;
+$navbar-light-hover-color:  rgba($white, 1) !default;
 
 // Tables
-$table-color:         #ECEEF2 !default;
-$table-bg:            transparent !default;
-$table-striped-bg:    rgba(255, 255, 255, 0.02) !default;
-$table-hover-bg:      rgba(255, 255, 255, 0.04) !default;
-$table-border-color:  rgba(255, 255, 255, 0.07) !default;
-$table-accent-bg:     rgba(255, 255, 255, 0.02) !default;
+$table-color:        $at-dark-050 !default;
+$table-bg:           transparent !default;
+$table-striped-bg:   rgba(255, 255, 255, 0.02) !default;
+$table-hover-bg:     rgba(255, 255, 255, 0.04) !default;
+$table-border-color: rgba(255, 255, 255, 0.07) !default;
+$table-accent-bg:    rgba(255, 255, 255, 0.02) !default;
 
-// Popover
-$popover-bg:              #1A1E27 !default;
-$popover-border-color:    rgba(255, 255, 255, 0.13) !default;
-$popover-body-color:      #9BA3B2 !default;
-$popover-header-bg:       #21252E !default;
-$popover-header-color:    #ECEEF2 !default;
-$popover-max-width:       300px !default;
+// Popovers
+$popover-bg:           $at-dark-600 !default;
+$popover-border-color: rgba(255, 255, 255, 0.13) !default;
+$popover-body-color:   $at-dark-100 !default;
+$popover-header-bg:    $at-dark-500 !default;
+$popover-header-color: $at-dark-050 !default;
+$popover-max-width:    300px !default;
 
 // Tooltips
-$tooltip-bg:           #1A1E27 !default;
-$tooltip-color:        #ECEEF2 !default;
-$tooltip-opacity:      1 !default;
+$tooltip-bg:      $at-dark-600 !default;
+$tooltip-color:   $at-dark-050 !default;
+$tooltip-opacity: 1 !default;
 
 // Pagination
-$pagination-bg:                #13161D !default;
-$pagination-border-color:      rgba(255, 255, 255, 0.07) !default;
-$pagination-color:             #9BA3B2 !default;
-$pagination-hover-bg:          #21252E !default;
+$pagination-bg:                 $at-dark-800 !default;
+$pagination-border-color:       rgba(255, 255, 255, 0.07) !default;
+$pagination-color:              $at-dark-100 !default;
+$pagination-hover-bg:           $at-dark-500 !default;
 $pagination-hover-border-color: rgba(255, 255, 255, 0.13) !default;
-$pagination-hover-color:       #ECEEF2 !default;
-$pagination-active-bg:         #DAAA00 !default;
-$pagination-active-border-color: #DAAA00 !default;
-$pagination-active-color:      #0D0F14 !default;
-$pagination-disabled-bg:       #13161D !default;
+$pagination-hover-color:        $at-dark-050 !default;
+$pagination-active-bg:          $at-gold !default;
+$pagination-active-border-color: $at-gold !default;
+$pagination-active-color:       $at-dark-900 !default;
+$pagination-disabled-bg:        $at-dark-800 !default;
 $pagination-disabled-border-color: rgba(255, 255, 255, 0.07) !default;
 
 // Toast
-$toast-color:                #ECEEF2 !default;
-$toast-background-color:     rgba(26, 30, 39, 0.97) !default;
-$toast-header-color:         #9BA3B2 !default;
+$toast-color:                  $at-dark-050 !default;
+$toast-background-color:       rgba(26, 30, 39, 0.97) !default;
+$toast-header-color:           $at-dark-100 !default;
 $toast-header-background-color: rgba(255, 255, 255, 0.05) !default;
 
 // Breadcrumb
@@ -157,27 +194,27 @@ $border-radius-lg: .625rem !default;
 $border-radius-sm: .25rem !default;
 
 // Buttons
-$btn-focus-box-shadow:   0 0 0 3px rgba(218, 170, 0, 0.20) !default;
+$btn-focus-box-shadow: 0 0 0 3px rgba(218, 170, 0, 0.20) !default;
 
 // Links
-$link-color:            #DAAA00 !default;
-$link-hover-color:      #F0C000 !default;
+$link-color:            $at-gold !default;
+$link-hover-color:      $at-gold-bright !default;
 $link-decoration:       none !default;
 $link-hover-decoration: none !default;
 
 // Typography
-$font-size-base:         0.9375rem !default;
-$rfs-base-font-size:     0.9rem !default;
-$headings-font-weight:   700 !default;
-$headings-color:         #ECEEF2 !default;
-$text-muted:             #5A6173 !default;
+$font-size-base:       0.9375rem !default;
+$rfs-base-font-size:   0.9rem !default;
+$headings-font-weight: 700 !default;
+$headings-color:       $at-dark-050 !default;
+$text-muted:           $at-dark-200 !default;
 
 // Custom control
 $custom-control-indicator-size: 1.25rem;
 $input-btn-focus-color: rgba($primary, .25) !default;
 
 // Footer
-$footercolor: #0A0C10 !default;
+$footercolor: $at-dark-950 !default;
 
 // Options
 $enable-responsive-font-sizes: true !default;
@@ -216,7 +253,7 @@ $slideropacity4: 0 !default;
 $isticky: 0 !default;
 
 // -----------------------------------------------------------------------------
-// Theme map — merge custom colors into Bootstrap's map
+// Theme color map — merge custom colors into Bootstrap's map
 // -----------------------------------------------------------------------------
 // stylelint-disable
 $theme-colors: () !default;
@@ -230,22 +267,22 @@ $theme-colors: map-merge((
 ), $theme-colors);
 // stylelint-enable
 
-// -----------------------------------------------------------------------------
+// =============================================================================
 // Bootstrap & Moodle Core imports
-// Order is critical — variables must be set before these
-// -----------------------------------------------------------------------------
+// Order is critical — all Layer 0 + Layer 1 variables must be set before these
+// =============================================================================
 @import "../../boost/scss/fontawesome.scss";
 @import "../../boost/scss/bootstrap.scss";
 @import "../../boost/scss/moodle.scss";
 
-// -----------------------------------------------------------------------------
-// Theme-specific imports
-// -----------------------------------------------------------------------------
-@import "_tokens.scss";          // CSS custom properties design token system
-@import "_typography.scss";      // Font loading and family rules
-@import "_dark.scss";            // Dark mode global overrides
+// =============================================================================
+// LAYER 2 — Theme-specific imports (CSS custom properties + component styles)
+// =============================================================================
+@import "_tokens.scss";          // CSS custom properties (exposes $at-* as --at-*)
+@import "_typography.scss";      // Font loading and type rules
+@import "_dark.scss";            // Dark mode global component overrides
 @import "_interface.scss";       // Page-specific UI (frontpage, login, course)
-@import "_courseCompletionProgress.scss";  // Circular progress ring
+@import "_courseCompletionProgress.scss";  // Circular progress ring widget
 @import "_incourse.scss";        // Course index and activity icons
 
 // -----------------------------------------------------------------------------
@@ -257,7 +294,7 @@ body {
 }
 
 .navbar {
-    box-shadow: 0 1px 0 var(--st-border);
+    box-shadow: 0 1px 0 var(--at-border);
 }
 
 .userpicture {
