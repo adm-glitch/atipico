@@ -65,6 +65,14 @@ defined('MOODLE_INTERNAL') || die();
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
+    // Social media master toggle.
+    $name = 'theme_atipico/disablesocialmedia';
+    $title = get_string('disablesocialmedia', 'theme_atipico');
+    $description = get_string('disablesocialmedia_desc', 'theme_atipico');
+    $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
+    $setting->set_updatedcallback('theme_reset_all_caches');
+    $page->add($setting);
+
     // Footer color.
     $name = 'theme_atipico/footercolor';
     $title = get_string('footercolor', 'theme_atipico', '', true);

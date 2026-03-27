@@ -35,3 +35,13 @@ $templatecontext['linkedinurl'] = $themesettings->linkedinurl;
 $templatecontext['twitterurl'] = $themesettings->twitterurl;
 $templatecontext['leftcolumn'] = format_text($themesettings->leftcolumn, FORMAT_HTML);
 $templatecontext['centercolumn'] = format_text($themesettings->centercolumn, FORMAT_HTML);
+
+// Social media section: hidden if the master toggle is off,
+// OR if every URL field is empty (nothing to show).
+$anysocial = !empty($themesettings->facebookurl)
+    || !empty($themesettings->instagramurl)
+    || !empty($themesettings->pinteresturl)
+    || !empty($themesettings->youtubeurl)
+    || !empty($themesettings->linkedinurl)
+    || !empty($themesettings->twitterurl);
+$templatecontext['showsocialmedia'] = empty($themesettings->disablesocialmedia) && $anysocial;
