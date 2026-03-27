@@ -29,23 +29,46 @@ body {
         color: var(--at-text-primary) !important;
     }
 
-    // Mobile home button — replace text/icon with Danka logo
+    // Navbar brand — replace site shortname text with Danka logo
+    .navbar-brand {
+        font-size: 0 !important;        // hide "danka-teste" text node
+        color: transparent !important;
+
+        &::before {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 40px;
+            background-image: url([[pix:theme_atipico|danka-logo]]);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+
+    // Drawer toggle (mobile) — replace hamburger icon with Danka logo
     .navbar-toggler.aabtn.d-md-none {
         width: 44px;
         height: 44px;
         padding: 2px !important;
-        background-image: url([[pix:theme|danka-logo]]);
-        background-size: contain;
-        background-repeat: no-repeat;
-        background-position: center;
         background-color: transparent !important;
         border: none !important;
         box-shadow: none !important;
 
-        // Hide all child text and icons
-        color: transparent !important;
-        font-size: 0 !important;
-        i, span, svg, img { display: none !important; }
+        // Show logo, hide hamburger span and visually-hidden text
+        .navbar-toggler-icon { display: none !important; }
+        .visually-hidden { display: none !important; }
+
+        &::before {
+            content: '';
+            display: block;
+            width: 40px;
+            height: 40px;
+            background-image: url([[pix:theme_atipico|danka-logo]]);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
     }
 
     .nav-link:hover,
