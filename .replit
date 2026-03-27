@@ -15,19 +15,18 @@ author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "workflow.run"
-args = "Start application"
+args = "Theme info"
 
 [[workflows.workflow]]
-name = "Start application"
+name = "Theme info"
 author = "agent"
 
 [[workflows.workflow.tasks]]
 task = "shell.exec"
-args = "/home/runner/start-moodle.sh"
-waitForPort = 5000
+args = "echo 'Moodle Stream Theme — edit files in /home/runner/workspace and push to GitHub.' && php -l config.php && php -l lib.php && php -l settings.php && echo 'All PHP files OK.'"
 
 [workflows.workflow.metadata]
-outputType = "webview"
+outputType = "console"
 
 [[ports]]
 localPort = 5000
