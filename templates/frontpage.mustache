@@ -15,7 +15,7 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    @template theme_stream/homepage
+    @template theme_atipico/homepage
 
     Stream Theme Homepage template
 
@@ -75,24 +75,24 @@
                         {{#headercontent}}
                             {{> core/activity_header }}
                         {{/headercontent}}
-                            {{> theme_stream/partials/main_slider }}
+                            {{> theme_atipico/partials/main_slider }}
                         <div class="top-block-region container d-print-none" aria-label="{{#str}}blocks{{/str}}">
                             {{{ addtopblock }}}
                             {{{ topblock }}}
                         </div>
                         {{#catwidget}}
                         <div class="widgets container mt-5 widget-catwidget">
-                            {{> theme_stream/partials/widget_course_categories}}
+                            {{> theme_atipico/partials/widget_course_categories}}
                         </div>
                         {{/catwidget}}
                         {{#promoboxwidget}}
                         <div class="widgets mt-5 widget-promobox">
-                            {{> theme_stream/partials/widget_promobox}}
+                            {{> theme_atipico/partials/widget_promobox}}
                         </div>
                         {{/promoboxwidget}}
                         {{#featuredcourseswidget}}
                         <div class="widgets mt-5 widget-featuredcourses">
-                            {{> theme_stream/partials/widget_featured_courses}}
+                            {{> theme_atipico/partials/widget_featured_courses}}
                         </div>
                         {{/featuredcourseswidget}}
                         <div class="container">
@@ -104,7 +104,7 @@
                 </div>
             </div>
         </div>
-        {{> theme_stream/partials/footer }}
+        {{> theme_atipico/partials/footer }}
     </div>
     {{{ output.standard_after_main_region_html }}}
 </div>

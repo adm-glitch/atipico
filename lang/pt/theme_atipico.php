@@ -17,7 +17,7 @@
 /**
  * Plugin strings are defined here.
  *
- * @package     theme_stream
+ * @package     theme_atipico
  * @category    string
  * @copyright   2022 Hugo Ribeiro <ribeiro.hugo@gmail.com>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -41,7 +41,7 @@ $string['centercolumn'] = 'Coluna central.';
 $string['centercolumn_desc'] = 'Conteúdo HTML para ser lido na coluna central do rodapé. Normalmente é uma lista de links, mas pode ser qualquer conteúdo. Tenha em mente apenas que o rodapé está dividido em 3 colunas.';
 $string['choosencats'] = 'Categorias a apresentar';
 $string['choosencats_desc'] = 'Escolha as categorias que pretende apresentar no widget. Não adicione demasiadas categorias.';
-$string['choosereadme'] = 'Tema Stream';
+$string['choosereadme'] = 'Tema Atipico';
 $string['colours'] = 'Definição de cores';
 $string['counthiddencourses'] = 'Incluir disciplinas ocultas';
 $string['counthiddencourses_desc'] = 'Se ativado contabiliza o número total de disciplinas em cada categoria incluindo as ocultas.';
@@ -80,7 +80,7 @@ $string['fonts'] = 'Fonts';
 $string['footercolor'] = 'Cor do rodapé grande';
 $string['footercolor_desc'] = 'Cor de fundo do rodapé grande onde se encontram os ícones das redes sociais.';
 $string['footersettings'] = 'Conteúdo para rodapé';
-$string['frontendby'] = 'Através do tema Stream';
+$string['frontendby'] = 'Tema Atipico';
 $string['frontpagestream'] = 'Opções página inicial';
 $string['fullwidthpage'] = 'Full width';
 $string['fullwidthpage_desc'] = 'Full width em todas as páginas. Se estiver desselecionado aplica-se o comportamento standard de base.';
@@ -126,7 +126,7 @@ $string['next'] = 'Seguinte';
 $string['nextactivity'] = 'Atividade seguinte';
 $string['noresults'] = 'Sem qualquer resultado a apresentar';
 $string['pinteresturl'] = 'Endereço Pinterest';
-$string['pluginname'] = 'Stream';
+$string['pluginname'] = 'Atipico';
 $string['prev'] = 'Anterior';
 $string['prevactivity'] = 'Atividade anterior';
 $string['primarycolour'] = 'Cor principal';
@@ -147,12 +147,12 @@ $string['slidestotal_desc'] = 'Escolha aqui o número de itens que quer apresent
 $string['socialmedia'] = 'Redes Sociais';
 $string['stickynav'] = 'Menu secundário fixo';
 $string['stickynav_desc'] = 'Fixa o menu secundário horizontal para que esteja sempre acessível.';
-$string['stream:changesettings'] = 'Permissão para permitir utilizadores que não administradores possam alterar configurações do tema.';
+$string['atipico:changesettings'] = 'Permissão para permitir utilizadores que não administradores possam alterar configurações do tema.';
 $string['themesettings'] = 'Configurações do tema';
 $string['twitterurl'] = 'Twitter URL';
-$string['usingstreamtheme'] = 'a usar o tema Stream';
+$string['usingstreamtheme'] = 'a usar o tema Atipico';
 $string['youtubeurl'] = 'Endereço Youtube';
 // Privacy API.
-$string['privacy:metadata'] = 'O tema Stream não guarda qualquer dado pessoal sobre qualquer utilizador.';
+$string['privacy:metadata'] = 'O tema Atipico não guarda qualquer dado pessoal sobre qualquer utilizador.';
 $string['homepageheroopacity'] = 'Opacidade sobre a foto';
 $string['homepageheroopacity_desc'] = 'Opacidade. 0 transparente, 10 cinzento escuro opaco';

@@ -17,7 +17,7 @@
 /**
  * Theme capabilities are defined here.
  *
- * @package     theme_stream
+ * @package     theme_atipico
  * @copyright   2023 Hugo Ribeiro <ribeiro.hugo@gmail.com>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -25,7 +25,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 $capabilities = [
-    'theme/stream:changesettings' => [
+    'theme/atipico:changesettings' => [
         'riskbitmask' => RISK_CONFIG,
         'captype' => 'write',
         'contextlevel' => CONTEXT_SYSTEM,

@@ -15,9 +15,9 @@
 // along with Moodle.  If not, see <https://www.gnu.org/licenses/>.
 
 /**
- * The configuration for theme_stream is defined here.
+ * The configuration for theme_atipico is defined here.
  *
- * @package     theme_stream
+ * @package     theme_atipico
  * @copyright   2021 Hugo Ribeiro <ribeiro.hugo@gmail.com>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -44,7 +44,7 @@ $THEME->rendererfactory = 'theme_overridden_renderer_factory';
 
 // Loads the main SCSS file and starting point. Defined in lib.php.
 $THEME->scss = function($theme) {
-    return theme_stream_get_main_scss_content($theme);
+    return theme_atipico_get_main_scss_content($theme);
 };
 
 $THEME->haseditswitch = true;
@@ -53,10 +53,10 @@ $THEME->haseditswitch = true;
 $THEME->addblockposition = BLOCK_ADDBLOCK_POSITION_FLATNAV;
 
 // Support for the extra SCSS read read from theme settings.
-$THEME->prescsscallback = 'theme_stream_get_pre_scss';
+$THEME->prescsscallback = 'theme_atipico_get_pre_scss';
 
 // Extra SCSS.
-$THEME->extrascsscallback = 'theme_stream_get_extra_scss';
+$THEME->extrascsscallback = 'theme_atipico_get_extra_scss';
 
 // On M4.0 sets if should repeat MODs title.
 $THEME->activityheaderconfig = [
@@ -64,7 +64,7 @@ $THEME->activityheaderconfig = [
 ];
 
 // Remove main menu nodes given the theme settings.
-$THEME->removedprimarynavitems = explode("," , get_config('theme_stream', 'hideprimarynodes'));
+$THEME->removedprimarynavitems = explode("," , get_config('theme_atipico', 'hideprimarynodes'));
 
 // Used layouts.
 $THEME->layouts = [

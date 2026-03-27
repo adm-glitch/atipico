@@ -17,14 +17,14 @@
 /**
  * Plugin version and other meta-data are defined here.
  *
- * @package     theme_stream
+ * @package     theme_atipico
  * @copyright   2022 Hugo Ribeiro <ribeiro.hugo@gmail.com>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->component = 'theme_stream';
+$plugin->component = 'theme_atipico';
 $plugin->release = '2.0-danka';
 $plugin->version = 2026032700;
 $plugin->requires = 2024100700;

@@ -17,12 +17,12 @@
 /**
  * Plugin version and other meta-data are defined here.
  *
- * @package     theme_stream
+ * @package     theme_atipico
  * @copyright   2022 Hugo Ribeiro <ribeiro.hugo@gmail.com>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
 
-namespace theme_stream\output\core;
+namespace theme_atipico\output\core;
 
 /**
  * The core course renderer
@@ -48,7 +48,7 @@ class course_renderer extends \core_course_renderer {
             // Removes the hard coded icon.
             $prevoriginal = substr($prevoriginal, 9);
             // Replaces the activity name for the theme string.
-            $prevlink = str_replace($prevoriginal, get_string('prevactivity', 'theme_stream'), $prevoriginal);
+            $prevlink = str_replace($prevoriginal, get_string('prevactivity', 'theme_atipico'), $prevoriginal);
             // Adds a new icon.
             $data->prevlink->text = '<i class="fa fa-arrow-circle-left" aria-hidden="true"></i> ' .$prevlink;
             // Tooltip data.
@@ -64,7 +64,7 @@ class course_renderer extends \core_course_renderer {
             // Removes the hard coded icon.
             $nextoriginal = substr($nextoriginal, 0, -9);
             // Replaces the activity name for the theme string.
-            $nextlink = str_replace($nextoriginal, get_string('nextactivity', 'theme_stream'), $nextoriginal);
+            $nextlink = str_replace($nextoriginal, get_string('nextactivity', 'theme_atipico'), $nextoriginal);
             // Adds a new icon.
             $data->nextlink->text = '<i class="fa fa-arrow-circle-right" aria-hidden="true"></i> ' .$nextlink;
             // Tooltip data.

@@ -17,7 +17,7 @@
 /**
  * Hook callbacks for Stream
  *
- * @package    theme_stream
+ * @package    theme_atipico
  * @copyright  2024 Hugo Ribeiro <hugo@moodlar.pt>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -28,7 +28,7 @@ $callbacks = [
 
     [
         'hook' => core\hook\navigation\primary_extend::class,
-        'callback' => 'theme_stream\local\hooks\navigation\primary_extend::callback',
+        'callback' => 'theme_atipico\local\hooks\navigation\primary_extend::callback',
         'priority' => 0,
     ],
 ];

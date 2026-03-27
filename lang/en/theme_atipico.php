@@ -17,7 +17,7 @@
 /**
  * Stream theme original text strings-
  *
- * @package     theme_stream
+ * @package     theme_atipico
  * @category    string
  * @copyright   2022 Hugo Ribeiro <ribeiro.hugo@gmail.com>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -42,9 +42,9 @@ $string['centercolumn'] = 'Center column.';
 $string['centercolumn_desc'] = 'HTML content to include in the center column. Usually a list links but it can be any HTML. Bear in mind that the footer is rendered in 3 columns.';
 $string['choosencats'] = 'Categories to show';
 $string['choosencats_desc'] = 'Choose categories to show in the widget. Don\'t select too many.';
-$string['choosereadme'] = 'Stream theme';
+$string['choosereadme'] = 'Atipico theme';
 $string['colours'] = 'Colours settings';
-$string['configtitle'] = 'Stream';
+$string['configtitle'] = 'Atipico';
 $string['counthiddencourses'] = 'Count hidden courses';
 $string['counthiddencourses_desc'] = 'If enabled, counts the total number of courses in categories including the hidden ones.';
 $string['coursecardimage'] = 'Course card image';
@@ -84,7 +84,7 @@ $string['fonts'] = 'Font type';
 $string['footercolor'] = 'Big footer color';
 $string['footercolor_desc'] = 'Main footer background color';
 $string['footersettings'] = 'Footer content';
-$string['frontendby'] = 'Frontend by Stream theme';
+$string['frontendby'] = 'Atipico theme';
 $string['frontpagestream'] = 'Frontpage settings';
 $string['fullwidthpage'] = 'Full width';
 $string['fullwidthpage_desc'] = 'Full width across all the site. Default behaviour from Boost if empty.';
@@ -129,7 +129,7 @@ $string['next'] = 'Next';
 $string['nextactivity'] = 'Next activity';
 $string['noresults'] = 'Found no results';
 $string['pinteresturl'] = 'Pinterest URL';
-$string['pluginname'] = 'Stream';
+$string['pluginname'] = 'Atipico';
 $string['prev'] = 'Previous';
 $string['prevactivity'] = 'Previous activity';
 $string['primarycolour'] = 'Main colour';
@@ -150,14 +150,14 @@ $string['slidestotal_desc'] = 'Select here how many items you wanto to include o
 $string['socialmedia'] = 'Social Media';
 $string['stickynav'] = 'Sticky secondary menu';
 $string['stickynav_desc'] = 'Make secondary menu always visible';
-$string['stream:changesettings'] = 'Capability to allow non admin users to change theme settings.';
+$string['atipico:changesettings'] = 'Capability to allow non admin users to change theme settings.';
 $string['themesettings'] = 'Theme settings';
 $string['twitterurl'] = 'Twitter URL';
-$string['usingstreamtheme'] = 'with Stream Theme';
+$string['usingstreamtheme'] = 'with Atipico Theme';
 $string['youtubeurl'] = 'Youtube URL';
 
 // Privacy API.
-$string['privacy:metadata'] = 'Stream theme does not store any personal data about any user.';
+$string['privacy:metadata'] = 'Atipico theme does not store any personal data about any user.';
 $string['featuredcategoriessubtitle'] = 'Categories widget subtitle';
 $string['featuredcategoriessubtitle_desc'] = 'A simple text to use as subtitle for the widget. Will show nothing if setting is empy.';
 // End of Privacy API.

@@ -17,7 +17,7 @@
 /**
  * Theme frontpage based on Boost drawers.
  *
- * @package   theme_stream
+ * @package   theme_atipico
  * @copyright 2022 Hugo Ribeiro ribeiro.hugo@gmail.com
  * @copyright based on 2021 Bas Brands
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -83,7 +83,7 @@ $header = $PAGE->activityheader;
 $headercontent = $header->export_for_template($renderer);
 
 // Loads theme settings.
-$theme = theme_config::load('stream');
+$theme = theme_config::load('atipico');
 
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
@@ -142,7 +142,7 @@ $templatecontext = array_merge($templatecontext, $data);
 
 // Categories Widget.
 if ($theme->settings->catwidget ) {
-    $templatecontext = array_merge($templatecontext, theme_stream_show_catfrontpage());
+    $templatecontext = array_merge($templatecontext, theme_atipico_show_catfrontpage());
 }
 
 // Promobox Widget.
@@ -164,11 +164,11 @@ $templatecontext = array_merge($templatecontext, $promodata);
 // Loads backtotop button.
 $backtotopbutton = $theme->settings->backtotopbutton;
 if ($backtotopbutton) {
-    $PAGE->requires->js_call_amd('theme_stream/backtotop', 'init');
+    $PAGE->requires->js_call_amd('theme_atipico/backtotop', 'init');
 }
 
 // Featured courses Widget.
 if ($theme->settings->featuredcourseswidget) {
-    $templatecontext = array_merge($templatecontext, theme_stream_show_featured_courses());
+    $templatecontext = array_merge($templatecontext, theme_atipico_show_featured_courses());
 }
-echo $OUTPUT->render_from_template('theme_stream/frontpage', $templatecontext);
+echo $OUTPUT->render_from_template('theme_atipico/frontpage', $templatecontext);

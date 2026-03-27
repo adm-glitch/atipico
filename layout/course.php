@@ -17,7 +17,7 @@
 /**
  * Course layout based on drawers layout.
  *
- * @package   theme_stream
+ * @package   theme_atipico
  * @copyright 2022 Hugo Ribeiro ribeiro.hugo@gmail.com
  * @copyright based on 2021 Bas Brands
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -91,7 +91,7 @@ $regionmainsettingsmenu = $buildregionmainsettings ? $OUTPUT->region_main_settin
 $header = $PAGE->activityheader;
 $headercontent = $header->export_for_template($renderer);
 
-$theme = theme_config::load('stream');
+$theme = theme_config::load('atipico');
 
 
 $templatecontext = [
@@ -127,7 +127,7 @@ require_once(__DIR__ . '/includes/scrollspy.php');
 // Loads backtotop button. hribeiro dec2022.
 $backtotopbutton = $theme->settings->backtotopbutton;
 if ($backtotopbutton) {
-    $PAGE->requires->js_call_amd('theme_stream/backtotop', 'init');
+    $PAGE->requires->js_call_amd('theme_atipico/backtotop', 'init');
 }
 
 // Check for the option to print a course index heading.
@@ -138,4 +138,4 @@ if ($courseindexheading != 0) {
     $templatecontext['courseindexheading'] = null;
 }
 
-echo $OUTPUT->render_from_template('theme_stream/course', $templatecontext);
+echo $OUTPUT->render_from_template('theme_atipico/course', $templatecontext);

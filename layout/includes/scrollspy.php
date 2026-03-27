@@ -17,11 +17,11 @@
 /**
  * Calls the scrollspy script.
  *
- * @package   theme_stream
+ * @package   theme_atipico
  * @copyright 2022 hribeiro
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$PAGE->requires->js_call_amd('theme_stream/scrollspy', 'init');
+$PAGE->requires->js_call_amd('theme_atipico/scrollspy', 'init');

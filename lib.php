@@ -17,7 +17,7 @@
 /**
  * Theme lib containing functions.
  *
- * @package     theme_stream
+ * @package     theme_atipico
  * @copyright   2022 Hugo Ribeiro <ribeiro.hugo@gmail.com>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -34,13 +34,13 @@
  * @param array $options
  * @return bool
  */
-function theme_stream_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = []) {
+function theme_atipico_pluginfile($course, $cm, $context, $filearea, $args, $forcedownload, array $options = []) {
     // Settings fileareas. Any new uploadsetting filearea should be added to array.
     $uploadsettings = ['loginimg', 'homepagepromoboximage', 'favicon', 'catwidgetimage', 'coursecardimage', 'courseheaderimg',
     'homepageheroimage0', 'homepageheroimage1', 'homepageheroimage2', 'homepageheroimage3', 'homepageheroimage4', ];
 
     if ($context->contextlevel == CONTEXT_SYSTEM && in_array($filearea, $uploadsettings)) {
-        $theme = theme_config::load('stream');
+        $theme = theme_config::load('atipico');
         // By default, theme files must be cache-able by both browsers and proxies.
         if (!array_key_exists('cacheability', $options)) {
             $options['cacheability'] = 'public';
@@ -56,9 +56,9 @@ function theme_stream_pluginfile($course, $cm, $context, $filearea, $args, $forc
  *
  * @return string
  */
-function theme_stream_get_main_scss_content() {
+function theme_atipico_get_main_scss_content() {
     global $CFG;
-        $scss = file_get_contents($CFG->dirroot . '/theme/stream/scss/stream.scss');
+        $scss = file_get_contents($CFG->dirroot . '/theme/atipico/scss/stream.scss');
 
     return $scss;
 }
@@ -69,7 +69,7 @@ function theme_stream_get_main_scss_content() {
  * @param theme_config $theme The theme config object.
  * @return array
  */
-function theme_stream_get_pre_scss($theme) {
+function theme_atipico_get_pre_scss($theme) {
     $scss = '';
 
     $configurable = [
@@ -91,8 +91,8 @@ function theme_stream_get_pre_scss($theme) {
         // Pushes to the array.
         $configurable['homepageheroopacity'.$i] = ['slideropacity'.$i];
         // If the setting is empty we set a default value to compile scss.
-        if ( get_config('theme_stream', 'homepageheroopacity'.$i) == null) {
-            set_config('homepageheroopacity'.$i, 0.5, 'theme_stream');
+        if ( get_config('theme_atipico', 'homepageheroopacity'.$i) == null) {
+            set_config('homepageheroopacity'.$i, 0.5, 'theme_atipico');
         }
         $i++;
     }
@@ -121,7 +121,7 @@ function theme_stream_get_pre_scss($theme) {
  * @param theme_config $theme The theme config object.
  * @return string
  */
-function theme_stream_get_extra_scss($theme) {
+function theme_atipico_get_extra_scss($theme) {
     $content = '';
 
     // Always return the background image with the scss when we have it.
@@ -134,7 +134,7 @@ function theme_stream_get_extra_scss($theme) {
  * @param  int $id
  * @return string
  */
-function theme_stream_get_course_image($id) {
+function theme_atipico_get_course_image($id) {
     global $CFG;
     $url = '';
     require_once( $CFG->libdir . '/filelib.php' );
@@ -155,10 +155,10 @@ function theme_stream_get_course_image($id) {
  *
  * @return array
  */
-function theme_stream_show_catfrontpage() {
+function theme_atipico_show_catfrontpage() {
     global $OUTPUT;
     // Loads theme settings.
-    $theme = theme_config::load('stream');
+    $theme = theme_config::load('atipico');
 
     // Sets the number of rows for the grid layout.
     $templatecontext['catwidgetcolumns'] = $theme->settings->catwidgetcolumns;
@@ -203,7 +203,7 @@ function theme_stream_show_catfrontpage() {
             $templatecontext['categories'][$n]['id'] = $category->id;
             if (!empty($courses)) {
                 foreach ($courses as $course) {
-                    $imgurl = theme_stream_get_course_image($course->id);
+                    $imgurl = theme_atipico_get_course_image($course->id);
                     if (!empty($imgurl)) {
                         $templatecontext['categories'][$n]['imgurl'] = $imgurl;
                         break;
@@ -235,10 +235,10 @@ function theme_stream_show_catfrontpage() {
  *
  * @return array
  */
-function theme_stream_show_featured_courses() {
+function theme_atipico_show_featured_courses() {
     global $DB, $OUTPUT;
     // Loads theme settings.
-    $theme = theme_config::load('stream');
+    $theme = theme_config::load('atipico');
     $count = $theme->settings->featuredcoursesmax;
     $sql = 'SELECT  c.id, c.fullname, c.shortname, c.summary, c.startdate, c.category, c.visible ';
     $sql .= 'FROM {course} c ';
@@ -283,7 +283,7 @@ function theme_stream_show_featured_courses() {
         }
         // If the course is hidden we print a notice.
         if (!$course->visible) {
-            $templatecontext['featuredcourses'][$n]['hidden'] = get_string('availablesoon', 'theme_stream');
+            $templatecontext['featuredcourses'][$n]['hidden'] = get_string('availablesoon', 'theme_atipico');
         }
         $templatecontext['featuredcourses'][$n]['summary'] = format_text($course->summary);
         // Print course tags.
@@ -293,7 +293,7 @@ function theme_stream_show_featured_courses() {
         if ($theme->settings->featuredcoursesstartdate) {
             $templatecontext['featuredcourses'][$n]['startdate'] = $course->startdate;
         }
-        $templatecontext['featuredcourses'][$n]['img'] = theme_stream_get_course_image($course->id);
+        $templatecontext['featuredcourses'][$n]['img'] = theme_atipico_get_course_image($course->id);
 
         // If course rating plugin is installed and setting is on.
         $plugins = core_plugin_manager::instance()->get_present_plugins('tool');

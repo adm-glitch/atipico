@@ -15,7 +15,7 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    @template theme_stream/drawers
+    @template theme_atipico/drawers
 
     Boost drawer template.
 
@@ -49,7 +49,7 @@
         "addblockbutton": ""
     }
 }}
-{{> theme_stream/partials/head }}
+{{> theme_atipico/partials/head }}
 
 <body {{{ bodyattributes }}}>
 {{> core/local/toast/wrapper}}
@@ -59,7 +59,7 @@
 
     {{> theme_boost/navbar }}
     {{#courseindex}}
-        {{< theme_stream/partials/drawer }}
+        {{< theme_atipico/partials/drawer }}
             {{$id}}theme_boost-drawers-courseindex{{/id}}
             {{$drawerheadercontent}}
                 {{> theme_boost/courseindexdrawercontrols}}
@@ -72,7 +72,7 @@
             {{$drawerstate}}show-drawer-left{{/drawerstate}}
             {{$tooltipplacement}}right{{/tooltipplacement}}
             {{$closebuttontext}}{{#str}}closecourseindex, core{{/str}}{{/closebuttontext}}
-        {{/ theme_stream/partials/drawer}}
+        {{/ theme_atipico/partials/drawer}}
     {{/courseindex}}
     {{#hasblocks}}
         {{< theme_boost/drawer }}
@@ -166,7 +166,7 @@
                 </div>
             </div>
         </div>
-        {{> theme_stream/partials/footer }}
+        {{> theme_atipico/partials/footer }}
     </div>
     {{{ output.standard_after_main_region_html }}}
 </div>

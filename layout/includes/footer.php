@@ -17,14 +17,14 @@
 /**
  * Footer variables to be printed on the mustache template
  *
- * @package   theme_stream
+ * @package   theme_atipico
  * @copyright 2022 Hugo Ribeiro
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$themesettings = get_config('theme_stream');
+$themesettings = get_config('theme_atipico');
 
 $templatecontext['year'] = date('Y');
 $templatecontext['facebookurl'] = $themesettings->facebookurl;

@@ -17,19 +17,19 @@
 /**
  * Plugin version and other meta-data are defined here.
  *
- * @package     theme_stream
+ * @package     theme_atipico
  * @copyright   2023 Hugo Ribeiro <ribeiro.hugo@gmail.com>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
 
-namespace theme_stream\output;
+namespace theme_atipico\output;
 
 use html_writer;
 
 /**
  * Override Mod Quiz renderer
  *
- * @package    theme_stream
+ * @package    theme_atipico
  * @copyright  2023 Hugo Ribeiro <ribeiro.hugo@gmail.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

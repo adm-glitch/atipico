@@ -17,17 +17,17 @@
 /**
  * Plugin version and other meta-data are defined here.
  *
- * @package     theme_stream
+ * @package     theme_atipico
  * @copyright   2022 Hugo Ribeiro <ribeiro.hugo@gmail.com>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later.
  */
 
-namespace theme_stream\output;
+namespace theme_atipico\output;
 
 /**
  * Renderers to align Moodle's HTML with that expected by Bootstrap
  *
- * @package    theme_stream
+ * @package    theme_atipico
  * @copyright  2022 Hugo Ribeiro <ribeiro.hugo@gmail.com>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -63,7 +63,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $layout = ($this->page->pagelayout);
         if ($this->page->course->visible == 0 && $layout == "course") {
             $output = \html_writer::div('<span class="icon fa fa-eye-slash"></span>' . get_string('hiddencourse',
-            'theme_stream'), 'alert alert-danger hiddencourse');
+            'theme_atipico'), 'alert alert-danger hiddencourse');
         }
         // Prints course visibility warning - Ending.
 
@@ -167,7 +167,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
         $header->image = $head;
 
         // Shows completion rate in the header if it exists and theme option is on. hribeiro 2022.
-        $showcompletion = get_config('theme_stream', 'coursecompletion');
+        $showcompletion = get_config('theme_atipico', 'coursecompletion');
         if ($showcompletion) {
             $completionrate = \core_completion\progress::get_course_progress_percentage($this->page->course, 0);
             $header->hascompletion = $this->page->course->enablecompletion;
@@ -202,7 +202,7 @@ class core_renderer extends \theme_boost\output\core_renderer {
      * @return string
      */
     public function external_fonts() {
-        $theme = \theme_config::load('stream');
+        $theme = \theme_config::load('atipico');
         if (!$theme->settings->externalfonts) {
             return '';
         }

@@ -14,12 +14,12 @@
 // You should have received a copy of the GNU General Public License
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
-namespace theme_stream\local\hooks\navigation;
+namespace theme_atipico\local\hooks\navigation;
 
 /**
- * Hook callbacks for theme_stream
+ * Hook callbacks for theme_atipico
  *
- * @package    theme_stream
+ * @package    theme_atipico
  * @copyright  2024 Hugo Ribeiro <hugo@moodlar.pt>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
@@ -38,25 +38,25 @@ class primary_extend {
         // Allowed to create users.
         if (has_capability('moodle/user:create', $systemcontext)) {
             $node = $primarynav->add(
-                get_string('management', 'theme_stream'),
+                get_string('management', 'theme_atipico'),
                 null,
                 \navigation_node::NODETYPE_BRANCH,
             );
 
             $node->add(
-                get_string('managecourses', 'theme_stream'),
+                get_string('managecourses', 'theme_atipico'),
                 new \moodle_url('/course/management.php'),
                 \navigation_node::TYPE_ROOTNODE,
             );
 
             $node->add(
-                get_string('manageusers', 'theme_stream'),
+                get_string('manageusers', 'theme_atipico'),
                 new \moodle_url('/admin/user.php'),
                 \navigation_node::TYPE_ROOTNODE,
             );
 
             $node4 = $node->add(
-                get_string('themesettings', 'theme_stream'),
+                get_string('themesettings', 'theme_atipico'),
                 new \moodle_url('/admin/settings.php', ['section' => 'themesettingstream']),
                 \navigation_node::TYPE_ROOTNODE,
             );

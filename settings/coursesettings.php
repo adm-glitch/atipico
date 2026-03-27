@@ -17,7 +17,7 @@
 /**
  * Theme footer settings to be loaded.
  *
- * @package     theme_stream
+ * @package     theme_atipico
  * @category    admin
  * @copyright   2023 Hugo Ribeiro <ribeiro.hugo@gmail.com>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -26,20 +26,20 @@
 defined('MOODLE_INTERNAL') || die();
 
 // Course tab.
-$page = new admin_settingpage ('theme_stream_course', get_string('coursesettings', 'backup'));
+$page = new admin_settingpage ('theme_atipico_course', get_string('coursesettings', 'backup'));
 
 // Sticky secondary navigation.
-$name = 'theme_stream/stickynav';
-$title = get_string('stickynav', 'theme_stream');
-$description = get_string('stickynav_desc', 'theme_stream');
+$name = 'theme_atipico/stickynav';
+$title = get_string('stickynav', 'theme_atipico');
+$description = get_string('stickynav_desc', 'theme_atipico');
 $setting = new admin_setting_configcheckbox($name, $title, $description, '1');
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
 // Show course completion on course page.
-$name = 'theme_stream/coursecompletion';
+$name = 'theme_atipico/coursecompletion';
 $title = get_string('coursecompletion');
-$description = get_string('coursecompletion_desc', 'theme_stream');
+$description = get_string('coursecompletion_desc', 'theme_atipico');
 $setting = new admin_setting_configcheckbox($name, $title, $description, '1');
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
@@ -50,17 +50,17 @@ $choices = [
     'fullname' => 'Fullname',
     'shortname' => 'Shortname',
 ];
-$name = 'theme_stream/courseindexheading';
-$title = get_string('courseindexheading', 'theme_stream');
-$description = get_string('courseindexheading_desc', 'theme_stream');
+$name = 'theme_atipico/courseindexheading';
+$title = get_string('courseindexheading', 'theme_atipico');
+$description = get_string('courseindexheading_desc', 'theme_atipico');
 $setting = new admin_setting_configselect($name, $title, $description, 'shortname', $choices);
 $setting->set_updatedcallback('theme_reset_all_caches');
 $page->add($setting);
 
 // Header logo setting.
-$name = 'theme_stream/courseheaderimg';
-$title = get_string('courseheaderimg', 'theme_stream');
-$description = get_string('courseheaderimg_desc', 'theme_stream');
+$name = 'theme_atipico/courseheaderimg';
+$title = get_string('courseheaderimg', 'theme_atipico');
+$description = get_string('courseheaderimg_desc', 'theme_atipico');
 $setting = new admin_setting_configstoredfile($name, $title, $description, 'courseheaderimg', 0,
 ['maxfiles' => 1, 'accepted_types' => 'web_image']);
 $setting->set_updatedcallback('theme_reset_all_caches');

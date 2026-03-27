@@ -17,7 +17,7 @@
 /**
  * A login page based on Boost.
  *
- * @package   theme_stream
+ * @package   theme_atipico
  * @copyright 2022 Hugo Ribeiro ribeiro.hugo@gmail.com
  * @copyright based on 2016 Damyon Wiese
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -27,7 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 
 $bodyattributes = $OUTPUT->body_attributes();
 // Loads theme settings.
-$theme = theme_config::load('stream');
+$theme = theme_config::load('atipico');
 
 // Sets a default login image if none exists on the theme settings.
 $loginimage = $OUTPUT->image_url('default/loginimage', 'theme');
@@ -43,5 +43,5 @@ $templatecontext = [
     'loginimg' => $loginimage,
 ];
 
-echo $OUTPUT->render_from_template('theme_stream/login', $templatecontext);
+echo $OUTPUT->render_from_template('theme_atipico/login', $templatecontext);
 

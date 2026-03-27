@@ -17,7 +17,7 @@
 /**
  * A drawer based layout for the stream theme.
  *
- * @package   theme_stream
+ * @package   theme_atipico
  * @copyright Based on 2021 Bas Brands
  * @copyright 2022 Hugo Ribeiro ribeiro.hugo@gmail.com
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
@@ -83,7 +83,7 @@ $regionmainsettingsmenu = $buildregionmainsettings ? $OUTPUT->region_main_settin
 $header = $PAGE->activityheader;
 $headercontent = $header->export_for_template($renderer);
 
-$theme = theme_config::load('stream');
+$theme = theme_config::load('atipico');
 $templatecontext = [
     'sitename' => format_string($SITE->shortname, true, ['context' => context_course::instance(SITEID), "escape" => false]),
     'output' => $OUTPUT,
@@ -116,7 +116,7 @@ require_once(__DIR__ . '/includes/scrollspy.php');
 // Loads backtotop button. hribeiro dec2022.
 $backtotopbutton = $theme->settings->backtotopbutton;
 if ($backtotopbutton) {
-    $PAGE->requires->js_call_amd('theme_stream/backtotop', 'init');
+    $PAGE->requires->js_call_amd('theme_atipico/backtotop', 'init');
 }
 
 // Check for the option to print a course index heading.
@@ -127,4 +127,4 @@ if ($courseindexheading != 0) {
     $templatecontext['courseindexheading'] = null;
 }
 
-echo $OUTPUT->render_from_template('theme_stream/drawers', $templatecontext);
+echo $OUTPUT->render_from_template('theme_atipico/drawers', $templatecontext);

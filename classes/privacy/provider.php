@@ -17,18 +17,18 @@
 /**
  * Stream theme original privacy class -
  *
- * @package     theme_stream
+ * @package     theme_atipico
  * @category    privacy
  * @copyright   2023 Hugo Ribeiro <ribeiro.hugo@gmail.com>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace theme_stream\privacy;
+namespace theme_atipico\privacy;
 
 /**
  * Privacy Subsystem implementing null_provider.
  *
- * @package     theme_stream
+ * @package     theme_atipico
  * @copyright   2023 Hugo Ribeiro <ribeiro.hugo@gmail.com>
  * @license     https://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
