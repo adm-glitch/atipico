@@ -53,7 +53,7 @@ while ($i < $slidestotal ) {
     $name = 'theme_atipico/herotitle' . $i;
     $title = get_string('herotitle', 'theme_atipico') . $i;
     $description = get_string('herotitle_desc', 'theme_atipico');
-    $setting = new admin_setting_configtext($name, $title, $description , 'Hogwarts Academy', PARAM_TEXT);
+    $setting = new admin_setting_configtext($name, $title, $description , 'CURSO TRE - Danka Treinamentos', PARAM_TEXT);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
@@ -62,7 +62,7 @@ while ($i < $slidestotal ) {
     $title = get_string('heromotto', 'theme_atipico') . $i;
     $description = get_string('heromotto_desc', 'theme_atipico');
     $setting = new admin_setting_configtext($name, $title, $description ,
-    'The finest school of witchcraft and wizardry in the world.' , PARAM_TEXT);
+    'Formação profissional para staff de eventos.' , PARAM_TEXT);
     $setting->set_updatedcallback('theme_reset_all_caches');
     $page->add($setting);
 
