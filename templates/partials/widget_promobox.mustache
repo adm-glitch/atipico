@@ -17,38 +17,28 @@
 {{!
     @template theme_atipico/partials/widget_promobox
 
-    Stream Theme Promobox partial template
-
-    Context variables required for this template:
-    * sitename - The name of the site
-    * output - The core renderer for the page
-    * bodyattributes - attributes for the body tag as a string of html attributes
-    * sidepreblocks - HTML for the blocks
-    * hasblocks - true if there are blocks on this page
-    * courseindexopen - true if the nav drawer should be open on page load
-    * regionmainsettingsmenu - HTML for the region main settings menu
-    * hasregionmainsettingsmenu - There is a region main settings menu on this page.
+    Atipico Theme — Full-bleed promo / CTA split-screen widget.
 
     Example context (json):
     {
-        "promoboxtitle": "A great thing!",
-        "promoboxtext": "Lorem ipsum",
-        "sidepreblocks": "<h2>Blocks html goes here</h2>",
-        "promoboxurl": "https://agreatsite.pt",
-        "promoboxbutton": "action",
-        "promoboximage": "image.jpg"
+        "promoboxtitle": "Torne-se um profissional de eventos",
+        "promoboxtext": "<p>Formação reconhecida para staff de eventos profissionais.</p>",
+        "promoboxurl": "https://example.pt/login/signup.php",
+        "promoboxbutton": "Inscreva-se agora",
+        "promoboximage": "https://placehold.co/960x600"
     }
-}}<div class="container">
-    <div class="row d-flex justify-content-center">
-        <div class="col-lg-5 promobox-left py-5">
-            <h3 class="mb-4">{{promoboxtitle}}</h3>
-            {{{promoboxtext}}}
-            <div class="d-grid">
-                <a class="btn btn-outline-primary mt-4 btn-lg" role="button" href="{{{promoboxurl}}}">{{promoboxbutton}}</a>
-            </div>
+}}
+<div class="at-promo">
+    <div class="at-promo__left">
+        <div class="at-promo__inner">
+            <h3>{{promoboxtitle}}</h3>
+            <div>{{{promoboxtext}}}</div>
+            <a class="btn btn-primary btn-lg" role="button" href="{{{promoboxurl}}}">
+                {{promoboxbutton}}
+            </a>
         </div>
-        <div class="col-lg-7 promobox-right">
-            <img class="img-fluid" src="{{{promoboximage}}}" alt="" />
-        </div>
+    </div>
+    <div class="at-promo__right">
+        <img src="{{{promoboximage}}}" alt="" />
     </div>
 </div>

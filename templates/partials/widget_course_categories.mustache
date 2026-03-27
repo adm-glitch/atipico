@@ -17,49 +17,48 @@
 {{!
     @template theme_atipico/widget_course_categories
 
-    This template renders the widget featured courses catergories.
+    Atipico Theme — Featured categories widget.
 
     Example context (json):
     {
-        "featuredcategories": "Featured courses categories",
-        "featuredcategoriescopy": "Best courses categories",
-        "category": "Category name",
-        "name": "Amazing category",
-        "coursecountstring": "courses",
-        "nocategory": false,
-        "imgurl": "image.jpg",
-        "id": 5,
-        "total": 6
+        "catwidgetheadingsubtitle": "Explore as nossas áreas de formação",
+        "categories": [{
+            "name": "Segurança",
+            "id": 5,
+            "imgurl": "https://placehold.co/600x400",
+            "total": 6,
+            "coursecountstring": "cursos"
+        }],
+        "nocategory": false
     }
 }}
 <div class="container">
-    <div class="row">
-    <div class="widget-header col-lg-4">
-        <h2 class="h3 mt-4"><i class="fa fa-tags" aria-hidden="true"></i>
-        {{#str}}featuredcategories , theme_atipico{{/str}}</h2>
-        {{ #catwidgetheadingsubtitle }}<p class="copy mb-4">{{ catwidgetheadingsubtitle }}</p>{{ /catwidgetheadingsubtitle }}
+    <div class="at-section__header">
+        <p class="at-section__eyebrow">
+            {{#str}}featuredcategories, theme_atipico{{/str}}
+        </p>
+        {{#catwidgetheadingsubtitle}}
+        <p class="at-section__subtitle">{{catwidgetheadingsubtitle}}</p>
+        {{/catwidgetheadingsubtitle}}
     </div>
-</div>
-<div class="row mt-4">
+
+    <div class="at-cat-grid">
         {{#categories}}
-        <div class="col-lg-{{catwidgetcolumns}}">
-            <div class="card shadow mb-5">
-            <a href="course/index.php?categoryid={{id}}" class="text-white">
-                <div class="card-img"><img src="{{imgurl}}" alt="Category image" class="img-fluid"></div>
-                <div class="card-img-overlay text-center">
-                <h3 class="h5 card-title">{{name}}</h3>
-                {{#total}}<p class="h5 total-courses">
-                    <i class="fa fa-graduation-cap" aria-hidden="true"></i><br>
-                    <span >{{total}}</span>
-                    {{coursecountstring}}</p>
-                {{/total}}
+        <a href="course/index.php?categoryid={{id}}" class="at-cat-card">
+            <img src="{{imgurl}}" alt="{{name}}">
+            <div class="at-cat-card__body">
+                <div class="at-cat-card__title">{{name}}</div>
+                {{#total}}
+                <div class="at-cat-card__count">
+                    {{total}} {{coursecountstring}}
                 </div>
-            </a>
+                {{/total}}
             </div>
-        </div>
+        </a>
         {{/categories}}
-        {{#nocategory}}
-            <p>{{#str}}noresults , theme_atipico{{/str}}</p>
-        {{/nocategory}}
     </div>
+
+    {{#nocategory}}
+    <p class="at-no-results">{{#str}}noresults, theme_atipico{{/str}}</p>
+    {{/nocategory}}
 </div>

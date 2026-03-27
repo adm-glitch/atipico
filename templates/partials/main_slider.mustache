@@ -15,48 +15,64 @@
     along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 }}
 {{!
-    @template theme_atipico/head
+    @template theme_atipico/partials/main_slider
 
-    Stream head template.
+    Atipico Theme — Hero Carousel (Bootstrap 5 syntax)
+
+    Context variables required for this template:
+    * slides[]        - array of slide objects
+    *   .index        - 0-based slide index
+    *   .active       - boolean, true for first slide
+    *   .sliderimage  - background image URL
+    *   .herotitle    - main headline text
+    *   .slidermotto  - subtitle / tagline text
+    *   .sliderlink   - CTA button URL (optional)
+    *   .sliderbutton - CTA button label text
+    * hasmultipleslides - boolean, true when slidestotal > 1
 
     Example context (json):
-    { "output" :
-        {
-            "index" : 0,
-            "active" : 1,
-            "single" : 1,
-            "sliderimage" : "beautiful.jpg",
-            "homepageheroimage" : "https://placehold.co/1920x600",
-            "herotitle": "Slider title",
-            "slidermotto": "This is my motto",
-            "sliderlink": "https://google.com",
-            "sliderbutton": "My text"
-        }
+    {
+        "hasmultipleslides": false,
+        "slides": [{
+            "index": 0,
+            "active": true,
+            "sliderimage": "https://placehold.co/1920x860",
+            "herotitle": "DanKa Academy",
+            "slidermotto": "Formação profissional para staff de eventos",
+            "sliderlink": "/login/signup.php",
+            "sliderbutton": "Inscreva-se"
+        }]
     }
 }}
+<div id="herocarousel" class="at-hero carousel slide" data-bs-ride="carousel">
 
-
-
-<div id="herocarousel" class="main-carousel carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
+    {{#hasmultipleslides}}
+    <div class="carousel-indicators">
         {{#slides}}
-            {{^single}}
-                <li data-target="#herocarousel" data-slide-to="{{index}}" title="{{#str}}jumptoslide,
-                theme_atipico{{/str}}" {{#active}}class="active">{{/active}}</li>
-            {{/single}}
+        <button type="button"
+                data-bs-target="#herocarousel"
+                data-bs-slide-to="{{index}}"
+                {{#active}}class="active" aria-current="true"{{/active}}
+                aria-label="{{#str}}jumptoslide, theme_atipico{{/str}}">
+        </button>
         {{/slides}}
-    </ol>
+    </div>
+    {{/hasmultipleslides}}
+
     <div class="carousel-inner">
         {{#slides}}
         <div class="carousel-item {{#active}}active{{/active}}">
-            <img class="d-block w-100" src="{{{sliderimage}}}" alt="Slide {{index}} image">
-            <div class="overlay slide{{index}}">
+            <img class="at-hero__img" src="{{{sliderimage}}}" alt="">
+            <div class="overlay slide{{index}}"></div>
+            <div class="at-hero__content">
                 <div class="container">
-                    <div class="carousel-caption">
-                        <h1 class="display-4">{{herotitle}}</h1>
-                        <p class="h5">{{slidermotto}}</p>
+                    <div class="at-hero__text">
+                        <h1 class="at-hero__title">{{herotitle}}</h1>
+                        <p class="at-hero__subtitle">{{slidermotto}}</p>
                         {{#sliderlink}}
-                        <a href="{{{sliderlink}}}" class="btn btn-primary btn-lg" role="button">{{sliderbutton}}</a>
+                        <a href="{{{sliderlink}}}" class="at-hero__cta btn btn-primary btn-lg" role="button">
+                            {{sliderbutton}}
+                        </a>
                         {{/sliderlink}}
                     </div>
                 </div>
@@ -64,18 +80,18 @@
         </div>
         {{/slides}}
     </div>
-    {{#slides}}
-        {{^single}}
-    <a class="carousel-control carousel-control-prev" href="#herocarousel" role="button" data-slide="prev" title="{{#str}}prev,
-    theme_atipico{{/str}}">
+
+    {{#hasmultipleslides}}
+    <button class="carousel-control-prev" type="button" data-bs-target="#herocarousel" data-bs-slide="prev"
+            title="{{#str}}prev, theme_atipico{{/str}}">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
-    </a>
-    <a class="carousel-control carousel-control-next" href="#herocarousel" role="button" data-slide="next" title="{{#str}}next,
-    theme_atipico{{/str}}">
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#herocarousel" data-bs-slide="next"
+            title="{{#str}}next, theme_atipico{{/str}}">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
-    </a>
-        {{/single}}
-    {{/slides}}
+    </button>
+    {{/hasmultipleslides}}
+
 </div>

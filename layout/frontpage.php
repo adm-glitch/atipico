@@ -137,6 +137,8 @@ while ($i < $slidestotal) {
     }
     $i++;
 }
+// Add a single flag for multi-slide detection (avoids per-item repetition in mustache).
+$data['hasmultipleslides'] = ($slidestotal > 1);
 // Add carousel data to template context.
 $templatecontext = array_merge($templatecontext, $data);
 

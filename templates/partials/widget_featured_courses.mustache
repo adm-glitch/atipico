@@ -17,59 +17,63 @@
 {{!
     @template theme_atipico/widget_featured_courses
 
-    This template renders the widget featured courses.
+    Atipico Theme — Featured courses CSS Grid widget.
 
     Example context (json):
     {
-        "featuredcourses": "Featured courses",
-        "featuredcoursescopy": "Best courses",
-        "category": "Category name",
-        "fullname": "Image alt text",
-        "rating": "<p>html rating</p>",
-        "welcomemessage": "welcomemessage",
-        "img": "path",
-        "hidden": "Available soon",
-        "summary": "Lorem ipsum text",
-        "tags": "<p>Tag</p>",
-        "startdate": "30 September 2019",
+        "featuredcourses": [{
+            "id": 2,
+            "fullname": "Segurança em Eventos",
+            "category": "Segurança",
+            "img": "https://placehold.co/600x340",
+            "hidden": "",
+            "summary": "Formação essencial para staff de segurança em grandes eventos.",
+            "tags": "",
+            "startdate": 1735689600,
+            "rating": ""
+        }],
         "nofeaturedcourses": false
     }
 }}
 <div class="container">
-    <div class="row">
-      <div class="widget-header col-lg-4">
-          <h2 class="h3 mt-4"><i class="fa fa-book" aria-hidden="true"></i>
-          {{#str}}featuredcourses , theme_atipico{{/str}}</h2>
-          <p class="copy mb-4">{{#str}}featuredcoursescopy , theme_atipico{{/str}}
-          </p>
-      </div>
-  </div>
-    <div class="row mt-4">
-        {{#featuredcourses}}
-        <div class="col-md-4">
-          <div class="card mb-4 box-shadow">
-            <img class="card-img-top" src="{{img}}" alt="{{fullname}}">
-            {{#category}}<span class="cat text-white p-1">{{category}}</span>{{/category}}
+    <div class="at-section__header">
+        <p class="at-section__eyebrow">
+            {{#str}}featuredcourses, theme_atipico{{/str}}
+        </p>
+    </div>
 
-            {{#rating}}<div class="rating pl-1">{{{rating}}}</div>{{/rating}}
-            {{#hidden}}<span class="available-soon text-white p-1">{{hidden}}</span>{{/hidden}}
-            <div class="card-body">
-              <h5 class="card-title h5 text-md-center"><a href="course/view.php?id={{id}}">{{fullname}}</a></h5>
-              <p class="card-text">{{#shortentext}} 100, {{{summary}}} {{/shortentext}}</p>
-              {{{tags}}}
-              <div class="d-flex justify-content-between align-items-center">
-                {{#startdate}}
-                <div class="start-date pr-1"><span class="fa fa-calendar" role="img" aria-label="calendar"></span>
-                    {{#userdate}} {{startdate}}, {{#str}} strftimedate, core_langconfig {{/str}} {{/userdate}}
+    <div class="at-course-grid">
+        {{#featuredcourses}}
+        <div class="at-course-card">
+            <img class="at-course-card__img" src="{{img}}" alt="{{fullname}}">
+            {{#category}}<span class="at-course-card__cat">{{category}}</span>{{/category}}
+            {{#hidden}}<span class="at-course-card__badge-soon">{{hidden}}</span>{{/hidden}}
+
+            <div class="at-course-card__body">
+                <h5 class="at-course-card__title">
+                    <a href="course/view.php?id={{id}}">{{fullname}}</a>
+                </h5>
+                <p class="at-course-card__summary">
+                    {{#shortentext}} 110, {{{summary}}} {{/shortentext}}
+                </p>
+                {{{tags}}}
+                <div class="at-course-card__meta">
+                    {{#startdate}}
+                    <span class="at-course-card__date">
+                        <span class="fa fa-calendar" role="img" aria-label="calendar"></span>
+                        {{#userdate}} {{startdate}}, {{#str}} strftimedate, core_langconfig {{/str}} {{/userdate}}
+                    </span>
+                    {{/startdate}}
+                    {{#rating}}
+                    <span class="at-course-card__rating">{{{rating}}}</span>
+                    {{/rating}}
                 </div>
-                {{/startdate}}
-              </div>
             </div>
-          </div>
         </div>
         {{/featuredcourses}}
-        {{#nofeaturedcourses}}
-          <p>{{#str}}noresults , theme_atipico{{/str}}</p>
-        {{/nofeaturedcourses}}
     </div>
-  </div>
+
+    {{#nofeaturedcourses}}
+    <p class="at-no-results">{{#str}}noresults, theme_atipico{{/str}}</p>
+    {{/nofeaturedcourses}}
+</div>
