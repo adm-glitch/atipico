@@ -445,18 +445,11 @@ header {
         .slide3 { background: rgba(0, 0, 0, $slideropacity3); }
         .slide4 { background: rgba(0, 0, 0, $slideropacity4); }
 
+        // Shade removed — banner image shows clean
+        .slide0, .slide1, .slide2, .slide3, .slide4 { background: transparent; }
+
         .carousel-item::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                160deg,
-                rgba(0, 0, 0, 0.04) 0%,
-                rgba(0, 0, 0, 0.22) 40%,
-                rgba(0, 0, 0, 0.78) 82%,
-                #{$at-dark-950} 100%
-            );
-            pointer-events: none;
+            display: none;
         }
 
         .carousel-inner,
@@ -464,16 +457,9 @@ header {
             height: 100%;
         }
 
+        // Title/subtitle hidden — image-only banner
         .at-hero__content {
-            position: absolute;
-            inset: 0;
-            display: flex;
-            align-items: center;
-            z-index: 10;
-
-            .container {
-                padding-bottom: 4rem;
-            }
+            display: none;
         }
 
         .at-hero__text {
