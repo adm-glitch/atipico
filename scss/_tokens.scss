@@ -32,7 +32,7 @@
     --at-border-subtle:  rgba(255, 255, 255, 0.07);   // Subtle — light separator
     --at-border:         rgba(255, 255, 255, 0.07);   // Default alias (= subtle)
     --at-border-strong:  rgba(255, 255, 255, 0.13);   // Prominent — dividers, focus
-    --at-border-accent:  rgba(218, 170, 0, 0.35);     // Gold accent border
+    --at-border-accent:  #{rgba($at-gold, 0.35)};     // Gold accent border
 
     // -------------------------------------------------------------------------
     // Accent Color System — Gold (#DAAA00)
@@ -40,27 +40,27 @@
     --at-accent:         #{$at-gold};
     --at-accent-hover:   #{$at-gold-bright};
     --at-accent-dim:     #{$at-gold-dim};
-    --at-accent-subtle:  rgba(218, 170, 0, 0.10);   // Low-opacity fill / badge bg
-    --at-accent-glow:    rgba(218, 170, 0, 0.22);   // Glow / shadow tint
+    --at-accent-subtle:  #{rgba($at-gold, 0.10)};   // Low-opacity fill / badge bg
+    --at-accent-glow:    #{rgba($at-gold, 0.22)};   // Glow / shadow tint
 
     // -------------------------------------------------------------------------
     // Secondary Accent — Teal (#298976)
     // -------------------------------------------------------------------------
     --at-teal:           #{$at-teal};
     --at-teal-hover:     #{$at-teal-bright};
-    --at-teal-subtle:    rgba(41, 137, 118, 0.12);
+    --at-teal-subtle:    #{rgba($at-teal, 0.12)};
 
     // -------------------------------------------------------------------------
     // Semantic Feedback Colors
     // -------------------------------------------------------------------------
     --at-success:        #{$at-success};
-    --at-success-subtle: rgba(34, 197, 94, 0.12);
+    --at-success-subtle: #{rgba($at-success, 0.12)};
     --at-danger:         #{$at-danger};
-    --at-danger-subtle:  rgba(239, 68, 68, 0.12);
+    --at-danger-subtle:  #{rgba($at-danger, 0.12)};
     --at-info:           #{$at-info};
-    --at-info-subtle:    rgba(59, 130, 246, 0.12);
+    --at-info-subtle:    #{rgba($at-info, 0.12)};
     --at-warning:        #{$at-warning};
-    --at-warning-subtle: rgba(245, 158, 11, 0.12);
+    --at-warning-subtle: #{rgba($at-warning, 0.12)};
 
     // -------------------------------------------------------------------------
     // Border Radius Scale
@@ -80,7 +80,7 @@
     --at-shadow-md:     0 4px 16px rgba(0, 0, 0, 0.45);
     --at-shadow-lg:     0 8px 32px rgba(0, 0, 0, 0.55);
     --at-shadow-xl:     0 16px 48px rgba(0, 0, 0, 0.65);
-    --at-shadow-accent: 0 4px 24px rgba(218, 170, 0, 0.20);
+    --at-shadow-accent: 0 4px 24px #{rgba($at-gold, 0.20)};
     --at-shadow-inner:  inset 0 1px 0 rgba(255, 255, 255, 0.05);
 
     // -------------------------------------------------------------------------
@@ -161,7 +161,7 @@
     // -------------------------------------------------------------------------
     // Global Focus Ring (used across buttons, inputs, links)
     // -------------------------------------------------------------------------
-    --at-focus-ring: 0 0 0 3px rgba(218, 170, 0, 0.25);
+    --at-focus-ring: 0 0 0 3px #{rgba($at-gold, 0.25)};
 
     // -------------------------------------------------------------------------
     // Component Tokens — Cards
