@@ -549,7 +549,7 @@ a {
 // Moodle Activity List — card grid layout
 // -----------------------------------------------------------------------------
 
-// 2-column grid on large screens; single column on mobile
+// Responsive card grid: 1 col → 2 col at md → 2 col at xl
 .course-content .activity-list {
     display: grid;
     grid-template-columns: 1fr;
@@ -557,7 +557,7 @@ a {
     padding-left: 0;
     list-style: none;
 
-    @include media-breakpoint-up(lg) {
+    @include media-breakpoint-up(md) {
         grid-template-columns: repeat(2, 1fr);
     }
 }
@@ -606,21 +606,57 @@ a {
         color: var(--at-text-secondary);
         font-size: var(--at-fs-sm);
     }
+
+    // Moodle 4.x inner card layout: icon | info | completion
+    .activity-wrapper {
+        display: flex;
+        align-items: center;
+        padding: var(--at-space-3) var(--at-space-4);
+        gap: var(--at-space-3);
+    }
+
+    .activityiconcontainer {
+        flex-shrink: 0;
+    }
+
+    // Activity name + description column
+    .activity-name,
+    .activityname,
+    .mediaobject-content,
+    .activity-infos {
+        flex: 1;
+        min-width: 0;
+
+        a, a:link {
+            color: var(--at-text-primary);
+            &:hover { color: var(--at-accent); }
+        }
+    }
+
+    // Completion checkbox — pushed to the right edge
+    .actions,
+    .activity-actions,
+    .activity-completion {
+        margin-left: auto;
+        flex-shrink: 0;
+        align-self: center;
+    }
 }
 
-// Section headers — editorial chapter markers
+// Section headers — gold all-caps eyebrow chapter markers
 .section-summary,
 .section-heading,
 h3.sectionname,
 .sectionname {
-    color: var(--at-text-primary) !important;
+    color: var(--at-accent) !important;
     border-bottom: none !important;
     border-left: 3px solid var(--at-accent);
     padding: var(--at-space-2) 0 var(--at-space-2) var(--at-space-4) !important;
     margin-bottom: var(--at-space-5) !important;
-    font-size: 1.05rem;
+    font-size: 0.875rem;
     font-weight: var(--at-weight-bold);
-    letter-spacing: var(--at-tracking-tight);
+    letter-spacing: var(--at-tracking-wider);
+    text-transform: uppercase;
 }
 
 // Activity prev/next navigation
