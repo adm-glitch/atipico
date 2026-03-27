@@ -75,12 +75,8 @@ defined('MOODLE_INTERNAL') || die();
 
     // Different columns settings.
     $listalinks = '
-    <h5>External links</h5>
-    <ul class="list-unstyled ms-0">
-        <li>Link a</li>
-        <li>Link b</li>
-        <li>Link c</li>
-    </ul>
+    <p style="font-size:1.1rem;font-weight:700;margin-bottom:0.25rem;">Danka Treinamentos</p>
+    <p style="font-size:0.85rem;opacity:0.75;margin-bottom:1rem;">Desenvolvimento humano e cultura organizacional</p>
     ';
     $name = 'theme_atipico/leftcolumn';
     $title = get_string('leftcolumn', 'theme_atipico');

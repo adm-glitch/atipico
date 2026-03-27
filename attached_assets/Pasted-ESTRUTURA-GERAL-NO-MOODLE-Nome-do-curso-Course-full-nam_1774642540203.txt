@@ -1,0 +1,109 @@
+ESTRUTURA GERAL NO MOODLE
+🔹 Nome do curso (Course full name)
+
+Desenvolvimento Humano e Cultura Organizacional — TRE-PA
+
+🔹 Nome curto (Short name)
+
+DHCO_TREPA
+
+🏠 PÁGINA INICIAL DO CURSO (Descrição / Summary)
+
+Título:
+Bem-vindo(a) à plataforma de aprendizagem
+
+Texto:
+
+Este ambiente foi desenvolvido pela Danka Treinamentos para apoiar o processo de desenvolvimento humano e fortalecimento da cultura organizacional no TRE-PA.
+
+Aqui, o aprendizado vai além do conteúdo.
+Ele se conecta com a prática, com as relações e com os desafios do dia a dia institucional.
+
+Ao longo da formação, você terá acesso a conteúdos que estimulam reflexão, consciência e aplicação prática no ambiente de trabalho.
+
+📌 SEÇÃO 0 (Topo do curso — “Geral”)
+
+👉 Nome da seção:
+Início da Formação
+
+👉 Conteúdo:
+
+Bem-vindo(a).
+
+Este é o seu espaço de desenvolvimento conduzido pela Danka Treinamentos.
+
+Para melhor aproveitamento:
+
+Acesse os conteúdos na ordem proposta
+Reflita sobre a aplicação no seu dia a dia
+Retorne às aulas sempre que necessário
+
+O aprendizado acontece na prática.
+
+📚 SEÇÃO 1
+
+👉 Nome:
+Módulo 1 — Desenvolvimento Humano
+
+👉 Descrição:
+
+Neste módulo, você irá compreender o papel do comportamento individual dentro do ambiente organizacional.
+
+Desenvolver consciência sobre atitudes, responsabilidades e impacto nas relações é o primeiro passo para a construção de equipes mais alinhadas.
+
+💬 SEÇÃO 2
+
+👉 Nome:
+Módulo 2 — Comunicação e Relações
+
+👉 Descrição:
+
+A qualidade das relações dentro de uma instituição está diretamente ligada à forma como as pessoas se comunicam.
+
+🏛️ SEÇÃO 3
+
+👉 Nome:
+Módulo 3 — Cultura Organizacional
+
+👉 Descrição:
+
+Cultura organizacional não é um conceito abstrato.
+Ela é construída diariamente pelas atitudes, decisões e comportamentos das pessoas.
+
+⚙️ SEÇÃO 4
+
+👉 Nome:
+Módulo 4 — Aplicação Prática
+
+👉 Descrição:
+
+Este módulo conecta o conteúdo com a realidade do TRE-PA.
+
+O foco é transformar conhecimento em ação.
+
+📎 SEÇÃO FINAL — ENCERRAMENTO
+
+Texto:
+
+O desenvolvimento humano é um processo contínuo.
+
+Cada aprendizado aplicado contribui para um ambiente mais alinhado, colaborativo e eficiente.
+
+Este programa foi desenvolvido pela Danka Treinamentos, com foco na construção de equipes mais conscientes, preparadas e conectadas com o propósito institucional.
+
+🆘 SUPORTE
+
+Em caso de dúvidas sobre acesso ou conteúdo, procure a equipe responsável pela plataforma.
+
+🔻 RODAPÉ (IMPORTANTE — identidade forte)
+
+Danka Treinamentos
+Desenvolvimento humano e cultura organizacional
+
+💡 AJUSTE ESTRATÉGICO (curto, mas essencial)
+
+Só essa troca de “Danka” → Danka Treinamentos:
+
+aumenta percepção de formalidade (importante pro TRE)
+posiciona como fornecedora estruturada, não só marca
+ajuda em futuras licitações e contratos públicos
