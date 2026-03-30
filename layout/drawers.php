@@ -120,7 +120,10 @@ if ($backtotopbutton) {
 }
 
 // Inject circular progress rings into block_myoverview course cards.
-$PAGE->requires->js_call_amd('theme_atipico/coursecard_ring', 'init');
+// Scoped to dashboard/my-courses pages to avoid unnecessary global overhead.
+if (strpos($PAGE->pagetype, 'my-') === 0 || $PAGE->pagetype === 'site-index') {
+    $PAGE->requires->js_call_amd('theme_atipico/coursecard_ring', 'init');
+}
 
 // Check for the option to print a course index heading.
 $courseindexheading = $theme->settings->courseindexheading;
