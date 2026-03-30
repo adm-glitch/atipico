@@ -102,10 +102,8 @@ function decorateCard(card) {
         return;
     }
 
-    const pct = readProgress(card);
-    if (pct === null) {
-        return;
-    }
+    // Default to 0 when no progress markup is present so the ring always renders.
+    const pct = readProgress(card) ?? 0;
 
     // Find the title element — varies across Moodle versions.
     const title = card.querySelector('.card-title, [data-region="course-name"], .coursename');
