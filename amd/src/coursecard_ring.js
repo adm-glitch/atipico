@@ -118,9 +118,6 @@ function decorateCard(card) {
     // Wrap the title and ring in a flex row if not already wrapped.
     const wrapper = document.createElement('span');
     wrapper.className = 'rui-course-card__title-row';
-    wrapper.style.display = 'flex';
-    wrapper.style.alignItems = 'flex-start';
-    wrapper.style.gap = '8px';
 
     title.parentNode.insertBefore(wrapper, title);
     wrapper.appendChild(title);

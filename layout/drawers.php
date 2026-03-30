@@ -121,7 +121,7 @@ if ($backtotopbutton) {
 
 // Inject circular progress rings into block_myoverview course cards.
 // Scoped to dashboard/my-courses pages to avoid unnecessary global overhead.
-if (strpos($PAGE->pagetype, 'my-') === 0 || $PAGE->pagetype === 'site-index') {
+if (strpos($PAGE->pagetype, 'my-') === 0) {
     $PAGE->requires->js_call_amd('theme_atipico/coursecard_ring', 'init');
 }
 

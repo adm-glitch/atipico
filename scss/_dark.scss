@@ -364,6 +364,13 @@ body {
             // a .rui-progress-ring circular indicator next to the title.
             .progress { display: none; }
         }
+
+        // Title-row wrapper injected by coursecard_ring.js
+        .rui-course-card__title-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
     }
 }
 
