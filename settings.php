@@ -26,7 +26,7 @@
 defined('MOODLE_INTERNAL') || die();
 
 if ($ADMIN->fulltree) {
-    $settings = new theme_boost_admin_settingspage_tabs('themesettingstream',
+    $settings = new theme_boost_admin_settingspage_tabs('themesettingatipico',
     get_string('configtitle', 'theme_atipico'), 'theme/atipico:changesettings');
     $page = new admin_settingpage ('theme_atipico_general', get_string('generalsettings', 'theme_atipico'));
 

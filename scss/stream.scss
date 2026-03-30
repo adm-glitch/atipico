@@ -12,13 +12,13 @@
 // =============================================================================
 
 // Dark surface scale: 950 = darkest (nav), 050 = lightest (text)
-$at-dark-950: #0A0C10 !default;   // nav, footer — absolute base
-$at-dark-900: #0D0F14 !default;   // page canvas / body
-$at-dark-800: #13161D !default;   // cards, panels, surface
-$at-dark-700: #191C24 !default;   // form inputs
-$at-dark-600: #1A1E27 !default;   // elevated: modals, dropdowns
-$at-dark-500: #21252E !default;   // subtle: hover, zebra, cap bg
-$at-dark-400: #2A2F3D !default;   // strong dividers
+$at-dark-950: #161619 !default;   // nav, footer — absolute base
+$at-dark-900: #202025 !default;   // page canvas / body
+$at-dark-800: #27272D !default;   // cards, panels, surface
+$at-dark-700: #2E2E36 !default;   // form inputs
+$at-dark-600: #35353F !default;   // elevated: modals, dropdowns
+$at-dark-500: #3C3C47 !default;   // subtle: hover, zebra, cap bg
+$at-dark-400: #464652 !default;   // strong dividers
 $at-dark-300: #3D4452 !default;   // medium gray
 $at-dark-200: #5A6173 !default;   // muted text, placeholder
 $at-dark-150: #6B7380 !default;   // Bootstrap gray-400 equivalent
