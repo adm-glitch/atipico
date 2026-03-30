@@ -120,9 +120,43 @@ body {
         font-weight: var(--at-weight-medium);
         letter-spacing: var(--at-tracking-wide);
         font-size: var(--at-fs-sm);
+        border-radius: 6px;
 
-        &:hover, &.active {
+        &:hover {
+            color: var(--at-text-primary) !important;
+            background-color: rgba($at-gold, 0.12) !important;
+        }
+
+        &.active {
             color: var(--at-accent) !important;
+            background-color: transparent !important;
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
+// Bootstrap nav-tabs (admin settings pages, theme config tabs, etc.)
+// -----------------------------------------------------------------------------
+.nav-tabs {
+    border-bottom: 1px solid var(--at-border) !important;
+
+    .nav-link {
+        color: var(--at-text-secondary) !important;
+        background-color: transparent !important;
+        border-color: transparent !important;
+        border-radius: 6px 6px 0 0;
+
+        &:hover {
+            color: var(--at-text-primary) !important;
+            background-color: rgba($at-gold, 0.10) !important;
+            border-color: var(--at-border) var(--at-border) transparent !important;
+        }
+
+        &.active {
+            color: var(--at-accent) !important;
+            background-color: var(--at-bg-elevated) !important;
+            border-color: var(--at-border) var(--at-border) var(--at-bg-elevated) !important;
+            font-weight: var(--at-weight-semibold);
         }
     }
 }
