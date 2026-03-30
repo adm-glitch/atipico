@@ -240,7 +240,7 @@ function theme_atipico_show_featured_courses() {
     // Loads theme settings.
     $theme = theme_config::load('atipico');
     $count = $theme->settings->featuredcoursesmax;
-    $sql = 'SELECT  c.id, c.fullname, c.shortname, c.summary, c.startdate, c.category, c.visible ';
+    $sql = 'SELECT  c.id, c.fullname, c.shortname, c.summary, c.startdate, c.category, c.visible, c.enablecompletion ';
     $sql .= 'FROM {course} c ';
     // Exclude the site itself.
     $sql .= 'WHERE c.id > 1 ';

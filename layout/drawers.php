@@ -119,6 +119,9 @@ if ($backtotopbutton) {
     $PAGE->requires->js_call_amd('theme_atipico/backtotop', 'init');
 }
 
+// Inject circular progress rings into block_myoverview course cards.
+$PAGE->requires->js_call_amd('theme_atipico/coursecard_ring', 'init');
+
 // Check for the option to print a course index heading.
 $courseindexheading = $theme->settings->courseindexheading;
 if ($courseindexheading != 0) {

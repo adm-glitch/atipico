@@ -360,17 +360,9 @@ body {
         }
 
         .course-completion {
-            .completion-badge,
-            .progress {
-                border-radius: 20px;
-                height: 6px;
-                background: #e9ecef;
-
-                .progress-bar {
-                    background: #298976;
-                    border-radius: 20px;
-                }
-            }
+            // Hide the default linear progress bar — the JS module injects
+            // a .rui-progress-ring circular indicator next to the title.
+            .progress { display: none; }
         }
     }
 }
