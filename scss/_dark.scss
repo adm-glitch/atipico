@@ -280,6 +280,102 @@ body {
 }
 
 // -----------------------------------------------------------------------------
+// My Courses page (block_myoverview) — rui-course-card visual spec
+// Targets Moodle's core block_myoverview card markup without touching templates.
+// -----------------------------------------------------------------------------
+.block_myoverview {
+    .card-deck .card,
+    .card {
+        background: #ffffff !important;
+        border: 1px solid #e9ecef !important;
+        border-radius: 12px !important;
+        box-shadow: none !important;
+        transition: transform var(--at-duration-base) var(--at-ease),
+                    border-color var(--at-duration-base) var(--at-ease);
+        color: #111827;
+
+        &:hover {
+            transform: translateY(-4px);
+            border-color: #ced4da !important;
+            box-shadow: none !important;
+        }
+
+        .card-img-top {
+            position: relative;
+            border-radius: 12px 12px 0 0;
+            overflow: hidden;
+
+            img.course-image,
+            img {
+                aspect-ratio: 16 / 9;
+                object-fit: cover;
+                width: 100%;
+                display: block;
+                height: auto !important;
+                max-height: none !important;
+                border-radius: 12px 12px 0 0;
+            }
+
+            .coursecat {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                left: auto !important;
+                background: rgba(255, 255, 255, 0.9) !important;
+                backdrop-filter: blur(4px);
+                -webkit-backdrop-filter: blur(4px);
+                border-radius: 20px !important;
+                font-size: 0.7rem !important;
+                font-weight: 600 !important;
+                color: #212529 !important;
+                padding: 3px 10px !important;
+                line-height: 1.4;
+                max-width: calc(100% - 20px);
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                z-index: 1;
+            }
+        }
+
+        .card-body {
+            color: #111827;
+            padding: 16px 18px 14px;
+
+            .card-title,
+            .card-title a {
+                font-size: 0.9375rem !important;
+                font-weight: 600 !important;
+                color: #111827 !important;
+                line-height: 1.4;
+
+                &:hover { color: #298976 !important; }
+            }
+
+            .card-text,
+            p {
+                color: #6c757d;
+                font-size: 0.875rem;
+            }
+        }
+
+        .course-completion {
+            .completion-badge,
+            .progress {
+                border-radius: 20px;
+                height: 6px;
+                background: #e9ecef;
+
+                .progress-bar {
+                    background: #298976;
+                    border-radius: 20px;
+                }
+            }
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
 // Forms & Inputs
 // -----------------------------------------------------------------------------
 .form-control,

@@ -17,7 +17,7 @@
 {{!
     @template theme_atipico/widget_featured_courses
 
-    Atipico Theme — Featured courses CSS Grid widget.
+    Atipico Theme — Featured courses CSS Grid widget (rui-course-card).
 
     Example context (json):
     {
@@ -30,7 +30,9 @@
             "summary": "Formação essencial para staff de segurança em grandes eventos.",
             "tags": "",
             "startdate": 1735689600,
-            "rating": ""
+            "rating": "",
+            "completionpercent": 65,
+            "completionpercentclass": "rui-progress-65"
         }],
         "nofeaturedcourses": false
     }
@@ -42,33 +44,45 @@
         </p>
     </div>
 
-    <div class="at-course-grid">
+    <div class="rui-course-grid">
         {{#featuredcourses}}
-        <div class="at-course-card">
-            <img class="at-course-card__img" src="{{img}}" alt="{{fullname}}">
-            {{#category}}<span class="at-course-card__cat">{{category}}</span>{{/category}}
-            {{#hidden}}<span class="at-course-card__badge-soon">{{hidden}}</span>{{/hidden}}
+        <div class="rui-course-card">
 
-            <div class="at-course-card__body">
-                <h5 class="at-course-card__title">
-                    <a href="course/view.php?id={{id}}">{{fullname}}</a>
-                </h5>
-                <p class="at-course-card__summary">
+            <div class="rui-course-card__img-wrap">
+                <img src="{{img}}" alt="{{fullname}}">
+                {{#category}}<span class="rui-course-card__badge">{{category}}</span>{{/category}}
+                {{#hidden}}<span class="rui-course-card__badge-soon">{{hidden}}</span>{{/hidden}}
+            </div>
+
+            <div class="rui-course-card__body">
+                {{#category}}<span class="rui-course-card__cat">{{category}}</span>{{/category}}
+
+                <div class="rui-course-card__title-row">
+                    <h5 class="rui-course-card__title">
+                        <a href="course/view.php?id={{id}}">{{fullname}}</a>
+                    </h5>
+                    <span class="rui-progress-ring {{completionpercentclass}}" title="{{completionpercent}}%" aria-label="{{completionpercent}}% {{#str}}complete{{/str}}"></span>
+                </div>
+
+                <p class="rui-course-card__summary">
                     {{#shortentext}} 110, {{{summary}}} {{/shortentext}}
                 </p>
+
                 {{{tags}}}
-                <div class="at-course-card__meta">
+
+                <div class="rui-course-card__meta">
                     {{#startdate}}
-                    <span class="at-course-card__date">
+                    <span class="rui-course-card__date">
                         <span class="fa fa-calendar" role="img" aria-label="calendar"></span>
                         {{#userdate}} {{startdate}}, {{#str}} strftimedate, core_langconfig {{/str}} {{/userdate}}
                     </span>
                     {{/startdate}}
                     {{#rating}}
-                    <span class="at-course-card__rating">{{{rating}}}</span>
+                    <span class="rui-course-card__rating">{{{rating}}}</span>
                     {{/rating}}
                 </div>
             </div>
+
         </div>
         {{/featuredcourses}}
     </div>

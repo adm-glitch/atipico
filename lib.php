@@ -295,6 +295,20 @@ function theme_atipico_show_featured_courses() {
         }
         $templatecontext['featuredcourses'][$n]['img'] = theme_atipico_get_course_image($course->id);
 
+        // Course completion percentage for the progress ring.
+        $completionpct = 0;
+        if (!empty($featuredcourse->enablecompletion) && isloggedin() && !isguestuser()) {
+            $rawpct = \core_completion\progress::get_course_progress_percentage($featuredcourse);
+            if ($rawpct !== null && $rawpct !== false) {
+                $completionpct = (int) round((float) $rawpct);
+            }
+        }
+        // Snap to nearest 5 for the conic-gradient CSS class.
+        $snapped = (int) round($completionpct / 5) * 5;
+        $snapped = max(0, min(100, $snapped));
+        $templatecontext['featuredcourses'][$n]['completionpercent'] = $completionpct;
+        $templatecontext['featuredcourses'][$n]['completionpercentclass'] = 'rui-progress-' . $snapped;
+
         // If course rating plugin is installed and setting is on.
         $plugins = core_plugin_manager::instance()->get_present_plugins('tool');
         if (isset($plugins['courserating']) && $theme->settings->featuredcoursesrating) {
