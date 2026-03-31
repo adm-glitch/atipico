@@ -21,11 +21,20 @@
  *   Surface / cards   #27272D   (dark-800)
  *   Input fills       #2E2E36   (dark-700)
  *   Elevated layers   #35353F   (dark-600)
- *   Primary accent    #DCA31E   (gold  — DanKa brand)
+ *   Primary accent    #DCA31E   (gold  — DanKa brand canonical token)
  *   Secondary accent  #298976   (teal  — DanKa brand)
  *   Primary text      #ECEEF2   (dark-050)
  *   Secondary text    #9BA3B2   (dark-100)
  *   Muted / captions  #5A6173   (dark-200)
+ *
+ * NOTE ON GOLD VALUE
+ * ------------------
+ * The original design brief cites #DAAA00 as the gold colour. During
+ * theme development the canonical SCSS primitive was calibrated to
+ * #DCA31E (slightly warmer, better contrast on dark surfaces). This file
+ * follows the live SCSS token. If the brand guideline is updated to
+ * restore #DAAA00, change every instance of #DCA31E in this file and
+ * update scss/stream.scss ($at-gold) together so both stay in sync.
  *
  * =============================================================================
  */
