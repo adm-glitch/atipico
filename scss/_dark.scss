@@ -851,6 +851,24 @@ h3.sectionname,
     text-transform: uppercase;
 }
 
+// Activity header (mod pages) — strip Boost's light surface
+.path-mod .activity-header:not(:empty) {
+    background-color: var(--at-bg-base) !important;
+    color: var(--at-text-primary) !important;
+    border-color: var(--at-border) !important;
+    box-shadow: none !important;
+
+    .activityname,
+    h2 {
+        color: var(--at-text-primary) !important;
+    }
+
+    .activity-description,
+    .activity-altcontent {
+        color: var(--at-text-secondary) !important;
+    }
+}
+
 // Activity navigation — three-slot flex (Prev | Jump-to | Next)
 .at-activity-nav {
     display: flex;
