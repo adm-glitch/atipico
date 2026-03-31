@@ -24,6 +24,8 @@
     Changes vs core:
     - Added {{#summary}}<div class="rui-course-summary">{{{summary}}}</div>{{/summary}}
       after the card-title block.
+    - All structural partials (card-img, course-dates, course-progress,
+      course-action-menu) preserved exactly as in Moodle core.
 
     Example context (json):
     {
@@ -68,8 +70,12 @@
                         </div>
                     </div>
                 </div>
+                {{> block_myoverview/local/courses_view/course-dates}}
             </div>
         </div>
     </div>
-    {{> block_myoverview/local/courses_view/course-action-menu}}
+    <div class="d-flex align-items-start">
+        {{> block_myoverview/local/courses_view/course-progress}}
+        {{> block_myoverview/local/courses_view/course-action-menu}}
+    </div>
 </div>
