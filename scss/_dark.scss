@@ -894,6 +894,7 @@ h3.sectionname,
 
     .automatic-completion-conditions {
         display: contents;
+        z-index: 0;
     }
 
     [role="listitem"].badge {
