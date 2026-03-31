@@ -17,15 +17,13 @@
 {{!
     @template core_course/activity_navigation
 
-    Theme Atipico override. Three-column flex row: Previous | Jump-to | Next.
-    Jump-to is a custom-styled <select> with data-action="navigate" so
-    Moodle's AMD JS handles page navigation. Previous/Next delegate to
-    core/action_link to preserve URL, disabled state, and accessibility attrs.
+    Theme Atipico override — three-column grid: Previous | Jump-to | Next.
+    Navigation is handled by Moodle's AMD via data-action="navigate".
 
     Context variables required for this template:
-    * prevlink Object - The action link data for the previous activity link.
-    * nextlink Object - The action link data for the next activity link.
-    * activitylist Object - The data for the activity selector menu.
+    * prevlink Object - action_link context for the previous activity.
+    * nextlink Object - action_link context for the next activity.
+    * activitylist Object - url_select context for the activity selector.
 
     Example context (json):
     {
@@ -60,11 +58,10 @@
 <div class="mt-4 p-2 activity-navigation container-fluid">
     <div class="at-activity-nav">
 
-        {{! Previous activity button }}
         <div class="at-activity-nav__prev">
             {{#prevlink}}
             <span class="at-nav-btn-wrap">
-                <svg class="at-nav-chevron at-nav-chevron--left" aria-hidden="true"
+                <svg class="at-nav-chevron" aria-hidden="true"
                      width="14" height="14" viewBox="0 0 14 14" fill="none"
                      xmlns="http://www.w3.org/2000/svg">
                     <path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.75"
@@ -75,14 +72,12 @@
             {{/prevlink}}
         </div>
 
-        {{! Jump-to activity selector — centre }}
         {{#activitylist}}
         <div class="at-activity-nav__jumpto">
             <form action="{{action}}" method="get">
                 <select id="{{id}}" name="jump"
                         class="at-nav-jumpto__select"
-                        data-action="navigate"
-                        onchange="this.form.submit()">
+                        data-action="navigate">
                     {{#options}}
                     <option value="{{value}}"{{#selected}} selected{{/selected}}>{{name}}</option>
                     {{/options}}
@@ -97,12 +92,11 @@
         </div>
         {{/activitylist}}
 
-        {{! Next activity button }}
         <div class="at-activity-nav__next">
             {{#nextlink}}
             <span class="at-nav-btn-wrap">
                 {{> core/action_link }}
-                <svg class="at-nav-chevron at-nav-chevron--right" aria-hidden="true"
+                <svg class="at-nav-chevron" aria-hidden="true"
                      width="14" height="14" viewBox="0 0 14 14" fill="none"
                      xmlns="http://www.w3.org/2000/svg">
                     <path d="M5 2L10 7L5 12" stroke="currentColor" stroke-width="1.75"

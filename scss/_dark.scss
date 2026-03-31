@@ -851,27 +851,23 @@ h3.sectionname,
     text-transform: uppercase;
 }
 
-// Activity prev/next/jump-to navigation — three-column flex
+// Activity navigation — three-column grid (Prev | Jump-to | Next)
 .at-activity-nav {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
     gap: var(--at-space-4);
     padding: var(--at-space-4) 0;
     border-top: 1px solid var(--at-border);
 
-    // ── Prev & Next slots ────────────────────────────────────────────────────
-    &__prev,
-    &__next {
-        flex-shrink: 0;
-    }
+    &__prev { justify-self: start; }
+    &__next { justify-self: end; }
 
-    // Wrapper span that holds the SVG chevron + action_link together
     .at-nav-btn-wrap {
         display: inline-flex;
         align-items: center;
         gap: var(--at-space-2);
 
-        // Style the rendered <a> / .btn inside action_link
         .btn,
         a {
             display: inline-flex;
@@ -896,7 +892,6 @@ h3.sectionname,
             }
         }
 
-        // Chevron icons inherit colour from the link on hover
         .at-nav-chevron {
             color: var(--at-text-muted);
             flex-shrink: 0;
@@ -908,9 +903,7 @@ h3.sectionname,
         }
     }
 
-    // ── Jump-to selector — grows to fill remaining space ─────────────────────
     &__jumpto {
-        flex: 1;
         display: flex;
         justify-content: center;
 
@@ -955,7 +948,6 @@ h3.sectionname,
             }
         }
 
-        // Decorative chevron-down overlaid on the right of the select
         .at-nav-jumpto__chevron {
             position: absolute;
             right: var(--at-space-3);
