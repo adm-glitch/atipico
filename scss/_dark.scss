@@ -302,17 +302,16 @@ body {
 
         .card-img-top {
             position: relative;
+            height: 240px;
             border-radius: 12px 12px 0 0;
             overflow: hidden;
 
             img.course-image,
             img {
-                // 4:3 ratio — squarish cards at 2-column width on My Courses.
-                aspect-ratio: 4 / 3;
                 object-fit: cover;
                 width: 100%;
                 display: block;
-                height: auto !important;
+                height: 100% !important;
                 max-height: none !important;
                 border-radius: 12px 12px 0 0;
             }
@@ -372,6 +371,16 @@ body {
             display: flex;
             align-items: flex-start;
             gap: 8px;
+        }
+
+        // Override Bootstrap bg-white utility on both card-footer elements:
+        // - .card-footer.bg-white (progress text)
+        // - .card-footer.menu.bg-white (three-dot action menu)
+        .card-footer,
+        .card-footer.bg-white {
+            background-color: var(--at-bg-surface) !important;
+            border-color: var(--at-border) !important;
+            color: var(--at-text-secondary);
         }
     }
 }
