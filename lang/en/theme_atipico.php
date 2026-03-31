@@ -167,3 +167,6 @@ $string['courseindexheading'] = 'Show extra info in the course index.';
 $string['courseindexheading_desc'] = 'Show course name or shortname as heading in the course index.';
 $string['homepageheroopacity'] = 'Overlay opacity';
 $string['homepageheroopacity_desc'] = 'Overlay opacity. 0 transparent, 10 solid dark gray';
+
+// Quick access icon menu.
+$string['quickaccess'] = 'Quick access';

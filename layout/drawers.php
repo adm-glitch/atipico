@@ -120,6 +120,7 @@ if (isloggedin() && !isguestuser()) {
         'profile_url'           => (new moodle_url('/user/profile.php', ['id' => $USER->id]))->out(false),
         'settings_url'          => (new moodle_url('/user/preferences.php'))->out(false),
         'editmode_url'          => $rui_editurl->out(false),
+        'isloggedin'            => true,
         'isediting'             => (bool)$rui_isediting,
         'caneditpage'           => (bool)$PAGE->user_can_edit_blocks(),
         // Localised tooltip/aria labels — pass from PHP so {{#str}} is not needed inside attributes.
