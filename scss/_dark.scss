@@ -882,13 +882,13 @@ h3.sectionname,
         color: var(--at-text-secondary) !important;
     }
 
-    // Lift completion badges one level up — visually above automatic-completion-conditions.
-    // display:contents removes the wrapper's box from layout so its children
-    // participate directly in .completion-info's flex flow (same as being
-    // direct children of .completion-info, before the conditions block).
+    // Lift completion badges visually above automatic-completion-conditions.
+    // display:contents on the wrapper removes its box so badge children
+    // participate directly in .completion-info's flex flow.
     .completion-info {
         display: flex;
         flex-direction: column;
+        align-items: flex-start; // prevent badges from stretching full-width
         gap: var(--at-space-2);
     }
 
@@ -900,6 +900,9 @@ h3.sectionname,
         order: -1;
         position: relative;
         z-index: 2;
+        // Bootstrap dark-mode overrides bg-success to near-black — restore it
+        background-color: var(--at-success) !important;
+        color: var(--at-text-primary) !important;
     }
 }
 
