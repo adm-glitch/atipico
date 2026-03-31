@@ -760,7 +760,6 @@ a {
     border-radius: var(--at-radius-md);
     margin-bottom: 0;
     position: relative;
-    overflow: hidden;
     transition: border-color var(--at-duration-fast) var(--at-ease),
                 background-color var(--at-duration-fast) var(--at-ease),
                 box-shadow var(--at-duration-fast) var(--at-ease);
@@ -776,6 +775,7 @@ a {
         background: transparent;
         border-radius: var(--at-radius-md) 0 0 var(--at-radius-md);
         transition: background var(--at-duration-fast) var(--at-ease);
+        z-index: 0;
     }
 
     &:hover {
@@ -825,13 +825,27 @@ a {
         }
     }
 
-    // Completion checkbox — pushed to the right edge
+    // Completion checkbox — pushed to the right edge; z-index lifts above ::before
     .actions,
     .activity-actions,
     .activity-completion {
         margin-left: auto;
         flex-shrink: 0;
         align-self: center;
+        position: relative;
+        z-index: 1;
+    }
+
+    // Ensure the whole activity wrapper content sits above the accent bar pseudo-element
+    .activity-wrapper {
+        position: relative;
+        z-index: 1;
+    }
+
+    // Completion badge (bg-success rounded-pill) — must clear the section background layer
+    .badge.rounded-pill {
+        position: relative;
+        z-index: 2;
     }
 }
 
