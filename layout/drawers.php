@@ -114,15 +114,21 @@ if (isloggedin() && !isguestuser()) {
     $rui_editurl->param('edit', $rui_isediting ? 'off' : 'on');
     $rui_editurl->param('sesskey', sesskey());
     $templatecontext['rui_icon_menu'] = [
-        'mycourses_url'    => (new moodle_url('/my/courses.php'))->out(false),
-        'messages_url'     => (new moodle_url('/message/index.php'))->out(false),
-        'notifications_url'=> (new moodle_url('/message/output/popup/notifications.php'))->out(false),
-        'profile_url'      => (new moodle_url('/user/profile.php', ['id' => $USER->id]))->out(false),
-        'settings_url'     => (new moodle_url('/user/preferences.php'))->out(false),
-        'editmode_url'     => $rui_editurl->out(false),
-        'isediting'        => (bool)$rui_isediting,
-        'caneditpage'      => (bool)$PAGE->user_can_edit_blocks(),
-        'editmode_tooltip' => $rui_isediting
+        'mycourses_url'         => (new moodle_url('/my/courses.php'))->out(false),
+        'messages_url'          => (new moodle_url('/message/index.php'))->out(false),
+        'notifications_url'     => (new moodle_url('/message/output/popup/notifications.php'))->out(false),
+        'profile_url'           => (new moodle_url('/user/profile.php', ['id' => $USER->id]))->out(false),
+        'settings_url'          => (new moodle_url('/user/preferences.php'))->out(false),
+        'editmode_url'          => $rui_editurl->out(false),
+        'isediting'             => (bool)$rui_isediting,
+        'caneditpage'           => (bool)$PAGE->user_can_edit_blocks(),
+        // Localised tooltip/aria labels — pass from PHP so {{#str}} is not needed inside attributes.
+        'tooltip_mycourses'     => get_string('mycourses', 'block_myoverview'),
+        'tooltip_messages'      => get_string('messages', 'message'),
+        'tooltip_notifications' => get_string('notifications', 'core'),
+        'tooltip_settings'      => get_string('preferences', 'moodle'),
+        'tooltip_profile'       => get_string('profile', 'moodle'),
+        'editmode_tooltip'      => $rui_isediting
             ? get_string('turneditingoff', 'core')
             : get_string('turneditingon', 'core'),
     ];
