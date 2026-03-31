@@ -881,6 +881,26 @@ h3.sectionname,
     .activity-altcontent {
         color: var(--at-text-secondary) !important;
     }
+
+    // Lift completion badges one level up — visually above automatic-completion-conditions.
+    // display:contents removes the wrapper's box from layout so its children
+    // participate directly in .completion-info's flex flow (same as being
+    // direct children of .completion-info, before the conditions block).
+    .completion-info {
+        display: flex;
+        flex-direction: column;
+        gap: var(--at-space-2);
+    }
+
+    .automatic-completion-conditions {
+        display: contents;
+    }
+
+    [role="listitem"].badge {
+        order: -1;
+        position: relative;
+        z-index: 2;
+    }
 }
 
 // Activity navigation — three-slot flex (Prev | Jump-to | Next)
