@@ -17,12 +17,15 @@
 {{!
     @template core_course/activity_navigation
 
-    Displays the activity navigation
+    Theme Atipico override. Three-column flex row: Previous | Jump-to | Next.
+    Jump-to is a custom-styled <select> with data-action="navigate" so
+    Moodle's AMD JS handles page navigation. Previous/Next delegate to
+    core/action_link to preserve URL, disabled state, and accessibility attrs.
 
     Context variables required for this template:
-    * prevlink Object - The action link data for the previous activity link. Corresponds with the core/action_link context.
-    * nextlink Object - The action link data for the next activity link. Corresponds with the core/action_link context.
-    * activitylist Object - The data for the activity selector menu. Corresponds with the core/url_select context.
+    * prevlink Object - The action link data for the previous activity link.
+    * nextlink Object - The action link data for the next activity link.
+    * activitylist Object - The data for the activity selector menu.
 
     Example context (json):
     {
@@ -31,46 +34,83 @@
             "url": "#",
             "id": "test-id-1",
             "classes": "btn btn-link",
-            "attributes": [
-                {
-                    "name": "title",
-                    "value": "Activity A"
-                }
-            ],
-            "text": "◄ Activity A"
+            "attributes": [{"name": "title", "value": "Activity A"}],
+            "text": "Activity A"
         },
         "nextlink": {
             "disabled": false,
             "url": "#",
             "id": "test-id-2",
             "classes": "btn btn-link",
-            "attributes": [
-                {
-                    "name": "title",
-                    "value": "Activity C"
-                }
-            ],
-            "text": "Activity C ►"
+            "attributes": [{"name": "title", "value": "Activity C"}],
+            "text": "Activity C"
         },
         "activitylist": {
             "id": "url_select_test",
             "action": "#",
             "options": [
                 {"name": "Jump to...", "value": "#0"},
-                {"name": "Activity A", "value": "#1"},
+                {"name": "Activity A", "value": "#1", "selected": true},
                 {"name": "Activity B", "value": "#2"},
                 {"name": "Activity C", "value": "#3"}
             ]
         }
     }
 }}
-<div class="mt-5 mb-1 activity-navigation container-fluid">
+<div class="mt-4 p-2 activity-navigation container-fluid">
     <div class="at-activity-nav">
+
+        {{! Previous activity button }}
         <div class="at-activity-nav__prev">
-            {{#prevlink}}{{> core/action_link }}{{/prevlink}}
+            {{#prevlink}}
+            <span class="at-nav-btn-wrap">
+                <svg class="at-nav-chevron at-nav-chevron--left" aria-hidden="true"
+                     width="14" height="14" viewBox="0 0 14 14" fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.75"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                {{> core/action_link }}
+            </span>
+            {{/prevlink}}
         </div>
+
+        {{! Jump-to activity selector — centre }}
+        {{#activitylist}}
+        <div class="at-activity-nav__jumpto">
+            <form action="{{action}}" method="get">
+                <select id="{{id}}" name="jump"
+                        class="at-nav-jumpto__select"
+                        data-action="navigate"
+                        onchange="this.form.submit()">
+                    {{#options}}
+                    <option value="{{value}}"{{#selected}} selected{{/selected}}>{{name}}</option>
+                    {{/options}}
+                </select>
+                <svg class="at-nav-jumpto__chevron" aria-hidden="true"
+                     width="12" height="12" viewBox="0 0 12 12" fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 4L6 8L10 4" stroke="currentColor" stroke-width="1.5"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </form>
+        </div>
+        {{/activitylist}}
+
+        {{! Next activity button }}
         <div class="at-activity-nav__next">
-            {{#nextlink}}{{> core/action_link }}{{/nextlink}}
+            {{#nextlink}}
+            <span class="at-nav-btn-wrap">
+                {{> core/action_link }}
+                <svg class="at-nav-chevron at-nav-chevron--right" aria-hidden="true"
+                     width="14" height="14" viewBox="0 0 14 14" fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5 2L10 7L5 12" stroke="currentColor" stroke-width="1.75"
+                          stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </span>
+            {{/nextlink}}
         </div>
+
     </div>
 </div>
