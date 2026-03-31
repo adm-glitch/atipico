@@ -861,7 +861,8 @@ h3.sectionname,
 
     &__prev,
     &__next {
-        flex-shrink: 0;
+        flex: 0 0 auto;
+        min-width: 6rem; // reserves column width even when the slot is empty
     }
 
     .at-nav-btn-wrap {
