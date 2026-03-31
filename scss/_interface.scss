@@ -963,7 +963,7 @@ $isticky: 0 !default;
 // Placement: between the left drawer toggle and the right blocks toggle.
 // -----------------------------------------------------------------------------
 .rui-icon-menu {
-    display: flex;
+    display: none !important;
     align-items: center;
     flex-wrap: wrap;
     gap: var(--at-space-2);           // 8px between icons
