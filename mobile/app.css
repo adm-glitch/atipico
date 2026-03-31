@@ -106,6 +106,13 @@
     --ion-color-danger-shade:       #DC2626;
     --ion-color-danger-tint:        #F87171;
 
+    --ion-color-info:               #3B82F6;
+    --ion-color-info-rgb:           59, 130, 246;
+    --ion-color-info-contrast:      #ECEEF2;
+    --ion-color-info-contrast-rgb:  236, 238, 242;
+    --ion-color-info-shade:         #2563EB;
+    --ion-color-info-tint:          #60A5FA;
+
     --ion-color-medium:             #9BA3B2;
     --ion-color-medium-rgb:         155, 163, 178;
     --ion-color-medium-contrast:    #161619;
