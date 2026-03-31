@@ -17,42 +17,19 @@
 {{!
     @template core_course/activity_navigation
 
-    Theme Atipico override — three-column grid: Previous | Jump-to | Next.
-    Navigation is handled by Moodle's AMD via data-action="navigate".
+    Displays the activity navigation (theme Atipico override).
+    Three-slot flex: Previous | Jump-to selector | Next.
 
     Context variables required for this template:
-    * prevlink Object - action_link context for the previous activity.
-    * nextlink Object - action_link context for the next activity.
-    * activitylist Object - url_select context for the activity selector.
+    * prevlink Object - The action link data for the previous activity link. Corresponds with the core/action_link context.
+    * nextlink Object - The action link data for the next activity link. Corresponds with the core/action_link context.
+    * activitylist Object - The data for the activity selector menu. Corresponds with the core/url_select context.
 
     Example context (json):
     {
-        "prevlink": {
-            "disabled": false,
-            "url": "#",
-            "id": "test-id-1",
-            "classes": "btn btn-link",
-            "attributes": [{"name": "title", "value": "Activity A"}],
-            "text": "Activity A"
-        },
-        "nextlink": {
-            "disabled": false,
-            "url": "#",
-            "id": "test-id-2",
-            "classes": "btn btn-link",
-            "attributes": [{"name": "title", "value": "Activity C"}],
-            "text": "Activity C"
-        },
-        "activitylist": {
-            "id": "url_select_test",
-            "action": "#",
-            "options": [
-                {"name": "Jump to...", "value": "#0"},
-                {"name": "Activity A", "value": "#1", "selected": true},
-                {"name": "Activity B", "value": "#2"},
-                {"name": "Activity C", "value": "#3"}
-            ]
-        }
+        "prevlink": {"disabled": false, "url": "#", "id": "prev-1", "classes": "btn btn-link", "attributes": [{"name": "title", "value": "Activity A"}], "text": "Activity A"},
+        "nextlink": {"disabled": false, "url": "#", "id": "next-1", "classes": "btn btn-link", "attributes": [{"name": "title", "value": "Activity C"}], "text": "Activity C"},
+        "activitylist": {"id": "url_select_test", "action": "#", "options": [{"name": "Jump to...", "value": "#0"}, {"name": "Activity A", "value": "#1", "selected": true}, {"name": "Activity B", "value": "#2"}]}
     }
 }}
 <div class="mt-4 p-2 activity-navigation container-fluid">
