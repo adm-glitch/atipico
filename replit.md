@@ -111,6 +111,26 @@ scss/
 
 ---
 
+## Quick Access Icon Menu (rui-icon-menu)
+
+A compact icon strip injected into the `drawer-toggles` flex row in `drawers.mustache` — visible on every page for logged-in, non-guest users.
+
+### Files
+- `layout/drawers.php` — builds `rui_icon_menu` context block (URLs, edit-mode URL/state, `caneditpage` flag); excluded for guest users
+- `templates/partials/icon_menu.mustache` — the `<nav class="rui-icon-menu">` partial with five standard icon links + conditional edit-mode button
+- `templates/drawers.mustache` — injects `{{#rui_icon_menu}}{{> theme_atipico/partials/icon_menu}}{{/rui_icon_menu}}` between the left and right drawer toggles
+- `scss/_interface.scss` — `.rui-icon-menu` component: flex row, 36×36px soft-square items, hover lift + accent colour, CSS-only tooltip below icon, active state for edit mode button
+
+### Icons (FontAwesome 6 Solid)
+My Courses: `fa-graduation-cap` | Messages: `fa-message` | Notifications: `fa-bell` | Settings: `fa-gear` | Profile: `fa-circle-user` | Edit Mode: `fa-pen-to-square`
+
+### Behaviour
+- Edit Mode button shown only when `$PAGE->user_can_edit_blocks()` is true; gets `.is-active` class + gold border when editing is on
+- Tooltip labels come from PHP: My Courses / Messages / Notifications / Settings / Profile (hardcoded English); Edit Mode uses `get_string('turneditingon/off', 'core')`
+- Tooltip appears **below** the icon (toolbar is near top of page, above is off-screen)
+
+---
+
 ## My Courses Page (block_myoverview) — Moodle 4.5 Architecture
 
 **Critical findings from inspecting the real Moodle 4.5 HTML — differ significantly from older docs:**

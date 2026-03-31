@@ -1,0 +1,82 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template theme_atipico/partials/icon_menu
+
+    Quick access icon menu. Rendered inside the drawer-toggles toolbar row on every page
+    for logged-in non-guest users. Context is the rui_icon_menu sub-object from drawers.php.
+
+    Example context (json):
+    {
+        "mycourses_url": "/my/courses.php",
+        "messages_url": "/message/index.php",
+        "notifications_url": "/message/output/popup/notifications.php",
+        "profile_url": "/user/profile.php?id=2",
+        "settings_url": "/user/preferences.php",
+        "editmode_url": "/course/view.php?id=1&edit=on&sesskey=...",
+        "isediting": false,
+        "caneditpage": true,
+        "editmode_tooltip": "Turn editing on"
+    }
+}}
+<nav class="rui-icon-menu d-print-none" aria-label="Quick access">
+
+    <a href="{{mycourses_url}}"
+       class="rui-icon-menu__item"
+       data-tooltip="My Courses"
+       aria-label="My Courses">
+        <i class="fa-solid fa-graduation-cap" aria-hidden="true"></i>
+    </a>
+
+    <a href="{{messages_url}}"
+       class="rui-icon-menu__item"
+       data-tooltip="Messages"
+       aria-label="Messages">
+        <i class="fa-solid fa-message" aria-hidden="true"></i>
+    </a>
+
+    <a href="{{notifications_url}}"
+       class="rui-icon-menu__item"
+       data-tooltip="Notifications"
+       aria-label="Notifications">
+        <i class="fa-solid fa-bell" aria-hidden="true"></i>
+    </a>
+
+    <a href="{{settings_url}}"
+       class="rui-icon-menu__item"
+       data-tooltip="Settings"
+       aria-label="Settings">
+        <i class="fa-solid fa-gear" aria-hidden="true"></i>
+    </a>
+
+    <a href="{{profile_url}}"
+       class="rui-icon-menu__item"
+       data-tooltip="Profile"
+       aria-label="Profile">
+        <i class="fa-solid fa-circle-user" aria-hidden="true"></i>
+    </a>
+
+    {{#caneditpage}}
+    <a href="{{editmode_url}}"
+       class="rui-icon-menu__item rui-icon-menu__editmode{{#isediting}} is-active{{/isediting}}"
+       data-tooltip="{{editmode_tooltip}}"
+       aria-label="{{editmode_tooltip}}">
+        <i class="fa-solid fa-pen-to-square" aria-hidden="true"></i>
+    </a>
+    {{/caneditpage}}
+
+</nav>

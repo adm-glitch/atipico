@@ -956,3 +956,104 @@ $isticky: 0 !default;
 .drawer.scrolled .drawerheader {
     box-shadow: none;
 }
+
+// -----------------------------------------------------------------------------
+// rui-icon-menu — Quick Access Icon Strip
+// Rendered inside .drawer-toggles flex row on every page for logged-in users.
+// Placement: between the left drawer toggle and the right blocks toggle.
+// -----------------------------------------------------------------------------
+.rui-icon-menu {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--at-space-1);      // 4px between icons
+    padding: 0 var(--at-space-2); // 8px horizontal breathing room
+
+    &__item {
+        position: relative;      // anchor for CSS tooltip
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        border-radius: var(--at-radius-md); // 8px soft-square
+        background-color: transparent;
+        color: var(--at-text-muted);
+        text-decoration: none;
+        border: 1px solid transparent;
+        transition:
+            background-color var(--at-duration-fast) var(--at-ease),
+            color            var(--at-duration-fast) var(--at-ease),
+            border-color     var(--at-duration-fast) var(--at-ease),
+            transform        var(--at-duration-fast) var(--at-ease);
+
+        i {
+            font-size: 15px;
+            line-height: 1;
+            pointer-events: none;
+        }
+
+        // --- Hover ---
+        &:hover {
+            background-color: var(--at-bg-elevated);
+            color: var(--at-accent);
+            border-color: var(--at-border);
+            transform: translateY(-2px);
+            text-decoration: none;
+        }
+
+        // --- Active (edit mode on) ---
+        &.is-active {
+            background-color: var(--at-accent-subtle);
+            color: var(--at-accent);
+            border-color: var(--at-border-accent);
+
+            &:hover {
+                background-color: var(--at-accent-glow);
+            }
+        }
+
+        // --- CSS-only tooltip (appears below the icon — toolbar is near top of page) ---
+        &[data-tooltip] {
+            &::before,
+            &::after {
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                opacity: 0;
+                pointer-events: none;
+                transition: opacity var(--at-duration-fast) var(--at-ease);
+                z-index: var(--at-z-toast);
+            }
+
+            // Tooltip text pill
+            &::after {
+                content: attr(data-tooltip);
+                top: calc(100% + 8px);
+                white-space: nowrap;
+                background-color: var(--at-bg-elevated);
+                color: var(--at-text-primary);
+                font-size: var(--at-fs-xs);
+                font-weight: var(--at-weight-medium);
+                padding: 4px 8px;
+                border-radius: var(--at-radius-sm);
+                border: 1px solid var(--at-border-strong);
+                box-shadow: var(--at-shadow-md);
+            }
+
+            // Arrow pointing up (tooltip is below)
+            &::before {
+                content: '';
+                top: calc(100% + 3px);
+                border: 5px solid transparent;
+                border-bottom-color: var(--at-border-strong);
+                transform: translateX(-50%);
+            }
+
+            &:hover {
+                &::before,
+                &::after { opacity: 1; }
+            }
+        }
+    }
+}

@@ -94,7 +94,7 @@
     {{/hasblocks}}
     <div id="page" data-region="mainpage" data-usertour="scroller" class="drawers {{#courseindexopen}}show-drawer-left{{/courseindexopen}} {{#blockdraweropen}}show-drawer-right{{/blockdraweropen}} drag-container">
         <div id="topofscroll" class="main-inner">
-            <div class="drawer-toggles d-flex">
+            <div class="drawer-toggles d-flex align-items-center">
                 {{#courseindex}}
                     <div class="drawer-toggler drawer-left-toggle open-nav d-print-none">
                         <button
@@ -111,6 +111,9 @@
                         </button>
                     </div>
                 {{/courseindex}}
+                {{#rui_icon_menu}}
+                    {{> theme_atipico/partials/icon_menu}}
+                {{/rui_icon_menu}}
                 {{#hasblocks}}
                     <div class="drawer-toggler drawer-right-toggle ms-auto d-print-none">
                         <button
