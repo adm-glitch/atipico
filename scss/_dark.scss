@@ -305,6 +305,9 @@ body {
             height: 240px;
             border-radius: 12px 12px 0 0;
             overflow: hidden;
+            // Moodle 4.5 uses background-image on the div, not an <img> element.
+            background-size: cover !important;
+            background-position: center !important;
 
             img.course-image,
             img {
@@ -315,9 +318,14 @@ body {
                 max-height: none !important;
                 border-radius: 12px 12px 0 0;
             }
+        }
 
-            // Category badge hidden — description shown in card body instead.
-            .coursecat { display: none !important; }
+        // Hide category in card body.
+        // Moodle 4.5 renders: div.text-muted.muted.d-flex.flex-wrap > span.categoryname
+        // (NOT .coursecat on the image — that was wrong in prior tasks)
+        .card-body .text-muted.muted,
+        .card-body .categoryname {
+            display: none !important;
         }
 
         .card-body {

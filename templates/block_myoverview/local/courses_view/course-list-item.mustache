@@ -1,0 +1,74 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template block_myoverview/local/courses_view/course-list-item
+
+    Theme Atipico override of the core block_myoverview course-list-item template.
+
+    Changes vs core:
+    - Added {{#summary}}<div class="rui-course-summary">{{{summary}}}</div>{{/summary}}
+      after the category section in the card body.
+    - Category section (.text-muted.muted / .categoryname) hidden via CSS in _dark.scss.
+    - All other markup preserved exactly as rendered by Moodle 4.5.
+
+    Example context (json):
+    {
+        "id": 2,
+        "fullname": "Course name",
+        "viewurl": "http://example.com/course/view.php?id=2",
+        "courseimage": "http://example.com/pluginfile.php/14/course/overviewfiles/img.png",
+        "progress": 100,
+        "hasprogress": true,
+        "isfavourite": false,
+        "hidden": false,
+        "showshortname": false,
+        "shortname": "DEMO",
+        "summary": "<p>A short course description.</p>",
+        "coursecat": "Category 1",
+        "showcoursecategory": true,
+        "contextid": 42
+    }
+}}
+<div class="card course-card mx-1" role="listitem" data-region="course-content" data-course-id="{{id}}">
+    <a href="{{viewurl}}" tabindex="-1">
+        <div class="card-img-top" style="background-image: url(&quot;{{courseimage}}&quot;);">
+            <span class="visually-hidden">{{fullname}}</span>
+        </div>
+    </a>
+    <div class="card-body pe-1 course-info-container" id="course-info-container-{{id}}-{{uniqid}}">
+        <div class="d-flex align-items-start">
+            <div class="w-100 text-truncate">
+                <a href="{{viewurl}}" class="aalink coursename me-2 mb-1">
+                    {{> block_myoverview/local/courses_view/course-favourite-icon}}
+                    <span class="visually-hidden">{{#str}}coursename, block_myoverview{{/str}}</span>
+                    {{> block_myoverview/local/courses_view/course-title}}
+                </a>
+                {{#showcoursecategory}}
+                <div class="text-muted muted d-flex flex-wrap">
+                    <span class="visually-hidden">{{#str}}aria:coursecat, block_myoverview{{/str}}</span>
+                    <span class="categoryname text-truncate">{{coursecat}}</span>
+                </div>
+                {{/showcoursecategory}}
+                {{#summary}}<div class="rui-course-summary">{{{summary}}}</div>{{/summary}}
+            </div>
+        </div>
+    </div>
+    <div class="d-flex align-items-start">
+        {{> block_myoverview/local/courses_view/course-progress}}
+        {{> block_myoverview/local/courses_view/course-action-menu}}
+    </div>
+</div>

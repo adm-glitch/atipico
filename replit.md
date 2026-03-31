@@ -111,6 +111,66 @@ scss/
 
 ---
 
+## My Courses Page (block_myoverview) — Moodle 4.5 Architecture
+
+**Critical findings from inspecting the real Moodle 4.5 HTML — differ significantly from older docs:**
+
+### Actual card HTML structure (Moodle 4.5)
+```html
+<div class="card course-card mx-1" role="listitem"
+     data-region="course-content" data-course-id="{{id}}">
+    <a href="{{viewurl}}" tabindex="-1">
+        <div class="card-img-top" style="background-image: url('{{courseimage}}');">
+            <span class="visually-hidden">{{fullname}}</span>
+        </div>
+    </a>
+    <div class="card-body pe-1 course-info-container" id="course-info-container-{{id}}-{{uniqid}}">
+        <div class="d-flex align-items-start">
+            <div class="w-100 text-truncate">
+                <a href="{{viewurl}}" class="aalink coursename me-2 mb-1">...</a>
+                {{#showcoursecategory}}
+                <div class="text-muted muted d-flex flex-wrap">
+                    <span class="categoryname text-truncate">{{coursecat}}</span>
+                </div>
+                {{/showcoursecategory}}
+            </div>
+        </div>
+    </div>
+    <div class="d-flex align-items-start">
+        {{> course-progress}}       <!-- .card-footer.bg-white with .progress-text -->
+        {{> course-action-menu}}    <!-- .card-footer.menu with dropdown -->
+    </div>
+</div>
+```
+
+### Key differences from assumed structure
+- Card class is `card course-card mx-1` (NOT `card dashboard-card`)
+- **Course image is `background-image` on `.card-img-top` div** — NOT an `<img>` element
+  → CSS on `.card-img-top` must use `background-size: cover; background-position: center`
+  → `img` rules have no effect on the image display
+- **Category element is `.categoryname` inside `div.text-muted.muted.d-flex.flex-wrap`** in card-body
+  — NOT `.coursecat` on the image (which does not exist in Moodle 4.5)
+- **Progress text is in a `course-progress` partial** (`.card-footer.bg-white`) — separate from `course-action-menu`
+- The two footers sit inside a `div.d-flex.align-items-start` at the bottom of the card
+- Progress: `<div class="progress-text"><span class="visually-hidden">...</span><span>100</span>% completo</div>`
+  — No `.progress[data-value]` or `.progress-bar` elements in Moodle 4.5
+
+### Correct template override path
+`templates/block_myoverview/local/courses_view/course-list-item.mustache`
+(NOT `card.mustache` — that path is wrong for Moodle 4.5)
+
+### CSS selectors for block_myoverview in _dark.scss
+- Hide category: `.card-body .text-muted.muted` and `.card-body .categoryname`
+- Progress text: `.card-footer .progress-text`
+- Card image: `.card-img-top { height: 240px; background-size: cover; background-position: center; }`
+
+### AMD module: coursecard_ring.js
+- Reads progress from `.progress-text span:not(.visually-hidden)` (Moodle 4.5 fallback)
+- Wraps `.card-title` (actually the `<a class="aalink coursename">`) in `.rui-course-card__title-row`
+- Injects `.rui-progress-ring.rui-progress-{0,5,10,...,100}` after the title link
+
+---
+
 ## Redesign Roadmap
 
 | Phase | Status | Focus |
