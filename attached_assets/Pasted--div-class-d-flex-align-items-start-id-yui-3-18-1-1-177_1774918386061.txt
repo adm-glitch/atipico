@@ -1,0 +1,48 @@
+<div class="d-flex align-items-start" id="yui_3_18_1_1_1774918194915_34">
+
+            <div class="card-footer border-0 bg-white w-100" id="yui_3_18_1_1_1774918194915_33">
+
+
+                <div class="progress-text" id="yui_3_18_1_1_1774918194915_32">
+                    <span class="visually-hidden">Progresso do curso:</span>
+                    <span>100</span>% completo
+                </div>
+            </div>
+    
+        <div class="card-footer menu border-0 bg-white ms-auto p-2">
+
+
+            <div class="ms-auto dropdown">
+                <button class="btn btn-icon coursemenubtn aabtn" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="icon fa fa-ellipsis-v fa-fw m-0" title="Ações para o curso Desenvolvimento Humano e Cultura Organizational - TRE-PA" aria-hidden="true"></i>
+                    <span class="visually-hidden">Ações para o curso Desenvolvimento Humano e Cultura Organizational - TRE-PA</span>
+                </button>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <a class="dropdown-item " href="#" data-action="add-favourite" data-course-id="2" aria-controls="favorite-icon-2-2">
+                        Favoritar esse curso
+                        <div class="visually-hidden">
+                            Favoritar para Desenvolvimento Humano e Cultura Organizational - TRE-PA
+                        </div>
+                    </a>
+                    <a class="dropdown-item hidden" href="#" data-action="remove-favourite" data-course-id="2" aria-controls="favorite-icon-2-2">
+                        Remover este curso dos favoritos
+                        <div class="visually-hidden">
+                            Remover estrela de Desenvolvimento Humano e Cultura Organizational - TRE-PA
+                        </div>
+                    </a>
+                    <a class="dropdown-item hidden" href="#" data-action="show-course" data-course-id="2" aria-controls="favorite-icon-2-2">
+                        Restaurar para visualização
+                        <div class="visually-hidden">
+                            Recolocar Desenvolvimento Humano e Cultura Organizational - TRE-PA na visualização
+                        </div>
+                    </a>
+                    <a class="dropdown-item " href="#" data-action="hide-course" data-course-id="2" aria-controls="favorite-icon-2-2">
+                        Remover da visualização
+                        <div class="visually-hidden">
+                            Remover Desenvolvimento Humano e Cultura Organizational - TRE-PA da visualização
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+                </div>
