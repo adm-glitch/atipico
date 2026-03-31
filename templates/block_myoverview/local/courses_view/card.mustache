@@ -1,0 +1,75 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+{{!
+    @template block_myoverview/local/courses_view/card
+
+    Theme Atipico override of the core block_myoverview card template.
+    Adds a .rui-course-summary description snippet below the course title.
+    Category badge (.coursecat) is hidden via CSS in _dark.scss.
+
+    Changes vs core:
+    - Added {{#summary}}<div class="rui-course-summary">{{{summary}}}</div>{{/summary}}
+      after the card-title block.
+
+    Example context (json):
+    {
+        "id": 2,
+        "fullname": "Demo Course",
+        "viewurl": "http://example.com/course/view.php?id=2",
+        "courseimage": "http://example.com/pluginfile.php/2/course/overviewfiles/img.jpg",
+        "progress": 100,
+        "hasprogress": true,
+        "isfavourite": false,
+        "hidden": false,
+        "showshortname": false,
+        "shortname": "DEMO",
+        "summary": "<p>A short course description.</p>",
+        "coursecat": "General",
+        "contextid": 42,
+        "showcoursecategory": true,
+        "startdate": "1 Jan 2024",
+        "enddate": "31 Dec 2024",
+        "startdatestamp": 1704067200,
+        "enddatestamp": 1735603200,
+        "lastseen": "10 hours ago"
+    }
+}}
+<div data-region="course-content" data-course-id="{{id}}" data-contextid="{{contextid}}"
+    data-isfavourite="{{#isfavourite}}1{{/isfavourite}}{{^isfavourite}}0{{/isfavourite}}"
+    class="card dashboard-card" tabindex="0">
+    {{> block_myoverview/local/courses_view/card-img}}
+    <div class="card-body course-info-container" id="course-info-container-{{id}}" style="position: relative;">
+        <div class="d-flex align-items-start">
+            <div class="w-100 course-info-{{id}}">
+                <div class="d-flex align-items-center">
+                    <div class="w-100">
+                        <h4 class="card-title"><a class="aalink" href="{{viewurl}}">{{fullname}}</a></h4>
+                        {{#showshortname}}<p class="card-text small text-muted mt-1">{{shortname}}</p>{{/showshortname}}
+                        {{#summary}}<div class="rui-course-summary">{{{summary}}}</div>{{/summary}}
+                    </div>
+                    <div class="ms-auto d-flex align-items-center">
+                        <div data-region="favourite-icon-{{id}}" class="ms-auto" aria-hidden="true">
+                            {{#isfavourite}}<i class="icon fa fa-star fa-fw m-0 text-warning"
+                                title="{{#str}}aria:favourite, block_myoverview{{/str}}"></i>{{/isfavourite}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{> block_myoverview/local/courses_view/course-action-menu}}
+</div>

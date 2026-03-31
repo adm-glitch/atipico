@@ -72,6 +72,19 @@ function readProgress(card) {
         }
     }
 
+    // Moodle 4.5: progress rendered as text only — no .progress element.
+    // <div class="progress-text">
+    //   <span class="visually-hidden">Progresso do curso:</span>
+    //   <span>100</span>% completo
+    // </div>
+    const progressSpan = card.querySelector('.progress-text span:not(.visually-hidden)');
+    if (progressSpan) {
+        const val = parseFloat(progressSpan.textContent);
+        if (!isNaN(val)) {
+            return val;
+        }
+    }
+
     return null;
 }
 

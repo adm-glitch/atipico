@@ -316,27 +316,8 @@ body {
                 border-radius: 12px 12px 0 0;
             }
 
-            // Category badge sits on image — frosted-glass white is intentional.
-            .coursecat {
-                position: absolute;
-                top: 10px;
-                right: 10px;
-                left: auto !important;
-                background: rgba(255, 255, 255, 0.9) !important;
-                backdrop-filter: blur(4px);
-                -webkit-backdrop-filter: blur(4px);
-                border-radius: 20px !important;
-                font-size: 0.7rem !important;
-                font-weight: 600 !important;
-                color: #212529 !important;
-                padding: 3px 10px !important;
-                line-height: 1.4;
-                max-width: calc(100% - 20px);
-                overflow: hidden;
-                text-overflow: ellipsis;
-                white-space: nowrap;
-                z-index: 1;
-            }
+            // Category badge hidden — description shown in card body instead.
+            .coursecat { display: none !important; }
         }
 
         .card-body {
@@ -381,6 +362,27 @@ body {
             background-color: var(--at-bg-surface) !important;
             border-color: var(--at-border) !important;
             color: var(--at-text-secondary);
+
+            // Progress completion text — needs lighter colour to be readable.
+            .progress-text {
+                color: var(--at-text-muted) !important;
+                font-size: 0.8rem;
+            }
+        }
+
+        // Course description snippet (injected via template override).
+        .rui-course-summary {
+            color: var(--at-text-secondary);
+            font-size: 0.8125rem;
+            line-height: 1.5;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-top: 4px;
+
+            // Strip block-level spacing from editor-generated HTML.
+            p { margin: 0; }
         }
     }
 }
