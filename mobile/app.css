@@ -1,0 +1,558 @@
+/*
+ * =============================================================================
+ * ATIPICO THEME — Moodle Mobile App Custom CSS
+ * =============================================================================
+ *
+ * HOW TO ACTIVATE
+ * ---------------
+ * 1. Deploy the theme to your Moodle server.
+ * 2. In Moodle go to:
+ *    Site administration → Plugins → Mobile app → Mobile app additional styles
+ * 3. Paste this URL into the "Additional styles" field:
+ *    https://YOUR-MOODLE-DOMAIN/theme/atipico/mobile/app.css
+ * 4. Save, then go to:
+ *    Site administration → Development → Purge all caches
+ * 5. Force-close and reopen the Moodle app on your device.
+ *
+ * DESIGN SYSTEM
+ * -------------
+ * Dark-first. Same palette as the web theme:
+ *   Background base   #202025   (dark-900)
+ *   Surface / cards   #27272D   (dark-800)
+ *   Input fills       #2E2E36   (dark-700)
+ *   Elevated layers   #35353F   (dark-600)
+ *   Primary accent    #DCA31E   (gold  — DanKa brand)
+ *   Secondary accent  #298976   (teal  — DanKa brand)
+ *   Primary text      #ECEEF2   (dark-050)
+ *   Secondary text    #9BA3B2   (dark-100)
+ *   Muted / captions  #5A6173   (dark-200)
+ *
+ * =============================================================================
+ */
+
+
+/* =============================================================================
+   LAYER 1 — Ionic base tokens
+   These drive 80% of the app UI automatically.
+   ============================================================================= */
+
+:root {
+
+    /* --- Backgrounds -------------------------------------------------------- */
+    --ion-background-color:         #202025;
+    --ion-background-color-rgb:     32, 32, 37;
+
+    --ion-card-background:          #27272D;
+    --ion-item-background:          #27272D;
+    --ion-overlay-background-color: #27272D;
+    --ion-popover-background:       #35353F;
+
+    /* --- Text --------------------------------------------------------------- */
+    --ion-text-color:               #ECEEF2;
+    --ion-text-color-rgb:           236, 238, 242;
+
+    --ion-placeholder-color:        #5A6173;
+
+    /* --- Borders ------------------------------------------------------------ */
+    --ion-border-color:             rgba(255, 255, 255, 0.08);
+
+    /* --- Toolbars (top header bar) ----------------------------------------- */
+    --ion-toolbar-background:       #161619;
+    --ion-toolbar-color:            #ECEEF2;
+    --ion-toolbar-segment-color:    #ECEEF2;
+    --ion-toolbar-segment-background: transparent;
+
+    /* --- Tab bar (bottom navigation) --------------------------------------- */
+    --ion-tab-bar-background:       #161619;
+    --ion-tab-bar-border-color:     rgba(255, 255, 255, 0.06);
+    --ion-tab-bar-color:            #9BA3B2;
+    --ion-tab-bar-color-selected:   #DCA31E;
+
+    /* --- Primary colour — Gold (#DCA31E) ----------------------------------- */
+    --ion-color-primary:            #DCA31E;
+    --ion-color-primary-rgb:        220, 163, 30;
+    --ion-color-primary-contrast:   #161619;
+    --ion-color-primary-contrast-rgb: 22, 22, 25;
+    --ion-color-primary-shade:      #B0831A;
+    --ion-color-primary-tint:       #EAC050;
+
+    /* --- Secondary colour — Teal (#298976) --------------------------------- */
+    --ion-color-secondary:          #298976;
+    --ion-color-secondary-rgb:      41, 137, 118;
+    --ion-color-secondary-contrast: #ECEEF2;
+    --ion-color-secondary-contrast-rgb: 236, 238, 242;
+    --ion-color-secondary-shade:    #1F6E5E;
+    --ion-color-secondary-tint:     #32A48F;
+
+    /* --- Semantic colours -------------------------------------------------- */
+    --ion-color-success:            #22C55E;
+    --ion-color-success-rgb:        34, 197, 94;
+    --ion-color-success-contrast:   #161619;
+    --ion-color-success-contrast-rgb: 22, 22, 25;
+    --ion-color-success-shade:      #16A34A;
+    --ion-color-success-tint:       #4ADE80;
+
+    --ion-color-warning:            #F59E0B;
+    --ion-color-warning-rgb:        245, 158, 11;
+    --ion-color-warning-contrast:   #161619;
+    --ion-color-warning-contrast-rgb: 22, 22, 25;
+    --ion-color-warning-shade:      #D97706;
+    --ion-color-warning-tint:       #FCD34D;
+
+    --ion-color-danger:             #EF4444;
+    --ion-color-danger-rgb:         239, 68, 68;
+    --ion-color-danger-contrast:    #ECEEF2;
+    --ion-color-danger-contrast-rgb: 236, 238, 242;
+    --ion-color-danger-shade:       #DC2626;
+    --ion-color-danger-tint:        #F87171;
+
+    --ion-color-medium:             #9BA3B2;
+    --ion-color-medium-rgb:         155, 163, 178;
+    --ion-color-medium-contrast:    #161619;
+    --ion-color-medium-contrast-rgb: 22, 22, 25;
+    --ion-color-medium-shade:       #5A6173;
+    --ion-color-medium-tint:        #ECEEF2;
+
+    --ion-color-light:              #3C3C47;
+    --ion-color-light-rgb:          60, 60, 71;
+    --ion-color-light-contrast:     #ECEEF2;
+    --ion-color-light-contrast-rgb: 236, 238, 242;
+    --ion-color-light-shade:        #27272D;
+    --ion-color-light-tint:         #464652;
+
+    --ion-color-dark:               #ECEEF2;
+    --ion-color-dark-rgb:           236, 238, 242;
+    --ion-color-dark-contrast:      #161619;
+    --ion-color-dark-contrast-rgb:  22, 22, 25;
+    --ion-color-dark-shade:         #9BA3B2;
+    --ion-color-dark-tint:          #FFFFFF;
+
+    /* --- Gray scale steps (used by Ionic internally for tints) ------------- */
+    --ion-color-step-50:   #27272D;
+    --ion-color-step-100:  #2E2E36;
+    --ion-color-step-150:  #35353F;
+    --ion-color-step-200:  #3C3C47;
+    --ion-color-step-250:  #464652;
+    --ion-color-step-300:  #5A6173;
+    --ion-color-step-350:  #6B7380;
+    --ion-color-step-400:  #7A8394;
+    --ion-color-step-450:  #8B93A3;
+    --ion-color-step-500:  #9BA3B2;
+    --ion-color-step-550:  #ABB3C2;
+    --ion-color-step-600:  #BBC3D1;
+    --ion-color-step-650:  #CBD3E0;
+    --ion-color-step-700:  #DADFEC;
+    --ion-color-step-750:  #E3E7F0;
+    --ion-color-step-800:  #ECEEF2;
+    --ion-color-step-850:  #F0F2F5;
+    --ion-color-step-900:  #F5F6F8;
+    --ion-color-step-950:  #FAFBFC;
+}
+
+
+/* =============================================================================
+   LAYER 2 — Moodle App core tokens
+   `--core-*` variables are Moodle-app-specific, built on top of Ionic.
+   ============================================================================= */
+
+:root {
+
+    /* --- Brand colour ------------------------------------------------------- */
+    --core-color:                   #DCA31E;
+    --core-color-dark:              #B0831A;
+
+    /* --- Links -------------------------------------------------------------- */
+    --core-link-color:              #DCA31E;
+    --core-link-color-on-surface:   #EAC050;
+
+    /* --- Header / toolbar --------------------------------------------------- */
+    --core-header-buttons-color:    #ECEEF2;
+
+    /* --- Bottom tab bar ----------------------------------------------------- */
+    --core-bottom-tabs-background:  #161619;
+    --core-bottom-tabs-background-selected: #202025;
+    --core-bottom-tabs-color:       #9BA3B2;
+    --core-bottom-tabs-color-selected: #DCA31E;
+    --core-bottom-tabs-badge-color:     #161619;
+    --core-bottom-tabs-badge-text-color: #ECEEF2;
+
+    /* --- Tabs (in-page horizontal tabs) ------------------------------------- */
+    --core-tabs-color:              #9BA3B2;
+    --core-tabs-color-active:       #DCA31E;
+    --core-tabs-background:         #27272D;
+    --core-tabs-indicator-color:    #DCA31E;
+
+    /* --- Inputs / forms ----------------------------------------------------- */
+    --core-input-stroke:            rgba(255, 255, 255, 0.08);
+    --core-input-text:              #ECEEF2;
+    --core-input-background:        #2E2E36;
+
+    /* --- Progress bars ------------------------------------------------------ */
+    --core-progressbar-color:       #DCA31E;
+    --core-progressbar-text-color:  #9BA3B2;
+
+    /* --- Completion / grades ------------------------------------------------ */
+    --core-course-color-completed:  #22C55E;
+
+    /* --- Login page --------------------------------------------------------- */
+    --core-login-background:        #202025;
+    --core-login-text-color:        #ECEEF2;
+    --core-login-link-color:        #DCA31E;
+
+    /* --- Course images ------------------------------------------------------ */
+    --core-courseimage-on-surface-color: rgba(22, 22, 25, 0.65);
+}
+
+
+/* =============================================================================
+   LAYER 3 — Component overrides
+   Targeted selectors for elements that don't fully respond to variables alone.
+   ============================================================================= */
+
+/* --- Toolbar / top header -------------------------------------------------- */
+ion-toolbar {
+    --background: #161619;
+    --color: #ECEEF2;
+    --border-color: rgba(255, 255, 255, 0.06);
+}
+
+ion-toolbar ion-title {
+    color: #ECEEF2;
+}
+
+ion-toolbar ion-button,
+ion-toolbar ion-back-button {
+    --color: #ECEEF2;
+}
+
+/* --- Bottom tab bar -------------------------------------------------------- */
+ion-tab-bar {
+    background: #161619;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+ion-tab-button {
+    --color: #9BA3B2;
+    --color-selected: #DCA31E;
+    background: transparent;
+}
+
+ion-tab-button.tab-selected {
+    color: #DCA31E;
+}
+
+/* --- Cards (course cards, overview cards) ---------------------------------- */
+ion-card {
+    --background: #27272D;
+    --color: #ECEEF2;
+    background: #27272D;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.45);
+}
+
+ion-card-header {
+    --color: #ECEEF2;
+}
+
+ion-card-title {
+    color: #ECEEF2;
+}
+
+ion-card-subtitle {
+    color: #9BA3B2;
+}
+
+ion-card-content {
+    color: #9BA3B2;
+}
+
+/* --- List items (activities, courses in list view) ------------------------- */
+ion-item {
+    --background: #27272D;
+    --background-hover: #35353F;
+    --background-activated: #3C3C47;
+    --border-color: rgba(255, 255, 255, 0.07);
+    --color: #ECEEF2;
+    --detail-icon-color: #5A6173;
+    --detail-icon-opacity: 1;
+}
+
+ion-item ion-label h2,
+ion-item ion-label .item-heading {
+    color: #ECEEF2 !important;
+}
+
+ion-item ion-label p,
+ion-item ion-label .item-detail {
+    color: #9BA3B2 !important;
+}
+
+ion-item-divider {
+    --background: #161619;
+    --color: #9BA3B2;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* --- Lists ----------------------------------------------------------------- */
+ion-list {
+    background: transparent;
+}
+
+ion-list-header {
+    --background: #202025;
+    --color: #9BA3B2;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+/* --- Inputs / forms -------------------------------------------------------- */
+ion-input {
+    --background: #2E2E36;
+    --color: #ECEEF2;
+    --placeholder-color: #5A6173;
+    --border-color: rgba(255, 255, 255, 0.08);
+    --highlight-color-focused: #DCA31E;
+}
+
+ion-textarea {
+    --background: #2E2E36;
+    --color: #ECEEF2;
+    --placeholder-color: #5A6173;
+}
+
+ion-select {
+    --background: #2E2E36;
+    --color: #ECEEF2;
+    --placeholder-color: #5A6173;
+}
+
+/* --- Buttons --------------------------------------------------------------- */
+ion-button[color="primary"],
+ion-button.ion-color-primary {
+    --background: #DCA31E;
+    --background-hover: #EAC050;
+    --background-activated: #B0831A;
+    --color: #161619;
+    --border-radius: 6px;
+    font-weight: 600;
+}
+
+ion-button[fill="outline"][color="primary"] {
+    --border-color: #DCA31E;
+    --color: #DCA31E;
+    --background: transparent;
+    --background-hover: rgba(220, 163, 30, 0.10);
+}
+
+ion-button[fill="clear"] {
+    --color: #DCA31E;
+}
+
+/* --- Progress bars --------------------------------------------------------- */
+ion-progress-bar {
+    --background: rgba(255, 255, 255, 0.08);
+    --progress-background: #DCA31E;
+    border-radius: 9999px;
+}
+
+/* --- Badges ---------------------------------------------------------------- */
+ion-badge {
+    background: #DCA31E;
+    color: #161619;
+    border-radius: 9999px;
+}
+
+ion-badge[color="success"] {
+    background: #22C55E;
+    color: #161619;
+}
+
+ion-badge[color="danger"] {
+    background: #EF4444;
+    color: #ECEEF2;
+}
+
+/* --- Modals / overlays ----------------------------------------------------- */
+ion-modal,
+ion-popover {
+    --background: #27272D;
+    --backdrop-opacity: 0.72;
+}
+
+ion-modal ion-header ion-toolbar,
+ion-popover ion-header ion-toolbar {
+    --background: #161619;
+}
+
+/* --- Alerts / action sheets ------------------------------------------------ */
+ion-alert {
+    --background: #35353F;
+    --ion-text-color: #ECEEF2;
+}
+
+.alert-title {
+    color: #ECEEF2 !important;
+}
+
+.alert-message {
+    color: #9BA3B2 !important;
+}
+
+ion-action-sheet {
+    --background: #27272D;
+    --button-color: #ECEEF2;
+    --button-background: transparent;
+    --button-background-activated: rgba(255, 255, 255, 0.06);
+}
+
+/* --- Searchbar ------------------------------------------------------------- */
+ion-searchbar {
+    --background: #2E2E36;
+    --color: #ECEEF2;
+    --placeholder-color: #5A6173;
+    --icon-color: #9BA3B2;
+    --clear-button-color: #9BA3B2;
+    --border-radius: 10px;
+}
+
+/* --- Refresher (pull-to-refresh) ------------------------------------------ */
+ion-refresher-content {
+    --color: #DCA31E;
+}
+
+/* --- Skeleton / loading placeholders --------------------------------------- */
+ion-skeleton-text {
+    --background: #35353F;
+    --background-rgb: 53, 53, 63;
+}
+
+/* --- Accordion / expansion panels ----------------------------------------- */
+ion-accordion {
+    --background: #27272D;
+    --color: #ECEEF2;
+}
+
+ion-accordion-group > ion-accordion:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+/* =============================================================================
+   LAYER 4 — Moodle App page-specific selectors
+   Targets Moodle app component tags and class names.
+   ============================================================================= */
+
+/* --- Login page ------------------------------------------------------------ */
+page-core-login-site,
+core-login-site-page {
+    background: #202025;
+}
+
+page-core-login-site ion-content,
+core-login-site-page ion-content {
+    --background: #202025;
+}
+
+page-core-login-site .login-container,
+core-login-site-page .login-container {
+    background: transparent;
+}
+
+/* --- Dashboard / Site home ------------------------------------------------- */
+page-core-mainmenu-home ion-content {
+    --background: #202025;
+}
+
+/* --- Course list ----------------------------------------------------------- */
+core-courses-list .core-course-list-item,
+addon-block-myoverview-page .core-course-list-item {
+    --background: #27272D;
+    --color: #ECEEF2;
+}
+
+/* --- Course content (section list) ---------------------------------------- */
+core-course-format .core-course-section-name {
+    color: #DCA31E;
+    font-weight: 600;
+}
+
+core-course-format .core-course-module-title {
+    color: #ECEEF2;
+}
+
+core-course-format .core-course-module-info {
+    color: #9BA3B2;
+}
+
+/* --- Activity completion indicator ---------------------------------------- */
+core-course-module-completion[status="complete"] ion-icon,
+core-course-module-completion.completed ion-icon {
+    color: #22C55E;
+}
+
+core-course-module-completion[status="incomplete"] ion-icon,
+core-course-module-completion:not(.completed) ion-icon {
+    color: #5A6173;
+}
+
+/* --- Grades / feedback ----------------------------------------------------- */
+core-grade-table td {
+    background: #27272D;
+    color: #ECEEF2;
+    border-color: rgba(255, 255, 255, 0.07);
+}
+
+core-grade-table th {
+    background: #161619;
+    color: #9BA3B2;
+}
+
+/* --- In-page tab strip ----------------------------------------------------- */
+core-tab-bar ion-tab-button,
+.core-tabs ion-segment-button {
+    --color: #9BA3B2;
+    --color-checked: #DCA31E;
+    --indicator-color: #DCA31E;
+}
+
+/* --- File/attachment items ------------------------------------------------- */
+core-file ion-item {
+    --background: #2E2E36;
+}
+
+/* --- Forum / discussion threads -------------------------------------------- */
+addon-mod-forum-discussion-page .addon-mod-forum-post-content {
+    background: #27272D;
+    border-radius: 10px;
+}
+
+/* --- Quiz ------------------------------------------------------------------ */
+addon-mod-quiz-preflight-page ion-content {
+    --background: #202025;
+}
+
+/* --- Notification / messaging badges --------------------------------------- */
+core-user-avatar .core-avatar-badge {
+    background: #DCA31E;
+    color: #161619;
+    border: 2px solid #202025;
+    border-radius: 9999px;
+}
+
+/* --- Links everywhere ------------------------------------------------------ */
+a,
+.core-anchor {
+    color: #DCA31E;
+}
+
+a:hover,
+.core-anchor:hover {
+    color: #EAC050;
+}
+
+/* --- Dividers & separators ------------------------------------------------- */
+hr,
+.separator {
+    border-color: rgba(255, 255, 255, 0.07);
+}
