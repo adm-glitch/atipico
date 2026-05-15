@@ -111,6 +111,8 @@ footer {
         background-color: var(--at-bg-surface);
         border: 1px solid var(--at-border);
         border-radius: var(--at-radius-xl);
+        overflow-x: hidden;
+        max-width: 100%;
 
         .action-menu-trigger a {
             margin: 0;
@@ -139,9 +141,25 @@ footer {
         }
     }
 
-    .login-image img {
-        object-fit: cover;
-        object-position: center;
+    // Force light text throughout the login layout —
+    // defeats Bootstrap's text-* utility classes and mform defaults.
+    color: var(--at-text-primary);
+
+    label,
+    .col-form-label,
+    .form-label,
+    .fdescription {
+        color: var(--at-text-secondary) !important;
+    }
+
+    .login-image {
+        position: relative;
+        overflow: hidden;
+
+        img {
+            object-fit: cover;
+            object-position: center;
+        }
     }
 
     .login-footer {
