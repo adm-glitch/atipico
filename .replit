@@ -39,3 +39,12 @@ externalPort = 3001
 [deployment]
 deploymentTarget = "vm"
 run = ["/home/runner/start-moodle.sh"]
+
+[userenv]
+
+[userenv.shared]
+SSH_HOST = "31.97.250.144"
+SSH_PORT = "22"
+SSH_USER = "admin-ssh"
+PROD_MOODLE_ROOT = "/home/user/htdocs/srv1526987.hstgr.cloud"
+PROD_MOODLE_DATA = "/home/user/htdocs/moodledata"
