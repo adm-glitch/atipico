@@ -865,6 +865,12 @@ h3.sectionname,
     text-transform: uppercase;
 }
 
+// Moodle's .course-section .sectionname>a is more specific — override the link colour explicitly
+.course-section .sectionname > a,
+.sectionname > a {
+    color: var(--at-accent) !important;
+}
+
 // Activity header (mod pages) — strip Boost's light surface
 .path-mod .activity-header:not(:empty) {
     background-color: var(--at-bg-base) !important;
