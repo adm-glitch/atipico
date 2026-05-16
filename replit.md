@@ -28,12 +28,25 @@ curl "https://cursos.dankarh.com.br/webservice/rest/server.php?wstoken=$MOODLE_W
 ### Bunny Stream
 - Library ID: `661783` (secret `BUNNY_LIBRARY_ID`)
 - Embed: `https://iframe.mediadelivery.net/embed/661783/{guid}`
-- GUIDs: EP1-006=`7d5f2f26-9423-447a-bd4f-30ba6269823e` (37m, ready), EP3-011=`f2716a84-2de8-41e6-83c4-e90e409b75c1` (45m, ready), EP2-005=`01ae5ade-e109-445f-b86d-5dc0f6a4de9d` (processing)
-- Wired: `video-m2a.1` (EP1-006 + EP2-005), `video-m2a.2` (EP3-011) — both in Eixo 2A (course 5)
+- Player URL (used in `videourl` field): `https://player.mediadelivery.net/play/661783/{guid}`
+- Thumbnail CDN: `https://vz-5315ec84-18f.b-cdn.net/{guid}/thumbnail.jpg` — **token-gated, 403 for direct browser access**; do NOT store as `posterimage`
+- GUIDs: EP1-006=`7d5f2f26-9423-447a-bd4f-30ba6269823e` (37m), EP3-011=`f2716a84-2de8-41e6-83c4-e90e409b75c1` (45m), EP2-005=`01ae5ade-e109-445f-b86d-5dc0f6a4de9d` (21m)
+- Wired (Eixo 2A, course 5): EP1-006→ivid=2/cmid=50, EP2-005→ivid=1/cmid=49, EP3-011→ivid=3/cmid=51
 - Pending: `video-m2a.3`, `video-m2a.4` — still placeholder labels, awaiting GUIDs
 
+### mod_interactivevideo — DB provisioning notes
+- Module id = 25; table: `interactivevideo`
+- Key fields: `source='url'`, `type='bunnystream'`, `videourl='https://player.mediadelivery.net/play/661783/{guid}'`
+- `video` field: stores integer `0` when created via script (fine, module doesn't need it for bunnystream)
+- `extendedcompletion`: must be stored as JSON array string `'[]'` (not integer 0/1) — PHP 8 crashes with `array_keys()` TypeError if it's an integer and `completion=2` is set on the course_module
+- `displayoptions`: must be a full JSON object (copy from working record); key flags: `"usecustomposterimage":"0"` (let module auto-derive), `"courseindex":"1"`, `"distractionfreemode":"1"`
+- `completionpercentage`: set to 80 (80% watched required); also set `completion=2` on `course_modules` record
+- **Thumbnail fix**: after DB insert, thumbnails show generic placeholder. Fix: copy `displayoptions` from a working activity that was saved via Moodle UI (which triggers Bunny thumbnail fetch hook). Script: `scripts/convert_labels_to_iv.php`, `scripts/fix_extcomp.php`
+- **Never** set `usecustomposterimage=1` with CDN thumbnail URL — CDN is token-gated and returns 403
+
 ### Scripts (run from Termius on server)
-- `scripts/wire_videos.php` — wires Bunny Stream iframes into placeholder labels
+- `scripts/convert_labels_to_iv.php` — converts video-marker labels → mod_interactivevideo activities
+- `scripts/wire_videos.php` — wires Bunny Stream iframes into placeholder labels (legacy)
 - `scripts/add_ws_functions.php` — adds all Moodle functions to replit_agent webservice
 - `scripts/setup_polo_cohorts.php` — polo cohort creation (already run)
 - `scripts/setup_content.php` — course content population (already run)
