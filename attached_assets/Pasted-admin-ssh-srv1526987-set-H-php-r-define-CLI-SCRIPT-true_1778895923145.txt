@@ -1,0 +1,54 @@
+admin-ssh@srv1526987:~$ set +H
+php -r "
+define('CLI_SCRIPT', true);
+require('/home/user/htdocs/srv1526987.hstgr.cloud/config.php');
+\$rec = \$DB->get_record_sql(
+    'SELECT l.id, LEFT(l.intro, 300) AS intro_preview
+     FROM {label} l
+     JOIN {course_modules} cm ON cm.instance=l.id AND cm.course=5
+     WHERE l.intro LIKE :m LIMIT 1',
+    ['m'=>'%video-m2a.1%']
+);
+echo \$rec ? \$rec->intro_preview : 'NOT FOUND';
+echo PHP_EOL;
+"
+<div data-video-marker="video-m2a.1"><div style="margin:12px 0"><p style="font-weight:600;margin:0 0 6px">🎬 Módulo M2A.1 — Fundamentos dos Direitos Humanos (Parte 1)</p><div style="position:relative;padding-top:56.25%"><iframe src="https://iframe.mediadelivery.net/embed/661783/7d5f2f26-9423-447a-bd4
+admin-ssh@srv1526987:~$ # Check what source values mod_interactivevideo accepts
+grep -r 'bunny\|source\|videourl\|urlsource\|youtube\|vimeo' \
+  /home/user/htdocs/srv1526987.hstgr.cloud/mod/interactivevideo/lib.php \
+  /home/user/htdocs/srv1526987.hstgr.cloud/mod/interactivevideo/locallib.php \
+  2>/dev/null | grep -i 'bunny\|source.*=\|type.*=' | head -20
+/home/user/htdocs/srv1526987.hstgr.cloud/mod/interactivevideo/lib.php:    if ($moduleinstance->source == 'url') {
+/home/user/htdocs/srv1526987.hstgr.cloud/mod/interactivevideo/lib.php:    if ($moduleinstance->source == 'url') {
+/home/user/htdocs/srv1526987.hstgr.cloud/mod/interactivevideo/lib.php:    $videotypes = get_config('mod_interactivevideo', 'videosources');
+/home/user/htdocs/srv1526987.hstgr.cloud/mod/interactivevideo/lib.php:        $video->source = 'url';
+/home/user/htdocs/srv1526987.hstgr.cloud/mod/interactivevideo/lib.php:                $video->source = 'file';
+/home/user/htdocs/srv1526987.hstgr.cloud/mod/interactivevideo/lib.php:                $video->source = 'url';
+/home/user/htdocs/srv1526987.hstgr.cloud/mod/interactivevideo/lib.php:            $video->type = 'vimeo';
+/home/user/htdocs/srv1526987.hstgr.cloud/mod/interactivevideo/lib.php:        // Check if it is a bunnystream url.
+/home/user/htdocs/srv1526987.hstgr.cloud/mod/interactivevideo/lib.php:        $bunnyregex = '/https?:\/\/iframe|player\.mediadelivery\.net\/(?:embed|watch|play)\/\d+\/([a-zA-Z0-9-]+)/i';
+/home/user/htdocs/srv1526987.hstgr.cloud/mod/interactivevideo/lib.php:        if (preg_match($bunnyregex, $video->videourl, $matches) && in_array('bunnystream', $videotypes)) {
+/home/user/htdocs/srv1526987.hstgr.cloud/mod/interactivevideo/lib.php:            $video->type = 'bunnystream';
+/home/user/htdocs/srv1526987.hstgr.cloud/mod/interactivevideo/lib.php:            $oembedurl = 'https://video.bunnycdn.com/OEmbed?url=' . urlencode($video->videourl);
+/home/user/htdocs/srv1526987.hstgr.cloud/mod/interactivevideo/lib.php:        $data['source'] = $video->source;
+/home/user/htdocs/srv1526987.hstgr.cloud/mod/interactivevideo/lib.php:    $defaultarray['source'] = get_config('mod_interactivevideo', 'defaultvideosource');
+/home/user/htdocs/srv1526987.hstgr.cloud/mod/interactivevideo/lib.php:        'bunnystream' => '/(?:https?:\/\/)?(?:www\.)?(?:bunnystream\.com)\/embed\/([a-zA-Z0-9]+)/i',
+admin-ssh@srv1526987:~$ # Any existing interactivevideo records to see format?
+php -r "
+define('CLI_SCRIPT', true);
+require('/home/user/htdocs/srv1526987.hstgr.cloud/config.php');
+\$recs = \$DB->get_records('interactivevideo', [], '', 'id,name,source,videourl,type', 0, 3);
+foreach (\$recs as \$r) { echo json_encode(\$r).PHP_EOL; }
+if (empty(\$recs)) echo 'no records yet'.PHP_EOL;
+"
+no records yet
+admin-ssh@srv1526987:~$ # Any existing interactivevideo records to see format?
+php -r "
+define('CLI_SCRIPT', true);
+require('/home/user/htdocs/srv1526987.hstgr.cloud/config.php');
+\$recs = \$DB->get_records('interactivevideo', [], '', 'id,name,source,videourl,type', 0, 3);
+foreach (\$recs as \$r) { echo json_encode(\$r).PHP_EOL; }
+if (empty(\$recs)) echo 'no records yet'.PHP_EOL;
+"
+{"id":"1","name":"EP 2-005.mp4","source":"url","videourl":"https:\/\/player.mediadelivery.net\/play\/661783\/01ae5ade-e109-445f-b86d-5dc0f6a4de9d","type":"bunnystream"}
+admin-ssh@srv1526987:~$ 
