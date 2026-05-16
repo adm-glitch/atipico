@@ -1,0 +1,124 @@
+php /tmp/debug_thumb.php
+=== posterimage handling in module source ===
+interactions.php:
+  L271: $moduleinstance->posterimage,
+lib.php:
+  L100: 'usecustomposterimage',
+  L102: 'posterimagesize',
+  L104: 'showposterimageright',
+  L110: 'showposterimage',
+  L111: 'squareposterimage',
+  L232: $draftitemid = isset($moduleinstance->posterimagefile)
+  L233: && $moduleinstance->usecustomposterimage == 1 ? $moduleinstance->posterimagefile : null;
+  L239: 'posterimage',
+  L350: $draftitemid = $moduleinstance->posterimagefile;
+  L352: $moduleinstance->posterimage = file_save_draft_area_files(
+  L356: 'posterimage',
+  L483: if ($filearea != 'public' && $filearea != 'posterimage') {
+  L580: $result->customdata['posterimage'] = $interactive->posterimage;
+  L703: 'id, name, starttime, endtime, type, posterimage, intro, introformat, completionpercentage'
+  L716: 'posterimage' => $customdata['posterimage'],
+  L730: if (isset($displayoptions->usecustomposterimage) && $displayoptions->usecustomposterimage) {
+  L735: 'posterimage',
+  L741: $posterimage = moodle_url::make_pluginfile_url(
+  L749: $interactivevideo->posterimage = $posterimage->out();
+  L753: $interactivevideo->posterimage = $interactivevideo->posterimage == '' ?
+  L754: $OUTPUT->get_generated_image_for_id($cm->id) : $interactivevideo->posterimage; // Fallback to default image.
+  L776: 'posterimagesize' => isset($displayoptions->posterimagesize)
+  L777: && $displayoptions->posterimagesize,
+  L783: 'posterimagesquare' => isset($displayoptions->squareposterimage) && $displayoptions->squareposterimage,
+  L791: $datafortemplate['showposterimageright'] = isset($displayoptions->showposterimageright)
+  L792: && $displayoptions->showposterimageright;
+  L793: $datafortemplate['showposterimage'] = isset($displayoptions->showposterimage) && $displayoptions->showposterimage;
+  L801: $datafortemplate['showposterimageright'] = false;
+  L804: $datafortemplate['showposterimage'] = true;
+  L1362: $video->posterimage = 'https://img.youtube.com/vi/' . $matches[1] . '/hqdefault.jpg';
+  L1381: $video->posterimage = $response->thumbnail_url;
+  L1406: $video->posterimage = $response->thumbnail_720_url;
+  L1426: $video->posterimage = $response->thumbnail_url;
+  L1451: $video->posterimage = $response->thumbnail_url;
+  L1472: $video->posterimage = $response->thumbnail_url;
+  L1493: $posterimage = '';
+  L1503: $posterimage = $tag->getAttribute('content');
+  L1509: $video->posterimage = $posterimage;
+  L1535: $posterimage = '';
+  L1545: $posterimage = $tag->getAttribute('content');
+  L1549: $video->posterimage = $posterimage;
+  L1570: $video->posterimage = $response->thumbnail_url;
+  L1606: $video->posterimage = 'https://' . $matches[1] . $response->thumbnailPath;
+  L1624: $video->posterimage = $response->thumbnail_url;
+  L1648: $video->posterimage = $response->thumbnail_url;
+  L1665: $video->posterimage = $response->thumbnail_url;
+  L1693: $video->posterimage = $response['posters'][0] ? $response['posters'][0]['url'] : $response['poster'];
+  L1720: $posterimage = '';
+  L1730: $posterimage = $tag->getAttribute('content');
+  L1736: $video->posterimage = $posterimage;
+  L1763: $posterimage = '';
+  L1773: $posterimage = $tag->getAttribute('content');
+  L1776: $video->posterimage = $posterimage;
+  L1805: $video->posterimage = $response->thumbnail_url;
+  L1828: $video->posterimage = '';
+  L1978: if ($data['usecustomposterimage'] == 1) {
+  L1979: $draftitemid = file_get_submitted_draft_itemid('posterimagefile');
+  L1984: 'posterimage',
+  L1988: $data['posterimagefile'] = $draftitemid;
+  L2134: 'usecustomposterimage',
+  L2135: get_string('posterimage', 'mod_interactivevideo'),
+  L2136: get_string('usecustomposterimage', 'mod_interactivevideo'),
+  L2143: 'posterimagefile',
+  L2152: $mform->hideIf('posterimagefile', 'usecustomposterimage', 'eq', 0);
+  L2158: 'posterimagehr',
+  L2163: $mform->hideIf('posterimagehr', 'usecustomposterimage', 'eq', 0);
+  L2215: ['posterimagesize', get_string('fullavailablewidth', 'mod_interactivevideo')],
+  L2220: ['showposterimage', get_string('showposterimage', 'mod_interactivevideo')],
+  L2221: ['squareposterimage', get_string('squareposterimage', 'mod_interactivevideo')],
+  L2223: ['showposterimageright', get_string('showposterimageright', 'mod_interactivevideo')],
+  L2240: $mform->hideIf('showposterimage', 'cardonly', 'eq', 1);
+  L2241: $mform->hideIf('showposterimageright', 'cardonly', 'eq', 1);
+manage.php:
+  L162: $item['posterimage'] = $cm->customdata['posterimage'];
+  L165: $item['squareposter'] = isset($displayoptions['squareposterimage']) && $displayoptions['squareposterimage'] == 1 ?
+  L167: if ($displayoptions['usecustomposterimage']) {
+  L168: if ($displayoptions['usecustomposterimage']) {
+  L172: 'posterimage',
+  L178: $posterimage = moodle_url::make_pluginfile_url(
+  L186: $item['posterimage'] = $posterimage->out();
+  L190: $item['posterimage'] = $item['posterimage'] == '' ?
+  L191: $OUTPUT->get_generated_image_for_id($cm->id) : $item['posterimage']; // Fallback to default image.
+mod_form.php:
+  L236: 'posterimage',
+  L240: $mform->setType('posterimage', PARAM_TEXT);
+  L435: if ($displayoptions['usecustomposterimage']) {
+  L436: $mform->setDefault('usecustomposterimage', 1);
+  L438: $draftitemid = file_get_submitted_draft_itemid('posterimagefile') ?? 0;
+  L443: 'posterimage',
+  L452: $mform->setDefault('posterimagefile', $draftitemid);
+  L580: if ($data['usecustomposterimage']) {
+  L581: $draftitemid = $data['posterimagefile'];
+  L593: $errors['usecustomposterimage'] = get_string('uploadanimagebelow', 'mod_interactivevideo');
+  L638: $draftitemid = file_get_submitted_draft_itemid('posterimagefile') ?? 0;
+  L639: file_prepare_draft_area($draftitemid, $this->context->id, 'mod_interactivevideo', 'posterimage', 0, [
+  L646: $defaultvalues['posterimagefile'] = $draftitemid;
+  L657: 'usecustomposterimage',
+  L661: 'posterimagesize',
+  L663: 'showposterimageright',
+  L668: 'showposterimage',
+  L674: 'squareposterimage',
+report.php:
+  L114: $moduleinstance->posterimage,
+settings.php:
+  L303: 'showposterimage' => get_string('showposterimage', 'mod_interactivevideo'),
+  L313: 'posterimagesize' => get_string('fullavailablewidth', 'mod_interactivevideo'),
+  L318: 'showposterimage' => get_string('showposterimage', 'mod_interactivevideo'),
+  L319: 'squareposterimage' => get_string('squareposterimage', 'mod_interactivevideo'),
+  L321: 'showposterimageright' => get_string('showposterimageright', 'mod_interactivevideo'),
+view.php:
+  L400: if (isset($moduleinstance->displayoptions['usecustomposterimage']) && $moduleinstance->displayoptions['usecustomposterimage']) {
+  L405: 'posterimage',
+  L411: $moduleinstance->posterimage = moodle_url::make_pluginfile_url(
+  L423: if (empty($moduleinstance->posterimage) && optional_param('mobileapp', 0, PARAM_INT) == 1) { // Mobile app has no poster image.
+  L424: $moduleinstance->posterimage = $OUTPUT->get_generated_image_for_id($cm->id);
+  L498: "posterimage" => $moduleinstance->posterimage,
+  L501: 'square' => $moduleinstance->displayoptions['squareposterimage'] ?? false,
+  L536: $posterurl = $moduleinstance->posterimage != "" ? $moduleinstance->posterimage : $OUTPUT->get_generated_image_for_id($cm->id);
+  L537: echo '<img id="posterimagehidden" style="display: none;" src="' . $posterurl 
