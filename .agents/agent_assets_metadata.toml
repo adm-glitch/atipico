@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "V6nVtrJJoVHxqICJieJPo"
+uri = "file://docs/tutoriais-danka.zip"
+type = "unspecified"
+title = "Tutoriais DanKa — Web + App (HTML)"
