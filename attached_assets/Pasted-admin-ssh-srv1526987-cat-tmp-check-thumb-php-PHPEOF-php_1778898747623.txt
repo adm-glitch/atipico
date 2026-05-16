@@ -1,0 +1,55 @@
+admin-ssh@srv1526987:~$ cat > /tmp/check_thumb.php << 'PHPEOF'
+<?php
+define('CLI_SCRIPT', true);
+require('/home/user/htdocs/srv1526987.hstgr.cloud/config.php');
+
+echo "=== mod_interactivevideo config ===\n";
+$rows = $DB->get_records('config_plugins', ['plugin' => 'mod_interactivevideo']);
+foreach ($rows as $r) echo "  {$r->name} = {$r->value}\n";
+
+echo "\n=== local_polosync config ===\n";
+$rows = $DB->get_records('config_plugins', ['plugin' => 'local_polosync']);
+foreach ($rows as $r) echo "  {$r->name} = {$r->value}\n";
+
+echo "\n=== Bunny API key in plugin? ===\n";
+$key = get_config('mod_interactivevideo', 'bunnystreamapikey')
+    ?: get_config('mod_interactivevideo', 'apikey')
+    ?: get_config('mod_interactivevideo', 'bunnyapikey')
+    ?: '(not found — check config names above)';
+echo "  $key\n";
+PHPEOF
+php /tmp/check_thumb.php
+=== mod_interactivevideo config ===
+  allowcustomtheme = 1
+  auth_vdocipher = 
+  cardsize = large
+  defaultappearance = displayinline,launchinpopup,columnlayout,showprogressbar,showcompletionrequirements,showposterimage,showname,distractionfreemode,darkmode
+  defaultbehavior = autoplay,pauseonblur
+  defaulttheme = 
+  defaultvideosource = url
+  disablecustomtime = 1
+  enablecontenttypes = ivplugin_chapter,ivplugin_contentbank,ivplugin_iframe,ivplugin_richtext,ivplugin_skipsegment
+  enablecoursesettings = 1
+  enableembedly = 0
+  fontfamilies = Arial=Arial, sans-serif
+Comic Sans MS="Comic Sans MS", cursive, sans-serif
+Courier New="Courier New", Courier, monospace
+Georgia=Georgia, serif
+Impact=Impact, Charcoal, sans-serif
+Lucida Console="Lucida Console", "Lucida Sans Typewriter", monospace
+Palatino="Palatino Linotype", "Book Antiqua", Palatino, serif
+Tahoma=Tahoma, sans-serif
+Times New Roman="Times New Roman", Times, serif
+Trebuchet MS="Trebuchet MS", sans-serif
+Verdana=Verdana, sans-serif
+  reportfields = email
+  version = 2026051503
+  videosharinginstructions = 
+  videosources = bunnystream,videolink,html5video,vimeo,yt
+
+=== local_polosync config ===
+  version = 2026051601
+
+=== Bunny API key in plugin? ===
+  (not found — check config names above)
+admin-ssh@srv1526987:~$ 
