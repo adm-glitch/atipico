@@ -178,6 +178,86 @@ footer {
 }
 
 // -----------------------------------------------------------------------------
+// Signup Page — fix mform row overflow on mobile
+// -----------------------------------------------------------------------------
+#page-login-signup {
+
+    .login-container {
+        padding: var(--at-space-6) var(--at-space-5);
+    }
+
+    // Remove Bootstrap row's negative margins — they bleed past the container
+    .mform .fitem.row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    // Labels: always full width, flush left
+    .mform .col-form-label {
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    // Input columns: always full width
+    .mform .felement {
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+
+        // Every field element fills its column
+        input.form-control,
+        select.form-control,
+        select.custom-select,
+        textarea.form-control {
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+    }
+
+    // Password policy hint — let it wrap instead of overflowing
+    .mform .fdescription,
+    .mform .form-text {
+        display: block;
+        width: 100%;
+        word-break: break-word;
+        overflow-wrap: break-word;
+        white-space: normal;
+        font-size: var(--at-fs-xs);
+        color: var(--at-text-muted) !important;
+        margin-top: var(--at-space-1);
+    }
+
+    // "Dados do Curso" collapsible header — teal accent
+    .mform .collapsible-actions,
+    .mform legend.ftoggler,
+    .mform .fcontainer .card-header {
+        color: var(--at-text-primary);
+        border-color: var(--at-border);
+    }
+
+    // Submit / Cancel buttons row
+    .mform #fgroup_id_submitbtn,
+    .mform .fitem.btn-cancel,
+    .mform .fitem:has(#id_submitbutton) {
+        margin-left: 0;
+        margin-right: 0;
+
+        .felement {
+            display: flex;
+            gap: var(--at-space-3);
+
+            .btn {
+                flex: 1;
+            }
+        }
+    }
+}
+
+// -----------------------------------------------------------------------------
 // Course Header — cinematic overlay layout
 // -----------------------------------------------------------------------------
 header {
