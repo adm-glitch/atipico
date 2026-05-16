@@ -6,6 +6,40 @@ This is the **Moodle Atipico Theme** — a Boost child theme for Moodle 4.5+. Th
 
 **Client:** DanKa (Portuguese event staffing company). Design direction: dark-first, premium/modern, editorial typography, gold (#DAAA00) + teal (#298976) accent palette.
 
+---
+
+## Production Server — cursos.dankarh.com.br
+
+- **Moodle**: 5.0.6 (2025041406), PHP 8.4, MySQL
+- **VPS**: Hostinger, IP `31.97.250.144`, managed via CloudPanel
+- **SSH**: host `31.97.250.144`, port `22`, user `admin-ssh` (password in secret `SSH_PASS`)
+- **Moodle root**: `/home/user/htdocs/srv1526987.hstgr.cloud/`
+- **SSH from Replit**: BLOCKED — Hostinger's network blocks Replit's GCP IP at infrastructure level (packets never reach VPS). User connects via Termius from their own machine.
+- **Workaround**: Moodle REST API over HTTPS — token in secret `MOODLE_WS_TOKEN`, 770 functions enabled on `replit_agent` service (id=2)
+
+### REST API Usage (from Replit)
+```bash
+curl "https://cursos.dankarh.com.br/webservice/rest/server.php?wstoken=$MOODLE_WS_TOKEN&wsfunction=FUNCTION&moodlewsrestformat=json&PARAMS"
+```
+
+### Course IDs (production)
+- Hub = 3 | Eixo 1 = 4 | Eixo 2A = 5 | Eixo 2B = 6 | Eixo 2C = 7 | Eixo 3 = 8
+
+### Bunny Stream
+- Library ID: `661783` (secret `BUNNY_LIBRARY_ID`)
+- Embed: `https://iframe.mediadelivery.net/embed/661783/{guid}`
+- GUIDs: EP1-006=`7d5f2f26-9423-447a-bd4f-30ba6269823e` (37m, ready), EP3-011=`f2716a84-2de8-41e6-83c4-e90e409b75c1` (45m, ready), EP2-005=`01ae5ade-e109-445f-b86d-5dc0f6a4de9d` (processing)
+- Wired: `video-m2a.1` (EP1-006 + EP2-005), `video-m2a.2` (EP3-011) — both in Eixo 2A (course 5)
+- Pending: `video-m2a.3`, `video-m2a.4` — still placeholder labels, awaiting GUIDs
+
+### Scripts (run from Termius on server)
+- `scripts/wire_videos.php` — wires Bunny Stream iframes into placeholder labels
+- `scripts/add_ws_functions.php` — adds all Moodle functions to replit_agent webservice
+- `scripts/setup_polo_cohorts.php` — polo cohort creation (already run)
+- `scripts/setup_content.php` — course content population (already run)
+
+---
+
 ## Architecture
 
 - **Theme Plugin**: PHP/Mustache/SCSS Moodle theme plugin (`theme_atipico`)
