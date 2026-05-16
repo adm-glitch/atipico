@@ -1,0 +1,33 @@
+-- No entries --
+root@srv1526987:~# sudo journalctl -u ssh --since "10 minutes ago" | tail -20
+May 16 01:17:53 srv1526987 sshd[83027]: Accepted password for admin-ssh from 200.39.147.250 port 29188 ssh2
+May 16 01:17:53 srv1526987 sshd[83027]: pam_unix(sshd:session): session opened for user admin-ssh(uid=1005) by admin-ssh(uid=0)
+root@srv1526987:~# sudo journalctl -u ssh --since "10 minutes ago" | tail -20
+May 16 01:17:53 srv1526987 sshd[83027]: Accepted password for admin-ssh from 200.39.147.250 port 29188 ssh2
+May 16 01:17:53 srv1526987 sshd[83027]: pam_unix(sshd:session): session opened for user admin-ssh(uid=1005) by admin-ssh(uid=0)
+May 16 01:18:36 srv1526987 sshd[83053]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=200.39.147.250  user=admin-ssh
+May 16 01:18:38 srv1526987 sshd[83053]: Failed password for admin-ssh from 200.39.147.250 port 25403 ssh2
+May 16 01:18:43 srv1526987 sshd[83053]: Accepted password for admin-ssh from 200.39.147.250 port 25403 ssh2
+May 16 01:18:43 srv1526987 sshd[83053]: pam_unix(sshd:session): session opened for user admin-ssh(uid=1005) by admin-ssh(uid=0)
+root@srv1526987:~# sudo journalctl -u ssh --since "10 hours ago" | tail -20
+May 15 23:46:53 srv1526987 sshd[80923]: pam_unix(sshd:session): session closed for user admin-ssh
+May 15 23:46:58 srv1526987 sshd[80939]: Accepted password for admin-ssh from 35.226.126.97 port 34488 ssh2
+May 15 23:46:58 srv1526987 sshd[80939]: pam_unix(sshd:session): session opened for user admin-ssh(uid=1005) by admin-ssh(uid=0)
+May 15 23:47:13 srv1526987 sshd[80955]: Accepted password for admin-ssh from 35.226.126.97 port 49864 ssh2
+May 15 23:47:13 srv1526987 sshd[80955]: pam_unix(sshd:session): session opened for user admin-ssh(uid=1005) by admin-ssh(uid=0)
+May 16 00:23:02 srv1526987 sshd[81591]: Accepted password for admin-ssh from 200.39.147.250 port 27461 ssh2
+May 16 00:23:02 srv1526987 sshd[81591]: pam_unix(sshd:session): session opened for user admin-ssh(uid=1005) by admin-ssh(uid=0)
+May 16 00:36:39 srv1526987 sshd[81672]: Accepted password for admin-ssh from 200.39.147.250 port 25908 ssh2
+May 16 00:36:39 srv1526987 sshd[81672]: pam_unix(sshd:session): session opened for user admin-ssh(uid=1005) by admin-ssh(uid=0)
+May 16 00:36:42 srv1526987 sshd[81672]: pam_unix(sshd:session): session closed for user admin-ssh
+May 16 00:41:33 srv1526987 sshd[82001]: Accepted publickey for root from 169.254.0.1 port 43560 ssh2: RSA SHA256:AyCMfv2bpu94gkk649DVJmRL95ydGw16b0pNWUovCL8
+May 16 00:41:33 srv1526987 sshd[82001]: pam_unix(sshd:session): session opened for user root(uid=0) by root(uid=0)
+May 16 01:05:59 srv1526987 sshd[82611]: Accepted password for admin-ssh from 200.39.147.250 port 26521 ssh2
+May 16 01:05:59 srv1526987 sshd[82611]: pam_unix(sshd:session): session opened for user admin-ssh(uid=1005) by admin-ssh(uid=0)
+May 16 01:17:53 srv1526987 sshd[83027]: Accepted password for admin-ssh from 200.39.147.250 port 29188 ssh2
+May 16 01:17:53 srv1526987 sshd[83027]: pam_unix(sshd:session): session opened for user admin-ssh(uid=1005) by admin-ssh(uid=0)
+May 16 01:18:36 srv1526987 sshd[83053]: pam_unix(sshd:auth): authentication failure; logname= uid=0 euid=0 tty=ssh ruser= rhost=200.39.147.250  user=admin-ssh
+May 16 01:18:38 srv1526987 sshd[83053]: Failed password for admin-ssh from 200.39.147.250 port 25403 ssh2
+May 16 01:18:43 srv1526987 sshd[83053]: Accepted password for admin-ssh from 200.39.147.250 port 25403 ssh2
+May 16 01:18:43 srv1526987 sshd[83053]: pam_unix(sshd:session): session opened for user admin-ssh(uid=1005) by admin-ssh(uid=0)
+root@srv1526987:~# 
