@@ -14,7 +14,7 @@
  */
 
 define('CLI_SCRIPT', true);
-require(__DIR__ . '/../config.php');
+require('/home/user/htdocs/srv1526987.hstgr.cloud/config.php');
 require_once($CFG->libdir  . '/clilib.php');
 require_once($CFG->dirroot . '/cohort/lib.php');
 
