@@ -6,13 +6,19 @@
  * served from cursos.dankarh.com.br (the Moodle domain), Bunny Stream's
  * referrer check passes and the video loads inside the app's WebView.
  *
- * URL: /theme/atipico/video.php?cmid=INT&guid=STRING&dur=INT
+ * URL: /theme/atipico/video.php?cmid=INT&guid=STRING[&dur=INT]
  *   cmid  — course-module id of the mod_url activity that wraps this player
  *   guid  — Bunny Stream video GUID
- *   dur   — video duration in seconds (set by create_test_video_activity.php)
+ *   dur   — (optional fallback) duration in seconds; ignored when the Bunny
+ *            API is reachable and returns a valid length
+ *
+ * Duration source (priority order):
+ *   1. Bunny Stream API — GET /library/{lib}/videos/{guid}, field "length"
+ *      Key: get_config('theme_atipico','bunny_api_key') or BUNNY_STREAM_API_KEY env var
+ *   2. dur URL param (fallback when API key absent or API unreachable)
  *
  * Completion: increments a 1-second timer while the page is visible.
- * When watched seconds >= dur * 0.8, calls Moodle's manual-completion AJAX
+ * When watched seconds >= duration * 0.8, calls Moodle's manual-completion AJAX
  * endpoint and marks the activity complete (green tick in Moodle).
  * Also listens for Bunny postMessage progress events as a secondary signal.
  *
@@ -24,28 +30,52 @@
 require_once(__DIR__ . '/../../config.php');
 
 // ── Parameters ────────────────────────────────────────────────────────────────
-$cmid     = required_param('cmid', PARAM_INT);
-$guid     = required_param('guid', PARAM_ALPHANUMEXT);
-$duration = optional_param('dur',  0, PARAM_INT);
+$cmid = required_param('cmid', PARAM_INT);
+$guid = required_param('guid', PARAM_ALPHANUMEXT);
 
 // ── Auth & course-module access ───────────────────────────────────────────────
-require_login();
+// No fallback: if the cmid is invalid or the user lacks access, Moodle's own
+// error handling redirects to login or shows an access-denied page.
+[$course, $cm] = get_course_and_cm_from_cmid($cmid);
+require_login($course, false, $cm);
+$modcontext = context_module::instance($cmid);
+$title      = format_string($cm->name, true, ['context' => $modcontext]);
 
-try {
-    [$course, $cm] = get_course_and_cm_from_cmid($cmid);
-    require_login($course, false, $cm);
-    $modcontext = context_module::instance($cmid);
-    $title = format_string($cm->name, true, ['context' => $modcontext]);
-} catch (Exception $e) {
-    // Fallback for admins testing before activity is fully wired
-    require_login();
-    $title = 'Vídeo';
-    $modcontext = context_system::instance();
+// ── Video duration — server-side from Bunny API (primary) ────────────────────
+$bunny_lib = '661783';
+$duration  = 0;
+
+$bunny_api_key = (string)get_config('theme_atipico', 'bunny_api_key');
+if ($bunny_api_key === '') {
+    $bunny_api_key = (string)getenv('BUNNY_STREAM_API_KEY');
 }
 
-// ── Derived values ────────────────────────────────────────────────────────────
-$bunny_lib  = '661783';
-$threshold  = ($duration > 0) ? (int)round($duration * 0.8) : 0;
+if ($bunny_api_key !== '') {
+    $ch = curl_init("https://video.bunnycdn.com/library/{$bunny_lib}/videos/{$guid}");
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_HTTPHEADER     => ["AccessKey: {$bunny_api_key}", 'Accept: application/json'],
+        CURLOPT_TIMEOUT        => 6,
+        CURLOPT_SSL_VERIFYPEER => true,
+    ]);
+    $resp      = curl_exec($ch);
+    $http_code = (int)curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+
+    if ($http_code === 200 && $resp !== false) {
+        $vdata = json_decode($resp, true);
+        if (isset($vdata['length']) && (int)$vdata['length'] > 0) {
+            $duration = (int)$vdata['length'];
+        }
+    }
+}
+
+// Fallback: accept dur from URL only when API key is absent or API unreachable
+if ($duration <= 0) {
+    $duration = optional_param('dur', 0, PARAM_INT);
+}
+
+$threshold = ($duration > 0) ? (int)round($duration * 0.8) : 0;
 
 // Bunny embed: autoplay=false keeps it polite; preload=metadata is fast
 $embed_url  = "https://iframe.mediadelivery.net/embed/{$bunny_lib}/{$guid}"
