@@ -13,7 +13,10 @@
  */
 
 define('CLI_SCRIPT', true);
-require('/home/user/htdocs/srv1526987.hstgr.cloud/config.php');
+
+// Resolve Moodle root from this script's location: scripts/ → theme/atipico/ → theme/ → moodle_root
+$moodle_root = dirname(dirname(dirname(__DIR__)));
+require($moodle_root . '/config.php');
 require_once($CFG->libdir  . '/clilib.php');
 require_once($CFG->dirroot . '/course/lib.php');
 

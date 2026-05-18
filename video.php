@@ -330,8 +330,11 @@ header('Cache-Control: no-store');
 
   // ── Bunny postMessage listener (secondary signal) ───────────────────────────
   // Bunny may emit progress events — treat >= 80% as completion trigger.
+  var BUNNY_ORIGINS = ['https://iframe.mediadelivery.net', 'https://player.mediadelivery.net'];
+
   window.addEventListener('message', function (e) {
     if (completionDone) { return; }
+    if (BUNNY_ORIGINS.indexOf(e.origin) === -1) { return; }
     try {
       var msg = (typeof e.data === 'string') ? JSON.parse(e.data) : e.data;
       if (!msg) { return; }
