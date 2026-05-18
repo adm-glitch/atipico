@@ -1,0 +1,52 @@
+Tipo de autenticação
+tool_mobile | typeoflogin
+
+Através da aplicação móvel
+ Padrão: Através da aplicação móvel
+Se o site usar um método de autenticação de SSO, selecione por meio de uma janela do navegador ou por meio de um navegador incorporado. Um navegador incorporado oferece uma melhor experiência ao usuário, embora não funcione com todos os plugins do SSO.
+
+Definir logout automático para seus usuários
+tool_mobile | autologout
+
+Nunca
+ Padrão: Nunca
+Por motivos de segurança, você pode definir o logout automático para seus usuários quando eles saem ou fecham o aplicativo, ou quando ele entra em segundo plano. Os usuários terão que fazer login novamente quando retornarem ao aplicativo.
+
+Acesso por QR code
+tool_mobile | qrcodetype
+
+QR code com login automático
+ Padrão: QR code com login automático
+Um QR code pode ser fornecido para usuários do app móvel escanearem. O QR code pode ser usado para preencher a URL do site, ou quando o site for seguro utilizando HTTPS, automaticamente fazer o login do usuário sem ter que digitar novamente o usuário e senha.
+
+Duração da chave de autenticação do QR Code.
+tool_mobile | qrkeyttl
+10
+unidades de duração
+minutos
+ Padrão: 10 minutos
+Por quanto tempo um QR Code para login automático é válido.
+
+Verificação do mesmo IP da autenticação por QR Code
+tool_mobile | qrsameipcheck
+ Padrão: Sim
+Se os usuários devem usar a mesma rede para gerar e digitalizar um código QR para login. Desative-o apenas se os usuários relatarem problemas com o login QR.
+
+Esquema de URL
+tool_mobile | forcedurlscheme
+moodlemobile
+ Padrão: moodlemobile
+Se quiser permitir que apenas a sua aplicação personalizada da marca seja aberta numa janela do navegador, especifique o esquema de URL aqui. Se você quiser permitir somente o aplicativo oficial, então deixe o valor padrão. Se você quiser permitir qualquer app, deixe esse campo vazio.
+
+Versão mínima do aplicativo necessária
+tool_mobile | minimumversion
+ Padrão: Vazio
+Se uma versão do aplicativo for definida (3.8.0 ou superior), todos os usuários que usam uma versão mais antiga serão solicitados a atualizar seu aplicativo antes de acessarem o site.
+
+Tempo mínimo entre requisições de auto-login
+tool_mobile | autologinmintimebetweenreq
+
+6 minutos
+ Padrão: 6 minutos
+O tempo mínimo entre as solicitações de login automático do aplicativo móvel. Se os usuários do aplicativo forem frequentemente solicitados a inserir suas credenciais ao ver o conteúdo incorporado do site, defina um valor mais baixo.
+
