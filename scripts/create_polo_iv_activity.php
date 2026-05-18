@@ -20,6 +20,7 @@ define('CLI_SCRIPT', true);
 
 $moodle_root = dirname(dirname(dirname(__DIR__)));
 require($moodle_root . '/config.php');
+require_once($CFG->libdir  . '/clilib.php');
 require_once($CFG->dirroot . '/course/lib.php');
 
 cli_writeln("=== DanKa — Create Polo Marabá IV Activity ===\n");
