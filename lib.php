@@ -347,4 +347,10 @@ function theme_atipico_page_init(moodle_page $page) {
             'display' => 'swap',
         ]
     ));
+
+    // Load CPF mask + validation on signup and profile-edit pages.
+    $pagetypes = ['login-signup', 'user-edit', 'user-editadvanced'];
+    if (in_array($page->pagetype, $pagetypes, true)) {
+        $page->requires->js_call_amd('theme_atipico/cpf_mask', 'init');
+    }
 }

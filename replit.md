@@ -23,6 +23,10 @@ curl "https://cursos.dankarh.com.br/webservice/rest/server.php?wstoken=$MOODLE_W
 ```
 
 ### Course IDs (production)
+**New polo courses (active structure):**
+- Polo Marabá = 10 | Polo Santarém = 11 | Polo Belém = 12
+
+**Legacy courses (keep, do not delete yet):**
 - Hub = 3 | Eixo 1 = 4 | Eixo 2A = 5 | Eixo 2B = 6 | Eixo 2C = 7 | Eixo 3 = 8
 
 ### Bunny Stream
