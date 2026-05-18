@@ -152,16 +152,14 @@
   .url-value { font-size: 1.1rem; font-weight: 700; color: var(--gold);
     letter-spacing: 0.02em; }
 
-  /* ── PHONE MOCKUP (placeholder) ── */
-  .phone-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
-    margin-bottom: 8px; }
-  .screenshot { width: 100%; background: var(--elevated);
-    border: 1.5px dashed rgba(41,137,118,0.4);
-    border-radius: var(--radius); min-height: 280px;
-    display: flex; flex-direction: column; align-items: center;
-    justify-content: center; gap: 10px; padding: 24px;
-    position: relative; }
-  .screenshot.single { min-height: 220px; }
+  /* ── PHONE MOCKUP ── */
+  .phone-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+    margin-bottom: 8px; align-items: start; }
+  .screenshot { border: 1.5px solid rgba(41,137,118,0.30);
+    border-radius: var(--radius); overflow: hidden;
+    position: relative; background: var(--elevated); }
+  .screenshot img { width: 100%; display: block; }
+  .screenshot.single { max-width: 320px; margin: 0 auto 8px; }
   .screenshot-id { position: absolute; top: 12px; right: 14px;
     background: var(--teal); color: #fff;
     font-size: 0.7rem; font-weight: 700; border-radius: 6px;
@@ -171,9 +169,6 @@
     padding: 2px 8px; letter-spacing: 0.08em; }
   .os-ios { background: rgba(0,122,255,0.2); color: var(--ios); }
   .os-android { background: rgba(61,220,132,0.2); color: var(--android); }
-  .screenshot-icon { font-size: 2rem; opacity: 0.4; }
-  .screenshot-label { font-size: 0.82rem; color: var(--muted);
-    text-align: center; max-width: 200px; line-height: 1.5; }
   .screenshot-caption { font-size: 0.76rem; color: rgba(155,148,184,0.6);
     text-align: center; margin-bottom: 20px; }
 
@@ -289,17 +284,15 @@
         <div class="screenshot">
           <div class="screenshot-id">PRINT A-01</div>
           <div class="screenshot-os os-ios">iOS</div>
-          <div class="screenshot-icon">🍎</div>
-          <p class="screenshot-label">App Store com resultado da busca "Moodle" — app oficial em destaque</p>
+          <img src="assets/app-01.png" alt="App Store mostrando o app Moodle com botão Abrir">
         </div>
         <div class="screenshot">
           <div class="screenshot-id">PRINT A-02</div>
           <div class="screenshot-os os-android">Android</div>
-          <div class="screenshot-icon">🤖</div>
-          <p class="screenshot-label">Google Play com resultado da busca "Moodle" — app oficial em destaque</p>
+          <img src="assets/app-02.png" alt="Google Play mostrando o app Moodle com botão Instalar">
         </div>
       </div>
-      <p class="screenshot-caption">Prints A-01 e A-02 · Loja de apps de cada plataforma</p>
+      <p class="screenshot-caption">Prints A-01 e A-02 · App Store (iPhone) e Google Play (Android)</p>
     </div>
   </div>
 
@@ -308,14 +301,8 @@
     <div class="step-num">2</div>
     <div class="step-body">
       <div class="step-tag">Configuração inicial</div>
-      <h2 class="step-title">Abra o app e adicione o site</h2>
-      <p class="step-desc">Na primeira vez que abrir o Moodle, o app pedirá o endereço da sua plataforma de cursos:</p>
-      <ul class="action-list">
-        <li>Toque no ícone do <strong>Moodle</strong> para abrir</li>
-        <li>Toque em <strong>"Adicionar novo site"</strong> ou <strong>"Connect to Moodle"</strong></li>
-        <li>No campo de endereço, digite o endereço abaixo</li>
-        <li>Toque em <strong>"Conectar ao servidor"</strong></li>
-      </ul>
+      <h2 class="step-title">Abra o app e conecte ao site</h2>
+      <p class="step-desc">Na primeira vez que abrir o Moodle, o app pedirá o endereço da plataforma. Digite o endereço abaixo e toque em <strong>"Conectar ao servidor"</strong>:</p>
       <div class="url-box">
         <div class="url-icon">🔗</div>
         <div>
@@ -324,21 +311,13 @@
         </div>
       </div>
       <div class="tip-box">
-        <strong>Dica:</strong> Digite o endereço exatamente como mostrado, sem "www" ou "https://" — o app adiciona automaticamente.
+        <strong>Dica:</strong> Digite o endereço exatamente como mostrado, sem "www" — o app adiciona o https:// automaticamente.
       </div>
-      <div class="phone-pair">
-        <div class="screenshot">
-          <div class="screenshot-id">PRINT A-03</div>
-          <div class="screenshot-icon">📱</div>
-          <p class="screenshot-label">Tela inicial do app com o campo de endereço do site</p>
-        </div>
-        <div class="screenshot">
-          <div class="screenshot-id">PRINT A-04</div>
-          <div class="screenshot-icon">⌨️</div>
-          <p class="screenshot-label">Campo preenchido com "cursos.dankarh.com.br" antes de tocar em Conectar</p>
-        </div>
+      <div class="screenshot single">
+        <div class="screenshot-id">PRINT A-03</div>
+        <img src="assets/app-03.png" alt="Tela inicial do app Moodle com campo para digitar o endereço do site">
       </div>
-      <p class="screenshot-caption">Prints A-03 e A-04 · Tela inicial e campo de URL preenchido</p>
+      <p class="screenshot-caption">Print A-03 · Tela de conexão — digite o endereço da plataforma</p>
     </div>
   </div>
 
@@ -348,9 +327,9 @@
     <div class="step-body">
       <div class="step-tag">Login</div>
       <h2 class="step-title">Entre com seu usuário e senha</h2>
-      <p class="step-desc">Após conectar ao servidor, o app exibirá a tela de login da plataforma DanKa:</p>
+      <p class="step-desc">Após conectar ao site, o app exibirá a tela de login diretamente — <strong>sem abrir o navegador</strong>. Digite seus dados e toque em <strong>"Entrar"</strong>:</p>
       <ul class="action-list">
-        <li>Digite sua <strong>Identificação de usuário</strong> (criada no cadastro)</li>
+        <li>Digite sua <strong>Identificação de usuário</strong> (criada no cadastro pelo site)</li>
         <li>Digite sua <strong>Senha</strong></li>
         <li>Toque em <strong>"Entrar"</strong></li>
       </ul>
@@ -358,12 +337,17 @@
         <span class="alert-icon">🔒</span>
         <span>Use o mesmo usuário e senha cadastrados no site. Se ainda não criou sua conta, consulte o <strong>Tutorial Desktop</strong> primeiro.</span>
       </div>
-      <div class="screenshot single">
-        <div class="screenshot-id">PRINT A-05</div>
-        <div class="screenshot-icon">🔑</div>
-        <p class="screenshot-label">Tela de login do app com campos de usuário e senha — botão "Entrar" visível</p>
+      <div class="phone-pair">
+        <div class="screenshot">
+          <div class="screenshot-id">PRINT A-04</div>
+          <img src="assets/app-04.png" alt="Tela de login do app com campos de usuário e senha vazios">
+        </div>
+        <div class="screenshot">
+          <div class="screenshot-id">PRINT A-05</div>
+          <img src="assets/app-05.png" alt="Tela de login do app com usuário preenchido e senha digitada">
+        </div>
       </div>
-      <p class="screenshot-caption">Print A-05 · Tela de login (oculte a senha no print)</p>
+      <p class="screenshot-caption">Prints A-04 e A-05 · Tela de login dentro do app — preencha e toque em "Entrar"</p>
     </div>
   </div>
 
@@ -373,18 +357,17 @@
     <div class="step-body">
       <div class="step-tag">Painel Principal</div>
       <h2 class="step-title">Explore seu painel de cursos</h2>
-      <p class="step-desc">Após o login, você verá o painel principal com seus cursos disponíveis. Cada card exibe o nome do curso e seu progresso.</p>
+      <p class="step-desc">Após o login, você verá o painel <strong>"Meus cursos"</strong> com os cursos disponíveis para o seu polo. Toque em qualquer curso para acessar o conteúdo.</p>
       <ul class="action-list">
-        <li>Na tela inicial, veja os <strong>cursos disponíveis</strong> para você</li>
-        <li>Toque em qualquer curso para acessar o conteúdo</li>
-        <li>Use o menu inferior para navegar entre seções</li>
+        <li>Veja os cursos disponíveis listados em cards</li>
+        <li>Toque em um curso para abrir</li>
+        <li>Use o menu inferior para navegar entre seções do app</li>
       </ul>
       <div class="screenshot single">
         <div class="screenshot-id">PRINT A-06</div>
-        <div class="screenshot-icon">🎓</div>
-        <p class="screenshot-label">Painel principal do app mostrando os cursos disponíveis com cards de progresso</p>
+        <img src="assets/app-06.png" alt="Painel Meus Cursos no app mostrando o card do curso disponível">
       </div>
-      <p class="screenshot-caption">Print A-06 · Dashboard com cursos disponíveis</p>
+      <p class="screenshot-caption">Print A-06 · Meus Cursos — card do curso disponível para o seu polo</p>
     </div>
   </div>
 
@@ -394,69 +377,17 @@
     <div class="step-body">
       <div class="step-tag">Conteúdo</div>
       <h2 class="step-title">Acesse as aulas do curso</h2>
-      <p class="step-desc">Dentro de um curso, você verá as seções e atividades organizadas por módulo:</p>
+      <p class="step-desc">Dentro de um curso, você verá as seções e atividades organizadas por módulo. Toque em qualquer atividade para iniciar:</p>
       <ul class="action-list">
-        <li>Toque no nome do curso para abrir</li>
-        <li>Navegue pelas <strong>seções</strong> (módulos) do curso</li>
-        <li>Toque em uma <strong>atividade de vídeo</strong> para iniciar a aula</li>
-        <li>Role para ver todas as atividades disponíveis</li>
+        <li>Toque no card do curso no painel para abrir</li>
+        <li>Navegue pelas <strong>seções</strong> (módulos) disponíveis</li>
+        <li>Toque em uma <strong>atividade</strong> para começar a aula</li>
       </ul>
-      <div class="phone-pair">
-        <div class="screenshot">
-          <div class="screenshot-id">PRINT A-07</div>
-          <div class="screenshot-icon">📚</div>
-          <p class="screenshot-label">Tela interna do curso com lista de módulos e atividades</p>
-        </div>
-        <div class="screenshot">
-          <div class="screenshot-id">PRINT A-08</div>
-          <div class="screenshot-icon">▶️</div>
-          <p class="screenshot-label">Player de vídeo tocando uma aula dentro do app</p>
-        </div>
-      </div>
-      <p class="screenshot-caption">Prints A-07 e A-08 · Conteúdo do curso e player de vídeo</p>
-    </div>
-  </div>
-
-  <!-- PASSO 6 -->
-  <div class="step">
-    <div class="step-num">6</div>
-    <div class="step-body">
-      <div class="step-tag">Progresso</div>
-      <h2 class="step-title">Acompanhe seu progresso</h2>
-      <p class="step-desc">A plataforma registra automaticamente seu avanço. Para que uma aula seja marcada como concluída, você precisa assistir <strong>pelo menos 80% do vídeo</strong>.</p>
-      <ul class="action-list">
-        <li>O progresso aparece no card de cada curso no painel</li>
-        <li>Atividades concluídas exibem um <strong>ícone de check ✓</strong></li>
-        <li>Acesse <strong>"Meu perfil"</strong> no menu para ver seu histórico completo</li>
-      </ul>
-      <div class="alert alert-gold">
-        <span class="alert-icon">📊</span>
-        <span>O progresso é sincronizado automaticamente com a plataforma web — o que você assistir no app também aparece no site, e vice-versa.</span>
-      </div>
       <div class="screenshot single">
-        <div class="screenshot-id">PRINT A-09</div>
-        <div class="screenshot-icon">📈</div>
-        <p class="screenshot-label">Tela de progresso ou dashboard mostrando % de conclusão dos cursos</p>
+        <div class="screenshot-id">PRINT A-07</div>
+        <img src="assets/app-07.png" alt="Tela interna do curso mostrando seções e atividades listadas">
       </div>
-      <p class="screenshot-caption">Print A-09 · Indicador de progresso nos cursos</p>
-    </div>
-  </div>
-
-  <!-- PASSO 7 -->
-  <div class="step">
-    <div class="step-num">7</div>
-    <div class="step-body">
-      <div class="step-tag">Notificações</div>
-      <h2 class="step-title">Ative as notificações</h2>
-      <p class="step-desc">O app pode enviar alertas sobre novos conteúdos, mensagens e prazos. Recomendamos manter as notificações ativadas:</p>
-      <ul class="action-list">
-        <li>Ao abrir o app pela primeira vez, <strong>permita as notificações</strong> quando solicitado</li>
-        <li>Se recusou, vá em <strong>Configurações do celular</strong> → <strong>Moodle</strong> → <strong>Notificações</strong> → Ativar</li>
-        <li>Dentro do app: <strong>Menu</strong> → <strong>Configurações</strong> → <strong>Notificações</strong></li>
-      </ul>
-      <div class="tip-box">
-        <strong>Dica:</strong> Você também pode acessar a plataforma pelo navegador do celular em <strong>cursos.dankarh.com.br</strong> — o site é responsivo e funciona bem em telas pequenas.
-      </div>
+      <p class="screenshot-caption">Print A-07 · Conteúdo do curso — seções e atividades disponíveis</p>
     </div>
   </div>
 
@@ -465,80 +396,61 @@
   <!-- LISTA DE PRINTS -->
   <div class="prints-section">
     <h2>📸 Checklist</h2>
-    <h3>Prints necessários para este tutorial</h3>
+    <h3>Prints utilizados neste tutorial</h3>
 
     <div class="print-item">
       <div class="print-num">A-01</div>
       <div class="print-info">
-        <h4>App Store — resultado da busca "Moodle"</h4>
-        <p>Tela do iPhone mostrando o app Moodle nos resultados de busca, com o ícone laranja visível. Pode estar na App Store ou já na tela de instalação.</p>
+        <h4>App Store — app Moodle oficial</h4>
+        <p>Tela do iPhone com o app Moodle (ícone laranja com "m" branco) desenvolvido pela Moodle Pty Ltd.</p>
         <div class="print-platforms"><span class="pp pp-ios">iOS</span></div>
-        <p class="print-tip">Dica: use um iPhone real ou peça para um colega que tenha.</p>
       </div>
     </div>
     <div class="print-item">
       <div class="print-num">A-02</div>
       <div class="print-info">
-        <h4>Google Play — resultado da busca "Moodle"</h4>
-        <p>Tela do Android mostrando o app Moodle na Play Store, com o ícone e o botão "Instalar".</p>
+        <h4>Google Play — app Moodle oficial</h4>
+        <p>Tela do Android com o app Moodle na Play Store e o botão "Instalar" visível.</p>
         <div class="print-platforms"><span class="pp pp-android">Android</span></div>
       </div>
     </div>
     <div class="print-item">
       <div class="print-num">A-03</div>
       <div class="print-info">
-        <h4>Tela inicial do app Moodle (sem site configurado)</h4>
-        <p>Primeira tela do app com o botão "Adicionar novo site" ou "Connect to Moodle" visível.</p>
+        <h4>Tela de conexão — campo de endereço do site</h4>
+        <p>Primeira tela do app com o campo para digitar o endereço da plataforma (cursos.dankarh.com.br).</p>
         <div class="print-platforms"><span class="pp pp-both">iOS ou Android</span></div>
       </div>
     </div>
     <div class="print-item">
       <div class="print-num">A-04</div>
       <div class="print-info">
-        <h4>Campo de URL preenchido com o endereço da plataforma</h4>
-        <p>Campo mostrando "cursos.dankarh.com.br" digitado, antes de tocar em Conectar.</p>
+        <h4>Tela de login — campos vazios</h4>
+        <p>Tela de login dentro do app mostrando os campos de usuário e senha antes de preencher.</p>
         <div class="print-platforms"><span class="pp pp-both">iOS ou Android</span></div>
       </div>
     </div>
     <div class="print-item">
       <div class="print-num">A-05</div>
       <div class="print-info">
-        <h4>Tela de login do app com a identidade visual da DanKa</h4>
-        <p>Login page da plataforma dentro do app, mostrando os campos de usuário e senha. Oculte os dados pessoais no print.</p>
+        <h4>Tela de login — usuário e senha preenchidos</h4>
+        <p>Mesma tela com o usuário digitado e a senha preenchida (ocultada), pronto para tocar em "Entrar".</p>
         <div class="print-platforms"><span class="pp pp-both">iOS ou Android</span></div>
-        <p class="print-tip">O app abre o login no estilo do site — deve aparecer o tema escuro da plataforma.</p>
       </div>
     </div>
     <div class="print-item">
       <div class="print-num">A-06</div>
       <div class="print-info">
-        <h4>Dashboard — painel com os cursos disponíveis</h4>
-        <p>Tela inicial após login, mostrando os cards dos cursos disponíveis para o usuário.</p>
+        <h4>Painel "Meus Cursos" após login</h4>
+        <p>Tela inicial após login mostrando o card do curso disponível para o polo do usuário.</p>
         <div class="print-platforms"><span class="pp pp-both">iOS ou Android</span></div>
       </div>
     </div>
     <div class="print-item">
       <div class="print-num">A-07</div>
       <div class="print-info">
-        <h4>Tela interna de um curso — lista de módulos</h4>
-        <p>Dentro de um curso, mostrando as seções/módulos e as atividades listadas.</p>
-        <div class="print-platforms"><span class="pp pp-both">iOS ou Android</span></div>
-      </div>
-    </div>
-    <div class="print-item">
-      <div class="print-num">A-08</div>
-      <div class="print-info">
-        <h4>Player de vídeo tocando uma aula</h4>
-        <p>Vídeo em reprodução dentro do app, com controles visíveis (play/pause, barra de progresso).</p>
-        <div class="print-platforms"><span class="pp pp-both">iOS ou Android</span></div>
-        <p class="print-tip">Pause o vídeo em algum momento para conseguir tirar o print com o frame visível.</p>
-      </div>
-    </div>
-    <div class="print-item">
-      <div class="print-num">A-09</div>
-      <div class="print-info">
-        <h4>Indicador de progresso do curso</h4>
-        <p>Dashboard ou tela de progresso mostrando a porcentagem de conclusão de pelo menos um curso.</p>
+        <h4>Tela interna do curso — seções e atividades</h4>
+        <p>Dentro de um curso, mostrando as seções e as atividades disponíveis para o usuário.</p>
         <div class="print-platforms"><span class="pp pp-both">iOS ou Android</span></div>
       </div>
     </div>

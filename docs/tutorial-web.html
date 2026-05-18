@@ -344,21 +344,19 @@
     font-weight: 700;
   }
 
-  /* ── SCREENSHOT PLACEHOLDER ── */
+  /* ── SCREENSHOT ── */
   .screenshot {
     width: 100%;
-    background: var(--elevated);
-    border: 1.5px dashed rgba(218,170,0,0.35);
+    border: 1.5px solid rgba(218,170,0,0.20);
     border-radius: var(--radius);
-    min-height: 220px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    padding: 24px;
+    overflow: hidden;
     margin-bottom: 8px;
     position: relative;
+    background: var(--elevated);
+  }
+  .screenshot img {
+    width: 100%;
+    display: block;
   }
   .screenshot-id {
     position: absolute;
@@ -371,17 +369,6 @@
     border-radius: 6px;
     padding: 2px 8px;
     letter-spacing: 0.08em;
-  }
-  .screenshot-icon {
-    font-size: 2rem;
-    opacity: 0.4;
-  }
-  .screenshot-label {
-    font-size: 0.82rem;
-    color: var(--muted);
-    text-align: center;
-    max-width: 360px;
-    line-height: 1.5;
   }
   .screenshot-caption {
     font-size: 0.76rem;
@@ -546,10 +533,9 @@
       </div>
       <div class="screenshot">
         <div class="screenshot-id">PRINT 01</div>
-        <div class="screenshot-icon">🖥️</div>
-        <p class="screenshot-label">Página inicial da plataforma — barra de endereços com o URL visível</p>
+        <img src="assets/web-01.png" alt="Página inicial da plataforma cursos.dankarh.com.br">
       </div>
-      <p class="screenshot-caption">Print 01 · Página inicial completa</p>
+      <p class="screenshot-caption">Print 01 · Página inicial — barra de endereços visível</p>
     </div>
   </div>
 
@@ -566,10 +552,9 @@
       </ul>
       <div class="screenshot">
         <div class="screenshot-id">PRINT 02</div>
-        <div class="screenshot-icon">🔑</div>
-        <p class="screenshot-label">Página de login — com o link "Criar uma nova conta" em destaque</p>
+        <img src="assets/web-02.png" alt="Página de login com botão Criar uma conta destacado">
       </div>
-      <p class="screenshot-caption">Print 02 · Página de login com link de cadastro visível</p>
+      <p class="screenshot-caption">Print 02 · Página de login — botão "Criar uma conta" em destaque</p>
     </div>
   </div>
 
@@ -577,35 +562,36 @@
   <div class="step">
     <div class="step-num">3</div>
     <div class="step-body">
-      <div class="step-tag">Identificação</div>
-      <h2 class="step-title">Crie seu usuário e senha</h2>
-      <p class="step-desc">Os dois primeiros campos definem como você fará login na plataforma:</p>
+      <div class="step-tag">Cadastro</div>
+      <h2 class="step-title">Preencha o formulário de cadastro</h2>
+      <p class="step-desc">Preencha todos os campos do formulário com seus dados reais — eles serão usados para certificação e acesso à plataforma:</p>
       <div class="field-grid">
         <div class="field-item required">
           <div class="field-label">Identificação de Usuário</div>
-          <div class="field-desc">Nome de usuário único. Use letras minúsculas e sem espaços. Ex: <em>maria.silva</em></div>
+          <div class="field-desc">Nome de usuário único, letras minúsculas sem espaços. Ex: <em>maria.silva</em></div>
         </div>
         <div class="field-item required">
           <div class="field-label">Senha</div>
-          <div class="field-desc">Crie uma senha segura seguindo as regras ao lado</div>
+          <div class="field-desc">Mín. 8 caracteres com letras maiúsculas, minúsculas, número e caractere especial</div>
+        </div>
+        <div class="field-item required">
+          <div class="field-label">E-mail</div>
+          <div class="field-desc">Seu e-mail real — um link de confirmação será enviado para este endereço</div>
+        </div>
+        <div class="field-item required">
+          <div class="field-label">Nome e Sobrenome</div>
+          <div class="field-desc">Seu nome completo conforme documentação</div>
         </div>
       </div>
-      <div class="password-rules">
-        <p>Requisitos da senha</p>
-        <ul>
-          <li>No mínimo 8 caracteres</li>
-          <li>Pelo menos 1 letra maiúscula (A–Z)</li>
-          <li>Pelo menos 1 letra minúscula (a–z)</li>
-          <li>Pelo menos 1 número (0–9)</li>
-          <li>Pelo menos 1 caractere especial (*, -, #, @…)</li>
-        </ul>
+      <div class="alert alert-teal">
+        <span class="alert-icon">📬</span>
+        <span>Um e-mail de confirmação será enviado. Verifique também a <strong>caixa de spam</strong> caso não encontre na caixa de entrada.</span>
       </div>
       <div class="screenshot">
         <div class="screenshot-id">PRINT 03</div>
-        <div class="screenshot-icon">✏️</div>
-        <p class="screenshot-label">Formulário de cadastro — campos Usuário e Senha preenchidos</p>
+        <img src="assets/web-03-04-05.png" alt="Formulário de cadastro completo com todos os campos visíveis">
       </div>
-      <p class="screenshot-caption">Print 03 · Campos de usuário e senha preenchidos (oculte a senha no print)</p>
+      <p class="screenshot-caption">Print 03 · Formulário completo — usuário, senha, e-mail e dados pessoais</p>
     </div>
   </div>
 
@@ -613,73 +599,9 @@
   <div class="step">
     <div class="step-num">4</div>
     <div class="step-body">
-      <div class="step-tag">Contato</div>
-      <h2 class="step-title">Informe seu e-mail</h2>
-      <p class="step-desc">Digite seu e-mail nos dois campos indicados. Um link de confirmação será enviado para este endereço — ele é obrigatório para ativar a conta.</p>
-      <div class="field-grid">
-        <div class="field-item required">
-          <div class="field-label">Endereço de E-mail</div>
-          <div class="field-desc">Seu e-mail de acesso. Verifique se está correto antes de continuar.</div>
-        </div>
-        <div class="field-item required">
-          <div class="field-label">Confirmar E-mail</div>
-          <div class="field-desc">Digite o e-mail novamente para confirmar. Deve ser idêntico ao campo anterior.</div>
-        </div>
-      </div>
-      <div class="alert alert-teal">
-        <span class="alert-icon">📬</span>
-        <span>Você receberá um e-mail de confirmação. Verifique também a <strong>caixa de spam</strong> caso não encontre na caixa de entrada.</span>
-      </div>
-      <div class="screenshot">
-        <div class="screenshot-id">PRINT 04</div>
-        <div class="screenshot-icon">📧</div>
-        <p class="screenshot-label">Campos de e-mail e confirmação preenchidos</p>
-      </div>
-      <p class="screenshot-caption">Print 04 · Campos de e-mail preenchidos</p>
-    </div>
-  </div>
-
-  <!-- PASSO 5 -->
-  <div class="step">
-    <div class="step-num">5</div>
-    <div class="step-body">
-      <div class="step-tag">Dados Pessoais</div>
-      <h2 class="step-title">Complete seus dados</h2>
-      <p class="step-desc">Preencha as informações pessoais restantes:</p>
-      <div class="field-grid">
-        <div class="field-item required">
-          <div class="field-label">Nome</div>
-          <div class="field-desc">Seu primeiro nome</div>
-        </div>
-        <div class="field-item required">
-          <div class="field-label">Sobrenome</div>
-          <div class="field-desc">Seu sobrenome completo</div>
-        </div>
-        <div class="field-item">
-          <div class="field-label">Cidade/Município</div>
-          <div class="field-desc">Cidade onde você trabalha ou é lotado(a)</div>
-        </div>
-        <div class="field-item">
-          <div class="field-label">País</div>
-          <div class="field-desc">Selecione <strong>Brasil</strong> na lista suspensa</div>
-        </div>
-      </div>
-      <div class="screenshot">
-        <div class="screenshot-id">PRINT 05</div>
-        <div class="screenshot-icon">👤</div>
-        <p class="screenshot-label">Campos Nome, Sobrenome, Cidade e País preenchidos</p>
-      </div>
-      <p class="screenshot-caption">Print 05 · Dados pessoais completos</p>
-    </div>
-  </div>
-
-  <!-- PASSO 6 -->
-  <div class="step">
-    <div class="step-num">6</div>
-    <div class="step-body">
-      <div class="step-tag">Polo de Lotação</div>
-      <h2 class="step-title">Escolha seu Polo</h2>
-      <p class="step-desc">Em <strong>"Dados do Curso"</strong>, selecione o Polo correspondente à sua unidade de trabalho. Esta escolha define sua trilha de conteúdo na plataforma.</p>
+      <div class="step-tag">Polo e Envio</div>
+      <h2 class="step-title">Selecione seu Polo e crie a conta</h2>
+      <p class="step-desc">Role até a seção <strong>"Dados do Curso"</strong>, selecione o Polo da sua unidade e clique em <strong>"Criar minha conta"</strong>.</p>
       <div class="polo-grid">
         <div class="polo-card"><div class="polo-dot"></div><span class="polo-name">Polo Marabá</span></div>
         <div class="polo-card"><div class="polo-dot"></div><span class="polo-name">Polo Santarém</span></div>
@@ -691,11 +613,49 @@
         <span>Selecione o polo <strong>correto</strong>. Em caso de dúvida, consulte sua chefia imediata antes de finalizar o cadastro.</span>
       </div>
       <div class="screenshot">
-        <div class="screenshot-id">PRINT 06</div>
-        <div class="screenshot-icon">📍</div>
-        <p class="screenshot-label">Seção "Dados do Curso" com o campo Polo expandido e opções visíveis</p>
+        <div class="screenshot-id">PRINT 04</div>
+        <img src="assets/web-06.png" alt="Formulário com seção Dados do Curso, Polo selecionado e botão Criar minha conta">
       </div>
-      <p class="screenshot-caption">Print 06 · Campo Polo com as opções visíveis</p>
+      <p class="screenshot-caption">Print 04 · Polo selecionado e botão "Criar minha conta"</p>
+    </div>
+  </div>
+
+  <!-- PASSO 5 -->
+  <div class="step">
+    <div class="step-num">5</div>
+    <div class="step-body">
+      <div class="step-tag">Confirmação</div>
+      <h2 class="step-title">Aviso de e-mail enviado</h2>
+      <p class="step-desc">Após clicar em "Criar minha conta", a plataforma exibirá uma mensagem confirmando que o e-mail de ativação foi enviado para o seu endereço.</p>
+      <ul class="action-list">
+        <li>Leia a mensagem na tela com o e-mail para onde foi enviado o link</li>
+        <li>Clique em <strong>"Continuar"</strong> e vá até sua caixa de entrada</li>
+      </ul>
+      <div class="screenshot">
+        <div class="screenshot-id">PRINT 05</div>
+        <img src="assets/web-07.png" alt="Mensagem confirmando envio do e-mail de ativação">
+      </div>
+      <p class="screenshot-caption">Print 05 · Mensagem — e-mail de ativação enviado</p>
+    </div>
+  </div>
+
+  <!-- PASSO 6 -->
+  <div class="step">
+    <div class="step-num">6</div>
+    <div class="step-body">
+      <div class="step-tag">E-mail</div>
+      <h2 class="step-title">Confirme sua conta pelo e-mail</h2>
+      <p class="step-desc">Acesse sua caixa de entrada e abra o e-mail enviado pela plataforma DanKa. Clique no link <strong>"Confirmar sua conta"</strong> para ativar o acesso.</p>
+      <ul class="action-list">
+        <li>Abra sua caixa de entrada (ou pasta de <strong>spam</strong>)</li>
+        <li>Procure um e-mail de <strong>Danka Treinamentos</strong></li>
+        <li>Clique no link <strong>"Confirmar sua conta"</strong> no corpo do e-mail</li>
+      </ul>
+      <div class="screenshot">
+        <div class="screenshot-id">PRINT 06</div>
+        <img src="assets/web-08.png" alt="E-mail de confirmação de conta DanKa Treinamentos na caixa de entrada">
+      </div>
+      <p class="screenshot-caption">Print 06 · E-mail de confirmação recebido na caixa de entrada</p>
     </div>
   </div>
 
@@ -703,20 +663,14 @@
   <div class="step">
     <div class="step-num">7</div>
     <div class="step-body">
-      <div class="step-tag">Finalização</div>
-      <h2 class="step-title">Crie sua conta</h2>
-      <p class="step-desc">Após preencher todos os campos, role a página até o final e clique no botão dourado <strong>"Criar minha conta"</strong>.</p>
-      <ul class="action-list">
-        <li>Role a página até o final do formulário</li>
-        <li>Clique em <strong>"Criar minha conta"</strong></li>
-        <li>Uma mensagem de confirmação aparecerá na tela</li>
-      </ul>
+      <div class="step-tag">Ativação</div>
+      <h2 class="step-title">Cadastro confirmado!</h2>
+      <p class="step-desc">Ao clicar no link do e-mail, você será redirecionado para a plataforma com a mensagem de confirmação. Clique em <strong>"Continuar"</strong> para acessar seus cursos.</p>
       <div class="screenshot">
         <div class="screenshot-id">PRINT 07</div>
-        <div class="screenshot-icon">✅</div>
-        <p class="screenshot-label">Mensagem de sucesso após envio do formulário</p>
+        <img src="assets/web-09.png" alt="Tela de confirmação de cadastro ativado com sucesso">
       </div>
-      <p class="screenshot-caption">Print 07 · Tela de confirmação de cadastro enviado</p>
+      <p class="screenshot-caption">Print 07 · Cadastro ativado — clique em "Continuar"</p>
     </div>
   </div>
 
@@ -724,43 +678,19 @@
   <div class="step">
     <div class="step-num">8</div>
     <div class="step-body">
-      <div class="step-tag">Ativação</div>
-      <h2 class="step-title">Confirme seu e-mail</h2>
-      <p class="step-desc">Acesse sua caixa de entrada e abra o e-mail enviado pela plataforma DanKa. Clique no link de confirmação para ativar sua conta.</p>
+      <div class="step-tag">Acesso</div>
+      <h2 class="step-title">Bem-vindo(a)! Seus cursos estão aqui</h2>
+      <p class="step-desc">Após confirmar o cadastro, você terá acesso à página <strong>"Meus Cursos"</strong> com todos os cursos do seu Polo disponíveis. Clique no card do curso para começar.</p>
       <ul class="action-list">
-        <li>Abra sua caixa de entrada (ou pasta de <strong>spam</strong>)</li>
-        <li>Procure um e-mail de <strong>cursos.dankarh.com.br</strong></li>
-        <li>Clique no botão ou link de confirmação no corpo do e-mail</li>
-        <li>Você será redirecionado de volta à plataforma</li>
+        <li>Veja o card do curso com nome e polo correspondente</li>
+        <li>Clique no card para abrir o conteúdo</li>
+        <li>Use o menu superior para navegar pela plataforma</li>
       </ul>
       <div class="screenshot">
         <div class="screenshot-id">PRINT 08</div>
-        <div class="screenshot-icon">📬</div>
-        <p class="screenshot-label">E-mail de confirmação na caixa de entrada — com o link de ativação visível</p>
+        <img src="assets/web-10.png" alt="Página Meus Cursos mostrando o card do curso disponível para o polo">
       </div>
-      <p class="screenshot-caption">Print 08 · E-mail de confirmação recebido</p>
-    </div>
-  </div>
-
-  <!-- PASSO 9 -->
-  <div class="step">
-    <div class="step-num">9</div>
-    <div class="step-body">
-      <div class="step-tag">Acesso</div>
-      <h2 class="step-title">Bem-vindo(a) à plataforma!</h2>
-      <p class="step-desc">Após confirmar o e-mail, seu cadastro está ativo. Faça login com o usuário e senha criados e explore seus cursos.</p>
-      <ul class="action-list">
-        <li>Volte ao site <strong>cursos.dankarh.com.br</strong></li>
-        <li>Clique em <strong>"Acesso / Entrar"</strong></li>
-        <li>Digite seu usuário e senha</li>
-        <li>Clique em <strong>"Entrar"</strong></li>
-      </ul>
-      <div class="screenshot">
-        <div class="screenshot-id">PRINT 09</div>
-        <div class="screenshot-icon">🎓</div>
-        <p class="screenshot-label">Dashboard da plataforma após o primeiro login — cursos disponíveis visíveis</p>
-      </div>
-      <p class="screenshot-caption">Print 09 · Dashboard após login realizado</p>
+      <p class="screenshot-caption">Print 08 · Meus Cursos — pronto para começar</p>
     </div>
   </div>
 
@@ -769,74 +699,66 @@
   <!-- LISTA DE PRINTS -->
   <div class="prints-section">
     <h2>📸 Checklist</h2>
-    <h3>Prints necessários para este tutorial</h3>
+    <h3>Prints utilizados neste tutorial</h3>
 
     <div class="print-item">
       <div class="print-num">01</div>
       <div class="print-info">
         <h4>Página inicial da plataforma</h4>
-        <p>Tela completa de cursos.dankarh.com.br com a barra de endereços visível mostrando o URL.</p>
-        <p class="print-tip">Dica: use o Chrome em tela cheia (F11) e faça print da tela inteira.</p>
+        <p>Tela completa de cursos.dankarh.com.br com a barra de endereços visível.</p>
       </div>
     </div>
     <div class="print-item">
       <div class="print-num">02</div>
       <div class="print-info">
-        <h4>Página de login com link "Criar uma nova conta"</h4>
-        <p>Tela de login mostrando o formulário e o link de cadastro. Destaque o link com seta ou círculo.</p>
+        <h4>Página de login — botão "Criar uma conta" em destaque</h4>
+        <p>Tela de login com o botão de cadastro destacado.</p>
         <p class="print-tip">URL: cursos.dankarh.com.br/login/index.php</p>
       </div>
     </div>
     <div class="print-item">
       <div class="print-num">03</div>
       <div class="print-info">
-        <h4>Formulário — campos Usuário e Senha preenchidos</h4>
-        <p>Mostrar os campos com dados de exemplo. Ocultar o conteúdo do campo Senha (deixar como ••••••).</p>
+        <h4>Formulário de cadastro completo</h4>
+        <p>Tela com os campos: usuário, senha, e-mail, nome, sobrenome, cidade e Polo visíveis.</p>
         <p class="print-tip">URL: cursos.dankarh.com.br/login/signup.php</p>
       </div>
     </div>
     <div class="print-item">
       <div class="print-num">04</div>
       <div class="print-info">
-        <h4>Formulário — campos de E-mail preenchidos</h4>
-        <p>Scroll um pouco abaixo no formulário mostrando os dois campos de e-mail preenchidos.</p>
+        <h4>Polo selecionado e botão "Criar minha conta"</h4>
+        <p>Parte inferior do formulário com o campo Polo preenchido e o botão de envio visível.</p>
       </div>
     </div>
     <div class="print-item">
       <div class="print-num">05</div>
       <div class="print-info">
-        <h4>Formulário — Nome, Sobrenome, Cidade e País</h4>
-        <p>Campos pessoais preenchidos com dados de exemplo (pode usar dados fictícios).</p>
+        <h4>Mensagem — e-mail de ativação enviado</h4>
+        <p>Tela após envio do formulário informando que o link de ativação foi enviado para o e-mail.</p>
       </div>
     </div>
     <div class="print-item">
       <div class="print-num">06</div>
       <div class="print-info">
-        <h4>Campo Polo com opções visíveis</h4>
-        <p>A seção "Dados do Curso" expandida mostrando o dropdown Polo aberto com as 4 opções.</p>
-        <p class="print-tip">Clique no campo para abrir o dropdown antes de tirar o print.</p>
+        <h4>E-mail de confirmação na caixa de entrada</h4>
+        <p>E-mail aberto com o link "Confirmar sua conta" visível.</p>
+        <p class="print-tip">Se não receber, verifique a pasta de spam.</p>
       </div>
     </div>
     <div class="print-item">
       <div class="print-num">07</div>
       <div class="print-info">
-        <h4>Mensagem de sucesso após "Criar minha conta"</h4>
-        <p>Tela que aparece após clicar no botão — geralmente uma mensagem pedindo para verificar o e-mail.</p>
+        <h4>Tela de cadastro confirmado</h4>
+        <p>Página da plataforma confirmando que o cadastro foi ativado com sucesso.</p>
       </div>
     </div>
     <div class="print-item">
       <div class="print-num">08</div>
       <div class="print-info">
-        <h4>E-mail de confirmação na caixa de entrada</h4>
-        <p>E-mail aberto no cliente de e-mail mostrando o botão/link de ativação. Oculte dados pessoais sensíveis.</p>
-        <p class="print-tip">Se não receber, verifique a pasta de spam.</p>
-      </div>
-    </div>
-    <div class="print-item">
-      <div class="print-num">09</div>
-      <div class="print-info">
-        <h4>Dashboard após primeiro login</h4>
-        <p>Tela principal da plataforma após login bem-sucedido, mostrando os cursos disponíveis.</p>
+        <h4>Página "Meus Cursos"</h4>
+        <p>Tela principal após confirmação do cadastro mostrando o card do curso disponível.</p>
+        <p class="print-tip">URL: cursos.dankarh.com.br/my/courses.php</p>
       </div>
     </div>
   </div>
